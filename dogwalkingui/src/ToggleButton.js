@@ -1,41 +1,20 @@
-import Badge from 'react-bootstrap/Badge';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import Form from 'react-bootstrap/Form';
+import React, { useState } from 'react';
 
 function ToggleButton(props) {
 
-  function getBookingButtonBgColour(isOn) {
-    return isOn ? props.onBgColour : props.offBgColour;
-  }
-
-  function getBookingButtonTextColour(isOn) {
-    return isOn ? props.onTextColour : props.offTextColour;
-  }
+  const [isOn, setIsOn] = useState(props.isOn);
 
   return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col xs={6}>
-          <Badge
-            pill
-            bg={getBookingButtonBgColour(props.isOn)}
-            text={getBookingButtonTextColour(props.isOn)}
-            style={{ fontSize: 12 }}>
-            {props.onText}
-          </Badge>
-        </Col>
-        <Col xs={6}>
-          <Badge
-            pill
-            bg={getBookingButtonBgColour(props.isOff)}
-            text={getBookingButtonTextColour(props.isOff)}
-            style={{ fontSize: 12 }}>
-            {props.offText}
-          </Badge>
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <Form>
+        <Form.Check onClick={() => setIsOn(!isOn)}
+          type="switch"
+          label={isOn ? props.onText : props.offText}
+          checked={isOn}
+        />
+      </Form>
+    </>
   );
 }
 

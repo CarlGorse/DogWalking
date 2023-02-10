@@ -11,11 +11,7 @@ function Setting(props) {
           isOn={props.isOn === 'true'}
           isOff={props.isOn !== 'true'}
           onText='On'
-          onBgColour='primary'
-          onTextColour='light'
           offText='Off'
-          offBgColour='light'
-          offTextColour='dark'
         />
       </Col>
     </Row>

@@ -18,11 +18,7 @@ function BookSession(props) {
                   isOn={props.isBooked==='true'}
                   isOff={props.isBooked!=='true'}
                   onText='Booked'
-                  onBgColour='success'
-                  onTextColour='light'
                   offText='Not booked'
-                  offBgColour='light'
-                  offTextColour='dark'
                 />
               </Col>
             </Row>
