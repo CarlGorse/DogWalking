@@ -1,5 +1,5 @@
 import BookingsList from './BookingsList';
-import BookingsSearchFilter from './BookingsSearchFilter';
+import BookingsSearchOptions from './BookingsSearchOptions';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { useState } from 'react';
@@ -16,15 +16,15 @@ function BookSessionPage() {
       <p>You can book a new walk here, or change existing bookings.</p>
 
       <Button className="mb-2" variant="dark" size="sm" onClick={handleShow}>
-        Search filter
+        Search options
       </Button>
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Search filter</Offcanvas.Title>
+          <Offcanvas.Title>Search options</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <BookingsSearchFilter />
+          <BookingsSearchOptions />
         </Offcanvas.Body>
       </Offcanvas>
       <BookingsList />

@@ -5,14 +5,16 @@ function ToggleButton(props) {
 
   const [isOn, setIsOn] = useState(props.isOn);
 
+  function handleClick() { setIsOn(!isOn) };
+
   return (
     <>
       <Form>
-        <Form.Check onClick={() => setIsOn(!isOn)}
+        <Form.Check onClick={() => handleClick()}
           type="switch"
           label={isOn ? props.onText : props.offText}
-          checked={isOn}
-        />
+          defaultChecked={isOn}
+          />
       </Form>
     </>
   );

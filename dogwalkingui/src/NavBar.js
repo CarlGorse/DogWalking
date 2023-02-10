@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+
 function NavBar() {
 
   return (
@@ -11,7 +12,11 @@ function NavBar() {
         <Navbar.Brand href="./home">Dog walking</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="./bookings">Bookings</Nav.Link>
-          <Nav.Link href="./settings">Settings</Nav.Link>
+          <Nav.Link href="./userSettings">Settings</Nav.Link>
+          <NavDropdown title="Admin settings">
+            <NavDropdown.Item href="./adminGeneralSettings">General</NavDropdown.Item>
+            <NavDropdown.Item href="./adminPlannedLocations">Planned locations</NavDropdown.Item>
+          </NavDropdown>
           <Nav.Link href="./contact">Contact</Nav.Link>
           <Nav.Link href="./about">About</Nav.Link>
         </Nav>

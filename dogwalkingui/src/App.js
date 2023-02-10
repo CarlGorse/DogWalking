@@ -4,13 +4,15 @@ import BookingsPage from './BookingsPage';
 import Contact from './Contact';
 import Home from './Home';
 import NavBar from './NavBar';
-import Settings from './Settings';
+import UserSettings from './UserSettings';
+import AdminGeneralSettings from './AdminGeneralSettings';
+import AdminPlannedLocations from './AdminPlannedLocations';
 
 function App() {
   return (
     <>
       <BrowserRouter>
-
+  
         <NavBar />
 
         <Routes>
@@ -19,10 +21,12 @@ function App() {
           <Route exact path='/bookings' element={<BookingsPage />} />
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/home' element={<Home />} />
-          <Route exact path='/settings' element={<Settings />} />
+          <Route exact path='/userSettings' element={<UserSettings />} />
+          <Route exact path='/adminGeneralSettings' element={<AdminGeneralSettings />} />
+          <Route exact path='/adminPlannedLocations' element={<AdminPlannedLocations />} />
         </Routes>
 
-      </BrowserRouter>
+      </BrowserRouter> 
     </>
   );
 }
