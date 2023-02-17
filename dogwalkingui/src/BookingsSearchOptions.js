@@ -4,7 +4,6 @@ import DatePicker from "./DatePicker";
 import Form from 'react-bootstrap/Form';
 import React from 'react';
 import Row from 'react-bootstrap/Row';
-import TimePicker from "./TimePicker";
 
 function BookingsSearchFilter() {
 

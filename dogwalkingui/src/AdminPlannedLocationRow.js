@@ -14,7 +14,7 @@ function AdminPlannedLocationRow(props) {
         <Col xs={1}><TimePicker time={props.startTime}/></Col>
         <Col xs={1}><TimePicker time={props.endTime}/></Col>
         <Col xs={2}><input type="text" value={props.location} /></Col>
-        <Col xs={1}><Button size='sm'>delete row</Button></Col>
+        <Col xs={1}><Button size='sm' onClick={props.deleteRecordHandler}>delete row</Button></Col>
       </Row>
     </>
   );

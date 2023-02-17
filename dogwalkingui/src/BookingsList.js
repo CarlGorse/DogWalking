@@ -1,13 +1,28 @@
-import BookSession from './Booking';
+import Booking from './Booking';
 
-function BookSessionList(props) {
+function BookingsList(props) {
   
+  var selectedCount = 0;
+
+  function handleOnClickBooking(id, isSelected) {     
+    props.handleOnClickBooking(id, isSelected);
+  };
+
   return (
     <>
-      <BookSession id='1' date='Wed 3rd Feb' duration='2 hour walk' startTime='09:30' isBooked='true' />
-      <BookSession id='2' date='Thu 29th Sep' duration='30 minute walk' startTime='14:25' isBooked='false' />
+        {props.bookings.map((booking) => (
+          <Booking 
+            id={booking.id} 
+            date={booking.date} 
+            startTime={booking.startTime} 
+            endTime={booking.endTime} 
+            duration={booking.duration} 
+            isBooked={booking.isBooked} 
+            handleOnClick={handleOnClickBooking}
+        />
+        ))}
     </>
-  );
+);
 }
 
-export default BookSessionList;
+export default BookingsList;
