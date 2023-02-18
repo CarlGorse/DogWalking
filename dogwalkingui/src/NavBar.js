@@ -11,7 +11,10 @@ function NavBar() {
       <Container>
         <Navbar.Brand href="./home">Dog walking</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="./bookings">Bookings</Nav.Link>
+          <NavDropdown title="Bookings">
+            <NavDropdown.Item href="./newBooking">New booking</NavDropdown.Item>
+          </NavDropdown>
+
           <Nav.Link href="./userSettings">Settings</Nav.Link>
           <NavDropdown title="Admin settings">
             <NavDropdown.Item href="./adminGeneralSettings">General</NavDropdown.Item>
