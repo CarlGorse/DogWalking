@@ -1,6 +1,6 @@
 import About from './About';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import BookingDetails from './BookingDetails';
+import BookingConfirmationDetails from './BookingConfirmationDetails';
 import Contact from './Contact';
 import Home from './Home';
 import NavBar from './NavBar';
@@ -25,7 +25,7 @@ function App() {
           <Route exact path='/userSettings' element={<UserSettings />} />
           <Route exact path='/adminGeneralSettings' element={<AdminGeneralSettings />} />
           <Route exact path='/adminPlannedLocations' element={<AdminPlannedLocations />} />
-          <Route exact path='/bookingDetails' element={<BookingDetails />} />
+          <Route exact path='/bookingConfirmationDetails' element={<BookingConfirmationDetails />} />
         </Routes>
 
       </BrowserRouter>

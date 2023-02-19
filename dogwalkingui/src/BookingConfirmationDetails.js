@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import { useLocation } from 'react-router-dom'
 
-function BookingDetails({ route, navigation }) {
+function BookingConfirmationDetails({ route, navigation }) {
 
   const [getShowLogIn, setShowLogIn] = useState(true);
 
@@ -169,4 +169,4 @@ function BookingDetails({ route, navigation }) {
   );
 }
 
-export default BookingDetails;
+export default BookingConfirmationDetails;

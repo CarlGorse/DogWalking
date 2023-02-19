@@ -1,7 +1,7 @@
-import BookingsList from './BookingsList';
-import BookError from './BookError';
+import BookingError from './BookingError';
 import Button from 'react-bootstrap/Button';
 import DatePicker from "./DatePicker";
+import TimeslotList from './TimeslotList';
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -53,7 +53,7 @@ function NewBookingPage() {
         endTime: selectedBookings.current[selectedBookings.current.length - 1].endTime,
         cost: '£16'
       };
-      navigate('/bookingDetails', { replace: false, state: { booking } });
+      navigate('/bookingConfirmationDetails', { replace: false, state: { booking } });
     }
     else {
       setShowError(doShowBookResult);
@@ -66,7 +66,7 @@ function NewBookingPage() {
 
   const selectedBookings = useRef([]);
 
-  function handleOnClickBooking(id, isSelected) {
+  function handleOnSelectTimeslot(id, isSelected) {
     if (isSelected) {
       var selectedBooking = bookings.filter((booking) => booking.id === id)[0];
       selectedBookings.current.push(selectedBooking);
@@ -100,13 +100,13 @@ function NewBookingPage() {
 
     // gap exists
     if (selectedBookings.current.some((booking) => booking.id > selectedBookings.current[0].id && getSelectedBookingIds().indexOf(booking.id - 1) === -1)) {
-      return { result: false, message: 'Multiple time-slots must be adjacent to one another; separate time-slots can be selected in a separate booking.' };
+      return { result: false, message: 'You cannot book more than one block of time.' };
     }
 
     let isBookedGroups = [...new Set(selectedBookings.current.map((booking) => booking.isBooked))]
 
     if (isBookedGroups.length > 1) {
-      return { result: false, message: 'You cannot select a mix of booked and unbooked time slots.' };
+      return { result: false, message: 'You cannot book time-slots with different statuses.' };
     }
 
     return { result: true };
@@ -118,11 +118,11 @@ function NewBookingPage() {
 
       <DatePicker />
 
-      <BookError show={!getShowError.result} message={getShowError.message} handleClose={handleClose}></BookError>
+      <BookingError show={!getShowError.result} message={getShowError.message} handleClose={handleClose}></BookingError>
 
       <Button variant='dark' onClick={book}>Book</Button>
 
-      <BookingsList bookings={bookings} handleOnClickBooking={handleOnClickBooking} />
+      <TimeslotList bookings={bookings} handleOnSelectTimeslot={handleOnSelectTimeslot} />
 
     </>
   );

@@ -1,27 +1,29 @@
-import Booking from './Booking';
+import Timeslot from './Timeslot';
 
-function BookingsList(props) {
+function TimeslotList(props) {
 
-  function handleOnClickBooking(id, isSelected) {
-    props.handleOnClickBooking(id, isSelected);
+  function handleOnSelectTimeslot(id, isSelected) {
+    props.handleOnSelectTimeslot(id, isSelected);
   };
 
   return (
     <>
       {props.bookings.map((booking) => (
-        <Booking
+        <Timeslot
+          style={{ width: '14rem' }}
           id={booking.id}
+          key={booking.id}
           date={booking.date}
           startTime={booking.startTime}
           endTime={booking.endTime}
           duration={booking.duration}
           isBooked={booking.isBooked}
           isBookable={booking.isBookable}
-          handleOnClick={handleOnClickBooking}
+          handleOnSelectTimeslot={handleOnSelectTimeslot}
         />
       ))}
     </>
   );
 }
 
-export default BookingsList;
+export default TimeslotList;
