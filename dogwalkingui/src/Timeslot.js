@@ -7,9 +7,8 @@ import TimeslotShowDetails from './TimeslotShowDetails';
 function Timeslot(props) {
 
   function handleOnSelect(isSelected) {
-    props.handleOnSelectTimeslot(props.id, isSelected);
+    props.handleOnSelectTimeslot(props.timeslot.id, isSelected);
   };
-
 
   return (
     <Container>
@@ -17,14 +16,13 @@ function Timeslot(props) {
         <Col xs={2}>
           <TimeslotSelector
             handleOnClick={handleOnSelect}
-            isBookable={props.isBookable}
-            isBooked={props.isBooked}
-            text={props.startTime + ' - ' + props.endTime + ' (' + props.duration + ' mins)'}>
+            timeslot={props.timeslot}
+            text={props.timeslot.startTime + ' - ' + props.timeslot.endTime + ' (' + props.timeslot.duration + ' mins)'}>
           </TimeslotSelector>
         </Col>
         <Col xs={1}>
           <TimeslotShowDetails
-            status={props.isBookable ? (props.isBooked ? 'Booked (bookable)' : 'Bookable') : 'Not bookable'}
+            timeslot={props.timeslot}
           />
         </Col>
       </Row>

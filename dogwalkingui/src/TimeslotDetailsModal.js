@@ -11,6 +11,8 @@ function TimeslotDetailsModal(props) {
     setShow(props.show);
   }, [props.show]);
 
+  const hasBooking = props.timeslot.booking !== undefined;
+
   return (
     <>
 
@@ -25,11 +27,11 @@ function TimeslotDetailsModal(props) {
           <Container>
             <Row>
               <Col>Status:</Col>
-              <Col>{props.status}</Col>
+              <Col>{props.timeslot.status}</Col>
             </Row>
-            <Row>
+            <Row className={!hasBooking ? 'd-none' : ''}>
               <Col>Location:</Col>
-              <Col>{props.location}</Col>
+              <Col>{props.timeslot.booking?.location}</Col>
             </Row>
           </Container>
         </Modal.Body>

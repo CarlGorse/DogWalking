@@ -32,7 +32,6 @@ function AdminPlannedLocations(props) {
   }, []);
 
   function deleteRecordHandler(id) {
-    alert('clicked delete')
     setShowModal(true);
   }
 
@@ -45,7 +44,7 @@ function AdminPlannedLocations(props) {
   if (getData === null) {
     return (<></>);
   }
-  
+
   return (
     <>
       <Container>

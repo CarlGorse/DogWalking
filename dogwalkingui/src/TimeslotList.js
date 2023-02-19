@@ -8,17 +8,12 @@ function TimeslotList(props) {
 
   return (
     <>
-      {props.bookings.map((booking) => (
+      {props.timeslots.map((timeslot) => (
         <Timeslot
+          key={timeslot.id}
           style={{ width: '14rem' }}
-          id={booking.id}
-          key={booking.id}
-          date={booking.date}
-          startTime={booking.startTime}
-          endTime={booking.endTime}
-          duration={booking.duration}
-          isBooked={booking.isBooked}
-          isBookable={booking.isBookable}
+          id={timeslot.id}
+          timeslot={timeslot}
           handleOnSelectTimeslot={handleOnSelectTimeslot}
         />
       ))}

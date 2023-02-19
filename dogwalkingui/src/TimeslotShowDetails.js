@@ -15,8 +15,7 @@ function TimeslotShowDetails(props) {
       <TimeslotDetailsModal
         show={getShowDetails}
         handleHideDetails={handleHideDetails}
-        status={props.status}
-        location={props.location}
+        timeslot={props.timeslot}
       />
       <Button
         variant='info'

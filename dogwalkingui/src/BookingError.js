@@ -1,16 +1,11 @@
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React, { useEffect, useState } from 'react';
 
-function BookError(props) {
+function BookingError(props) {
 
   const [getShow, setShow] = useState(null);
 
-  function HandleYes() {
-    props.handleClose();
-  };
-
-  function HandleNo() {
+  function HandleClose() {
     props.handleClose();
   };
 
@@ -19,21 +14,18 @@ function BookError(props) {
   }, [props.show]);
 
   return (
-    <>
-
-      <Modal
-        show={getShow}
-        backdrop="static"
-        keyboard={false}
-      >
-
-        <Modal.Body>
-          {props.message}
-          <Button variant="primary" onClick={HandleNo}>Ok</Button>
-        </Modal.Body>
-      </Modal>
-    </>
+    <Modal
+      show={getShow}
+      backdrop="static"
+      keyboard={false}
+      onHide={HandleClose}
+    >
+      <Modal.Header closeButton>Error</Modal.Header>
+      <Modal.Body>
+        {props.message}
+      </Modal.Body>
+    </Modal>
   );
 }
 
-export default BookError;
+export default BookingError;
