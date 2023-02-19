@@ -73,7 +73,7 @@ function AdminPlannedLocations(props) {
         </Row>
       </Container>
 
-      <DeleteAdminPlannedLocationModal show={getShowModal} deleteRecordHandler2={() => deleteRecordHandler2()}></DeleteAdminPlannedLocationModal>
+      <DeleteAdminPlannedLocationModal show={getShowModal} deleteRecordHandler2={deleteRecordHandler2}></DeleteAdminPlannedLocationModal>
     </>
   );
 }

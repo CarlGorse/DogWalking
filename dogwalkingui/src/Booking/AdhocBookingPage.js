@@ -1,34 +1,29 @@
-import BookingError from './BookingError';
 import Button from 'react-bootstrap/Button';
 import DatePicker from "../Shared/DatePicker";
-import { selectTimeslots } from "./NewBookingPageLogic";
+import { selectTimeslots } from "./AdhocBookingPageLogic";
 import TimeslotList from '../Timeslot/TimeslotList';
-import { timeslotData } from '../Timeslot/Data';
+import { timeslotData } from '../Timeslot/TimeslotData';
 import { useNavigate } from 'react-router-dom';
 import { useState, useRef } from 'react';
 
-function NewBookingPage() {
+function AdhocBookingPage() {
 
   const [getCanBook, setCanBook] = useState(false);
   const [getSelectedTimeslots, setSelectedTimeslots] = useState([]);
-  const [getShowError, setShowError] = useState({ result: true });
-
-  var timeslots = useRef(timeslotData);
 
   const navigate = useNavigate();
+
+  var timeslots = useRef(timeslotData);
 
   function book() {
     var booking = {
       date: getSelectedTimeslots[0].date,
       startTime: getSelectedTimeslots[0].startTime,
       endTime: getSelectedTimeslots[getSelectedTimeslots.length - 1].endTime,
+      duration: 'mins',
       cost: '£16'
     };
     navigate('/bookingConfirmationDetails', { replace: false, state: { booking } });
-  }
-
-  function handleClose() {
-    setShowError({ result: true });
   }
 
   function handleOnSelectTimeslot(actionedTimeslotid, isSelect) {
@@ -46,8 +41,6 @@ function NewBookingPage() {
 
       <DatePicker />
 
-      <BookingError show={!getShowError.result} message={getShowError.message} handleClose={handleClose}></BookingError>
-
       <Button variant='dark' onClick={book} disabled={!getCanBook}>Book</Button>
 
       <TimeslotList timeslots={timeslots.current} selecetdTimeslots={getSelectedTimeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
@@ -56,4 +49,4 @@ function NewBookingPage() {
   );
 }
 
-export default NewBookingPage;
+export default AdhocBookingPage;

@@ -12,7 +12,7 @@ function NavBar() {
         <Navbar.Brand href="./home">Dog walking</Navbar.Brand>
         <Nav className="me-auto">
           <NavDropdown title="Bookings">
-            <NavDropdown.Item href="./newBooking">New booking</NavDropdown.Item>
+            <NavDropdown.Item href="./adhocBookingPage">New adhoc booking</NavDropdown.Item>
           </NavDropdown>
 
           <Nav.Link href="./userSettings">Settings</Nav.Link>

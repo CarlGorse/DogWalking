@@ -1,20 +1,37 @@
+import BookingConfirmationModal from './BookingConfirmationModal';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import LogIn from '../Shared/LogIn';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 function BookingConfirmationDetails({ route, navigation }) {
 
   const [getShowLogIn, setShowLogIn] = useState(true);
+  const [getShowModal, setShowModal] = useState(false);
 
   const location = useLocation();
+  const navigate = useNavigate();
+
   const booking = location.state.booking;
 
-  const handleCloseLogIn = () => {
+  function handleCloseLogIn() {
     setShowLogIn(false);
+  }
+
+  function handleCloseModal() {
+    navigate('/adhocBookingPage', { replace: false, state: { booking } });
+  }
+
+  function book() {
+    setShowModal(true);
+  }
+
+  var bookingConfirmationModal;
+  if (getShowModal) {
+    bookingConfirmationModal = <BookingConfirmationModal show={getShowModal} handleClose={handleCloseModal}></BookingConfirmationModal>
   }
 
   return (
@@ -34,6 +51,10 @@ function BookingConfirmationDetails({ route, navigation }) {
           <Row>
             <Col>End time:</Col>
             <Col>{booking.endTime}</Col>
+          </Row>
+          <Row>
+            <Col>Duration:</Col>
+            <Col>{booking.duration}</Col>
           </Row>
         </Container>
       </div>
@@ -163,8 +184,11 @@ function BookingConfirmationDetails({ route, navigation }) {
           <Col>{booking.cost}</Col>
         </Row>
       </Container>
-      <Button onClick={() => setShowLogIn(true)}>Log In</Button>
-      <Button>Book</Button>
+
+      {bookingConfirmationModal}
+
+      {/*<Button onClick={() => setShowLogIn(true)}>Log In</Button>*/}
+      <Button onClick={book}>Book</Button>
     </>
   );
 }

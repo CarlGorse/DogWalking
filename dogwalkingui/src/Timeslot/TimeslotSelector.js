@@ -11,8 +11,8 @@ function TimeslotSelector(props) {
 
   return (
     <Button
-      style={{ width: '14rem' }}
-      onClick={() => handleClick()}
+      style={{ width: '14rem', color: (props.timeslot.status === 'notBookable' ? 'white' : 'black') }}
+      onClick={handleClick}
       variant={props.timeslot.status === 'notBookable' ? 'dark' : props.timeslot.isSelected ? 'primary' : props.timeslot.booking != undefined ? 'secondary' : 'light'}>
       {props.text}
     </Button>

@@ -7,15 +7,13 @@ function TimePicker(props) {
   const [time, setTime] = useState(props.time);
 
   return (
-    <>
-      <ReactDatePicker 
-      placeholderText='Click to select a time' 
-      dateFormat="HH:mm" 
-      showTimeSelect 
-      showTimeSelectOnly 
-      selected={time} 
+    <ReactDatePicker
+      placeholderText='Click to select a time'
+      dateFormat="HH:mm"
+      showTimeSelect
+      showTimeSelectOnly
+      selected={time}
       onChange={time => setTime(time)} />
-    </>
   );
 }
 

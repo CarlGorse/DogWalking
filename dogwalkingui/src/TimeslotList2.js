@@ -1,4 +1,4 @@
-import Timeslot from './Timeslot';
+import Timeslot from './Timeslot/Timeslot';
 
 function TimeslotList(props) {
 
@@ -11,6 +11,7 @@ function TimeslotList(props) {
       {props.timeslots.map((timeslot) => (
         <Timeslot
           key={timeslot.id}
+          style={{ width: '14rem' }}
           id={timeslot.id}
           timeslot={timeslot}
           handleOnSelectTimeslot={handleOnSelectTimeslot}

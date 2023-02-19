@@ -21,11 +21,12 @@ const selectTimeslots = (timeslots, actionedTimeslotid, isSelect) => {
         && actionedTimeslot !== undefined
         && actionedTimeslot.booking !== undefined
         && timeslot.booking !== undefined
-        && timeslot.booking?.id === actionedTimeslot.booking?.id
+        && timeslot.booking.id === actionedTimeslot.booking.id
       )
       || (
         timeslot.isSelected
         && actionedTimeslot.booking === undefined
+        && timeslot.booking === undefined
         && !(
           timeslots.some(blankTimeslot => !blankTimeslot.isSelected
             && timeslots.some(selectedTimeslot => selectedTimeslot.isSelected && selectedTimeslot.id < blankTimeslot.id)
