@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import LogIn from './LogIn';
+import LogIn from '../Shared/LogIn';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import { useLocation } from 'react-router-dom'

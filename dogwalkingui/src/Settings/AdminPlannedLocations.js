@@ -1,9 +1,9 @@
 import AdminPlannedLocationRow from './AdminPlannedLocationRow';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import DeleteAdminPlannedLocationModal from './DeleteAdminPlannedLocationModal';
 import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
-import DeleteAdminPlannedLocationModal from './DeleteAdminPlannedLocationModal';
 
 function AdminPlannedLocations(props) {
 

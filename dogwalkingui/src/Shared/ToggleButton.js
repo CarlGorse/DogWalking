@@ -14,7 +14,7 @@ function ToggleButton(props) {
           type="switch"
           label={isOn ? props.onText : props.offText}
           defaultChecked={isOn}
-          />
+        />
       </Form>
     </>
   );

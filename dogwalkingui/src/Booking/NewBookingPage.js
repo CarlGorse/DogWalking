@@ -1,11 +1,11 @@
 import BookingError from './BookingError';
 import Button from 'react-bootstrap/Button';
+import DatePicker from "../Shared/DatePicker";
 import { selectTimeslots } from "./NewBookingPageLogic";
-import DatePicker from "./DatePicker";
-import TimeslotList from './TimeslotList';
-import { timeslotData } from './TimeslotData';
-import { useState, useRef } from 'react';
+import TimeslotList from '../Timeslot/TimeslotList';
+import { timeslotData } from '../Timeslot/Data';
 import { useNavigate } from 'react-router-dom';
+import { useState, useRef } from 'react';
 
 function NewBookingPage() {
 
