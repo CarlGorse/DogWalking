@@ -4,22 +4,28 @@ import { selectTimeslots } from "./AdhocBookingPageLogic";
 import TimeslotList from '../Timeslot/TimeslotList';
 import { timeslotData } from '../Timeslot/TimeslotData';
 import { useNavigate } from 'react-router-dom';
-import { useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 function AdhocBookingPage() {
 
   const [getCanBook, setCanBook] = useState(false);
-  const [getSelectedTimeslots, setSelectedTimeslots] = useState([]);
+  const [getTimeslots, setTimeslots] = useState([]);
+  const [getRefreshTimeslots, setRefreshTimeslots] = useState([]);
 
   const navigate = useNavigate();
 
-  var timeslots = useRef(timeslotData);
+  var allTimeslots = useRef(timeslotData);
+
+  useEffect(() => {
+    setTimeslots(allTimeslots.current);
+  }, allTimeslots.current);
 
   function book() {
+    var selectedTimeSlots = getSelectedTimeslots();
     var booking = {
-      date: getSelectedTimeslots[0].date,
-      startTime: getSelectedTimeslots[0].startTime,
-      endTime: getSelectedTimeslots[getSelectedTimeslots.length - 1].endTime,
+      date: selectedTimeSlots[0].date,
+      startTime: selectedTimeSlots[0].startTime,
+      endTime: selectedTimeSlots[selectedTimeSlots.length - 1].endTime,
       duration: 'mins',
       cost: '£16'
     };
@@ -28,22 +34,35 @@ function AdhocBookingPage() {
 
   function handleOnSelectTimeslot(actionedTimeslotid, isSelect) {
 
-    timeslots.current = selectTimeslots(timeslots.current, actionedTimeslotid, isSelect);
+    allTimeslots.current = selectTimeslots(allTimeslots.current, actionedTimeslotid, isSelect);
+    setTimeslots(allTimeslots.current);
+    setRefreshTimeslots(new Date()); // don't know why this works and line above doesn't! react does only refresh if state value changes, but the line above should be changing it
 
-    var selectedTimeSlots = timeslots.current.filter(timeslot => timeslot.isSelected);
-    setSelectedTimeslots(selectedTimeSlots);
+    var selectedTimeSlots = getSelectedTimeslots();
     setCanBook(selectedTimeSlots.length > 0);
+  }
+
+  function onSetDate(date) {
+    setTimeslotFilter(date);
+  }
+
+  function getSelectedTimeslots() {
+    return allTimeslots.current.filter(timeslot => timeslot.isSelected);
+  }
+
+  function setTimeslotFilter(thisFilterDate) {
+    setTimeslots(allTimeslots.current.filter(timeslot => timeslot.date == thisFilterDate.toLocaleDateString("en-GB")));
   }
 
   return (
     <>
       <p>You can book a new session here.</p>
 
-      <DatePicker />
+      <DatePicker date={new Date(2023, 1, 18, 0, 0, 0)} onSetDate={onSetDate} />
 
       <Button variant='dark' onClick={book} disabled={!getCanBook}>Book</Button>
 
-      <TimeslotList timeslots={timeslots.current} selecetdTimeslots={getSelectedTimeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
+      <TimeslotList timeslots={getTimeslots} t={getRefreshTimeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
 
     </>
   );
