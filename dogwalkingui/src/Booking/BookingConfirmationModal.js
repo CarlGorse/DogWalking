@@ -1,5 +1,4 @@
 import Modal from 'react-bootstrap/Modal';
-import React, { useEffect, useState } from 'react';
 
 function BookingConfirmationModal(props) {
 
@@ -14,7 +13,7 @@ function BookingConfirmationModal(props) {
         <Modal.Title>Booking</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        You booking is confirmed.
+        You booking has been confirmed.
       </Modal.Body>
     </Modal>
   );

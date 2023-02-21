@@ -9,7 +9,7 @@ function AdminGeneralSettings(props) {
       <p>You can change system settings here.</p>
 
       <Container>
-        <Setting name='System is available' isOn='true' />
+        <Setting name='System status' isOn='true' />
       </Container>
     </>
   );

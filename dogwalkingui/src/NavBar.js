@@ -16,15 +16,17 @@ function NavBar() {
           </NavDropdown>
 
           <Nav.Link href="./userSettings">Settings</Nav.Link>
-          <NavDropdown title="Admin settings">
+          <Nav.Link href="./adminGeneralSettings">Admin settings</Nav.Link>
+          {/*<NavDropdown title="Admin settings">
             <NavDropdown.Item href="./adminGeneralSettings">General</NavDropdown.Item>
             <NavDropdown.Item href="./adminPlannedLocations">Planned locations</NavDropdown.Item>
-          </NavDropdown>
+        </NavDropdown>
+        */}
           <Nav.Link href="./contact">Contact</Nav.Link>
           <Nav.Link href="./about">About</Nav.Link>
         </Nav>
       </Container>
-    </Navbar>
+    </Navbar >
   );
 }
 
