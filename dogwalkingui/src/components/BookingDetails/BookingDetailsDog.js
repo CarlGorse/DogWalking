@@ -59,8 +59,6 @@ function BookingDetailsDog(props) {
         <Col><input type='textbox' placeholder="e.g. significant behaviours"></input></Col>
       </Row>
 
-      <Button size='sm' onClick={props.handleAddDog}>Add dog</Button>
-
     </Container>
   )
 }

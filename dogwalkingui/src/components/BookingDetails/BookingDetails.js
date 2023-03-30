@@ -1,4 +1,5 @@
 import BookingDetailsDog from './BookingDetailsDog';
+import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -72,8 +73,9 @@ function BookingDetails() {
       <div style={{ border: '1px solid black' }}>
         <b>About your dog(s)</b>
         {getDogs.map(dog => (
-          <BookingDetailsDog key={dog.id} showRemoveButton={dog.showRemoveButton} handleAddDog={addDog} handleRemoveDog={removeDog} />
+          <BookingDetailsDog key={dog.id} showRemoveButton={dog.showRemoveButton} handleRemoveDog={removeDog} />
         ))}
+        <Button size='sm' onClick={addDog}>Add dog</Button>
       </div>
       <div style={{ border: '1px solid black' }}>
         <b>Options</b>
