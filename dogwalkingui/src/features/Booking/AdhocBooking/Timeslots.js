@@ -1,10 +1,10 @@
 import Button from 'react-bootstrap/Button';
-import DatePicker from "../../components/DateTimePickers/DatePicker";
-import { createBooking, getSelectedTimeslots, selectTimeslots } from "./BookingLogic";
-import TimeslotList from '../Timeslot/TimeslotList';
+import DatePicker from "../../../components/DateTimePickers/DatePicker";
+import { createBooking, getSelectedTimeslots, selectTimeslots } from "../BookingLogic";
+import TimeslotList from '../../Timeslot/TimeslotList';
 import { useState } from 'react';
 
-function AdhocBookingPageTimeslots(props) {
+function Timeslots(props) {
 
   const [getCanBook, setCanBook] = useState(false);
 
@@ -41,4 +41,4 @@ function AdhocBookingPageTimeslots(props) {
   );
 }
 
-export default AdhocBookingPageTimeslots;
+export default Timeslots;

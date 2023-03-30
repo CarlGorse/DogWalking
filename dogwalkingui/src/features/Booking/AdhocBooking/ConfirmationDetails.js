@@ -1,12 +1,12 @@
-import BookingDetails from '../../components/BookingDetails/BookingDetails';
+import BookingDetails from '../../../components/BookingDetails/BookingDetails';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import LogIn from '../../components/LogIn';
+import LogIn from '../../../components/LogIn';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 
-function BookingConfirmationDetails(props) {
+function ConfirmationDetails(props) {
 
   const [getShowLogIn, setShowLogIn] = useState(true);
 
@@ -59,4 +59,4 @@ function BookingConfirmationDetails(props) {
   );
 }
 
-export default BookingConfirmationDetails;
+export default ConfirmationDetails;

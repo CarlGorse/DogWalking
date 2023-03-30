@@ -1,12 +1,11 @@
 import About from './features/Menu/About';
 import AdminGeneralSettings from './features/Settings/AdminGeneralSettings';
 import AdminPlannedLocationsList from './features/Settings/AdminPlannedLocations/AdminPlannedLocationsList';
-import BookingConfirmationDetails from './features/Booking/BookingConfirmationDetails';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contact from './features/Menu/Contact';
 import Home from './features/Home';
 import NavBar from './features/NavBar/NavBar';
-import AdhocBookingPage from './features/Booking/AdhocBookingPage';
+import AdhocBookingPage from './features/Booking/AdhocBooking/Page';
 import UserSettings from './features/Settings/UserSettings';
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
         <Route exact path='/userSettings' element={<UserSettings />} />
         <Route exact path='/adminGeneralSettings' element={<AdminGeneralSettings />} />
         <Route exact path='/adminPlannedLocations' element={<AdminPlannedLocationsList />} />
-        <Route exact path='/bookingConfirmationDetails' element={<BookingConfirmationDetails />} />
       </Routes>
 
     </BrowserRouter>

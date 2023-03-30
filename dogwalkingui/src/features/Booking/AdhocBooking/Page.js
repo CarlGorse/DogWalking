@@ -1,11 +1,11 @@
-import AdhocBookingPageTimeslots from "./AdhocBookingPageTimeslots";
-import { bookTimeslots } from "./BookingLogic";
-import BookingConfirmationDetails from "./BookingConfirmationDetails";
-import BookingConfirmationModal from './BookingConfirmationModal';
-import { timeslotData } from '../../components/Data/TimeslotData';
+import Timeslots from "./Timeslots";
+import { bookTimeslots } from "../BookingLogic";
+import BookingConfirmationDetails from "./ConfirmationDetails";
+import BookingConfirmationModal from '../BookingConfirmationModal';
+import { timeslotData } from '../../../components/Data/TimeslotData';
 import { useEffect, useRef, useState } from 'react';
 
-function AdhocBookingPage() {
+function Page() {
 
   const [getPageState, setPageState] = useState('timeslots');
   const [getShowModal, setShowModal] = useState(false);
@@ -49,7 +49,7 @@ function AdhocBookingPage() {
     return (
       <>
         {bookingConfirmationModal}
-        <AdhocBookingPageTimeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
+        <Timeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
       </>
     )
   }
@@ -59,4 +59,4 @@ function AdhocBookingPage() {
 
 }
 
-export default AdhocBookingPage;
+export default Page;
