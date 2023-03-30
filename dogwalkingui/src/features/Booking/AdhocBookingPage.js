@@ -1,74 +1,51 @@
-import Button from 'react-bootstrap/Button';
-import DatePicker from "../../components/DatePicker";
-import { selectTimeslots } from "./AdhocBookingPageLogic";
+import AdhocBookingPageTimeslots from "./AdhocBookingPageTimeslots";
+import BookingConfirmationDetails from "./BookingConfirmationDetails";
 import { timeslotData } from '../Timeslot/TimeslotData';
-import TimeslotList from '../Timeslot/TimeslotList';
-import { useNavigate } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function AdhocBookingPage() {
 
-  const [getCanBook, setCanBook] = useState(false);
+  const [getState, setState] = useState('timeslots');
   const [getTimeslots, setTimeslots] = useState([]);
-  const [getRefreshTimeslots, setRefreshTimeslots] = useState([]);
 
-  const navigate = useNavigate();
-
-  var allTimeslots = useRef(timeslotData);
+  var currentBooking = useRef(null);
 
   useEffect(() => {
-    setTimeslots(allTimeslots.current);
-  }, allTimeslots.current);
+    setTimeslots(timeslotData);
+  }, []);
 
-  function book() {
-    var selectedTimeSlots = getSelectedTimeslots();
-    var booking = {
-      date: selectedTimeSlots[0].date,
-      startTime: selectedTimeSlots[0].startTime,
-      endTime: selectedTimeSlots[selectedTimeSlots.length - 1].endTime,
-      duration: 'mins',
-      cost: '£16'
-    };
-    navigate('/bookingConfirmationDetails', { replace: false, state: { booking } });
+  function onStartBooking(booking) {
+    currentBooking.current = booking;
+    setState('book');
   }
 
-  function handleOnSelectTimeslot(actionedTimeslotid, isSelect) {
+  function onBookingMade(booking) {
+    var timeslots = getTimeslots;
 
-    allTimeslots.current = selectTimeslots(allTimeslots.current, actionedTimeslotid, isSelect);
-    setTimeslots(allTimeslots.current);
-    setRefreshTimeslots(new Date()); // don't know why this works and line above doesn't! react does only refresh if state value changes, but the line above should be changing it
+    booking.timeslots.forEach(bookedTimeslot => {
 
-    var selectedTimeSlots = getSelectedTimeslots();
-    setCanBook(selectedTimeSlots.length > 0);
+      bookedTimeslot.status = 'booked';
+      bookedTimeslot.booking = booking;
+      bookedTimeslot.isSelected = false;
+
+      timeslots[bookedTimeslot.id] = bookedTimeslot;
+    });
+
+    updateTimeslotsState(timeslots);
+    setState('timeslots');
   }
 
-  function onSetDate(date) {
-    setTimeslotFilter(date);
+  function updateTimeslotsState(timeslots) {
+    setTimeslots(timeslots.slice()); // copy array for state to recognise any changes
   }
 
-  function getSelectedTimeslots() {
-    return allTimeslots.current.filter(timeslot => timeslot.isSelected);
+  if (getState == 'timeslots') {
+    return <AdhocBookingPageTimeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
+  }
+  else {
+    return <BookingConfirmationDetails booking={currentBooking.current} onBookingMade={(booking) => onBookingMade(booking)} />
   }
 
-  function setTimeslotFilter(thisFilterDate) {
-    var filteredTimeslots = allTimeslots.current.filter(timeslot => timeslot.date == thisFilterDate.toLocaleDateString("en-GB"));
-    setTimeslots(filteredTimeslots);
-  }
-
-  let currentDate = new Date();
-
-  return (
-    <>
-      <p>You can book a new session here.</p>
-
-      <DatePicker date={currentDate} onSetDate={onSetDate} />
-
-      <Button variant='dark' onClick={book} disabled={!getCanBook}>Book</Button>
-
-      <TimeslotList timeslots={getTimeslots} t={getRefreshTimeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
-
-    </>
-  );
 }
 
 export default AdhocBookingPage;

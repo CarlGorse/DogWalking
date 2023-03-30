@@ -8,8 +8,6 @@ function BookingDetails() {
 
   const [getDogs, setDogs] = useState([{ id: 1, showRemoveButton: false }]);
 
-  console.log(getDogs);
-
   function addDog() {
     var newDog = { id: getDogs.length + 1, showRemoveButton: true };
     setDogs(arr => [...arr, newDog]); // push doesn't work on arrays in state

@@ -6,24 +6,18 @@ import Container from 'react-bootstrap/Container';
 import LogIn from '../../components/LogIn';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
-import { useLocation, useNavigate } from 'react-router-dom'
 
-function BookingConfirmationDetails({ route, navigation }) {
+function BookingConfirmationDetails(props) {
 
   const [getShowLogIn, setShowLogIn] = useState(true);
   const [getShowModal, setShowModal] = useState(false);
-
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const booking = location.state.booking;
 
   function handleCloseLogIn() {
     setShowLogIn(false);
   }
 
   function handleCloseModal() {
-    navigate('/adhocBookingPage', { replace: false, state: { booking } });
+    props.onBookingMade(props.booking);
   }
 
   function book() {
@@ -44,19 +38,19 @@ function BookingConfirmationDetails({ route, navigation }) {
         <Container>
           <Row>
             <Col>Date:</Col>
-            <Col>{booking.date}</Col>
+            <Col>{props.booking.date}</Col>
           </Row>
           <Row>
             <Col>Start time:</Col>
-            <Col>{booking.startTime}</Col>
+            <Col>{props.booking.startTime}</Col>
           </Row>
           <Row>
             <Col>End time:</Col>
-            <Col>{booking.endTime}</Col>
+            <Col>{props.booking.endTime}</Col>
           </Row>
           <Row>
             <Col>Duration:</Col>
-            <Col>{booking.duration}</Col>
+            <Col>{props.booking.duration}</Col>
           </Row>
         </Container>
       </div>
@@ -66,7 +60,7 @@ function BookingConfirmationDetails({ route, navigation }) {
       <Container>
         <Row>
           <Col>Cost:</Col>
-          <Col>{booking.cost}</Col>
+          <Col>{props.booking.cost}</Col>
         </Row>
       </Container>
 

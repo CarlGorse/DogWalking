@@ -8,7 +8,7 @@ function TimeslotList(props) {
 
   return (
     <>
-      {props.timeslots.map((timeslot) => (
+      {props.timeslots?.map((timeslot) => (
         <Timeslot
           key={timeslot.id}
           id={timeslot.id}
