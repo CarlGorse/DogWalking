@@ -1,13 +1,13 @@
-import About from './Menu/About';
-import AdminGeneralSettings from './Settings/AdminGeneralSettings';
-import AdminPlannedLocations from './Settings/AdminPlannedLocations';
-import BookingConfirmationDetails from './Booking/BookingConfirmationDetails';
+import About from './features/Menu/About';
+import AdminGeneralSettings from './features/Settings/AdminGeneralSettings';
+import AdminPlannedLocations from './features/Settings/AdminPlannedLocations';
+import BookingConfirmationDetails from './features/Booking/BookingConfirmationDetails';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Contact from './Menu/Contact';
-import Home from './Home';
-import NavBar from './NavBar';
-import AdhocBookingPage from './Booking/AdhocBookingPage';
-import UserSettings from './Settings/UserSettings';
+import Contact from './features/Menu/Contact';
+import Home from './features/Home';
+import NavBar from './features/NavBar/NavBar';
+import AdhocBookingPage from './features/Booking/AdhocBookingPage';
+import UserSettings from './features/Settings/UserSettings';
 
 function App() {
   return (

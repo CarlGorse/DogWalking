@@ -1,9 +1,9 @@
 import BookingConfirmationModal from './BookingConfirmationModal';
-import BookingDetails from '../Shared/BookingDetails';
+import BookingDetails from '../../components/BookingDetails';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import LogIn from '../Shared/LogIn';
+import LogIn from '../../components/LogIn';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import { useLocation, useNavigate } from 'react-router-dom'

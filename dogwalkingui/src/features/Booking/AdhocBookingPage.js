@@ -1,8 +1,8 @@
 import Button from 'react-bootstrap/Button';
-import DatePicker from "../Shared/DatePicker";
+import DatePicker from "../../components/DatePicker";
 import { selectTimeslots } from "./AdhocBookingPageLogic";
-import TimeslotList from '../Timeslot/TimeslotList';
 import { timeslotData } from '../Timeslot/TimeslotData';
+import TimeslotList from '../Timeslot/TimeslotList';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 
@@ -51,14 +51,17 @@ function AdhocBookingPage() {
   }
 
   function setTimeslotFilter(thisFilterDate) {
-    setTimeslots(allTimeslots.current.filter(timeslot => timeslot.date == thisFilterDate.toLocaleDateString("en-GB")));
+    var filteredTimeslots = allTimeslots.current.filter(timeslot => timeslot.date == thisFilterDate.toLocaleDateString("en-GB"));
+    setTimeslots(filteredTimeslots);
   }
+
+  let currentDate = new Date();
 
   return (
     <>
       <p>You can book a new session here.</p>
 
-      <DatePicker date={new Date(2023, 1, 18, 0, 0, 0)} onSetDate={onSetDate} />
+      <DatePicker date={currentDate} onSetDate={onSetDate} />
 
       <Button variant='dark' onClick={book} disabled={!getCanBook}>Book</Button>
 

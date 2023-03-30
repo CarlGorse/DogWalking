@@ -1,5 +1,5 @@
 import React from 'react';
-import BookingDetails from '../Shared/BookingDetails';
+import BookingDetails from '../../components/BookingDetails';
 
 function UserSettings(props) {
 
