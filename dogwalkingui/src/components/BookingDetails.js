@@ -27,8 +27,8 @@ function BookingDetails() {
           <Row>
             <Col>Service:</Col>
             <Col>
-              <select>
-                <option selected>Please select</option>
+              <select defaultValue='Please select'>
+                <option>Please select</option>
                 <option>Walk</option>
                 <option>Play park</option>
                 <option>Dog sitting</option>
@@ -37,8 +37,8 @@ function BookingDetails() {
           <Row>
             <Col>Type of walk:</Col>
             <Col>
-              <select>
-                <option selected>Any</option>
+              <select defaultValue='Any'>
+                <option>Any</option>
                 <option>Town/street</option>
                 <option>Park</option>
                 <option>Countryside</option>
@@ -74,7 +74,7 @@ function BookingDetails() {
       <div style={{ border: '1px solid black' }}>
         <b>About your dog(s)</b>
         {getDogs.map(dog => (
-          <BookingDetailsDog id={dog.id} showRemoveButton={dog.showRemoveButton} handleAddDog={addDog} handleRemoveDog={removeDog} />
+          <BookingDetailsDog key={dog.id} showRemoveButton={dog.showRemoveButton} handleAddDog={addDog} handleRemoveDog={removeDog} />
         ))}
       </div>
       <div style={{ border: '1px solid black' }}>
@@ -83,9 +83,9 @@ function BookingDetails() {
           <Row>
             <Col>Can another dog join your walk (at reduced cost?):</Col>
             <Col>
-              <select>
+              <select defaultValue='No'>
                 <option>Yes</option>
-                <option selected>No</option>
+                <option>No</option>
               </select>
             </Col>
           </Row>

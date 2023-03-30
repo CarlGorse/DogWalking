@@ -22,20 +22,20 @@ function BookingDetailsDog(props) {
       <Row>
         <Col>Breed:</Col>
         <Col>
-          <select>
-            <option selected>Please select</option>
+          <select defaultValue='Other'>
+            <option>Please select</option>
             <option>Cockapoo</option>
             <option>Spaniel</option>
             <option>Labrador</option>
-            <option selected>Other</option>
+            <option>Other</option>
           </select>
         </Col>
       </Row>
       <Row>
         <Col>Size:</Col>
         <Col>
-          <select>
-            <option selected>Please select)</option>
+          <select defaultValue='Please select'>
+            <option>Please select</option>
             <option>Toy</option>
             <option>Small</option>
             <option>Medium</option>
@@ -46,11 +46,11 @@ function BookingDetailsDog(props) {
       <Row>
         <Col>Can your dog be let off the lead in a park or countryside?:</Col>
         <Col>
-          <select>
+          <select defaultValue='No'>
             <option>Either</option>
             <option>Countryside only</option>
             <option>Park only</option>
-            <option selected>No</option>
+            <option>No</option>
           </select>
         </Col>
       </Row>
