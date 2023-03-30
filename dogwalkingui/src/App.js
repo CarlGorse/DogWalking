@@ -11,25 +11,23 @@ import UserSettings from './features/Settings/UserSettings';
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
+    <BrowserRouter>
 
-        <NavBar />
+      <NavBar />
 
-        <Routes>
-          <Route exact path='/' element={<Home />} />
-          <Route exact path='/about' element={<About />} />
-          <Route exact path='/adhocBookingPage' element={<AdhocBookingPage />} />
-          <Route exact path='/contact' element={<Contact />} />
-          <Route exact path='/home' element={<Home />} />
-          <Route exact path='/userSettings' element={<UserSettings />} />
-          <Route exact path='/adminGeneralSettings' element={<AdminGeneralSettings />} />
-          <Route exact path='/adminPlannedLocations' element={<AdminPlannedLocations />} />
-          <Route exact path='/bookingConfirmationDetails' element={<BookingConfirmationDetails />} />
-        </Routes>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/about' element={<About />} />
+        <Route exact path='/adhocBookingPage' element={<AdhocBookingPage />} />
+        <Route exact path='/contact' element={<Contact />} />
+        <Route exact path='/home' element={<Home />} />
+        <Route exact path='/userSettings' element={<UserSettings />} />
+        <Route exact path='/adminGeneralSettings' element={<AdminGeneralSettings />} />
+        <Route exact path='/adminPlannedLocations' element={<AdminPlannedLocations />} />
+        <Route exact path='/bookingConfirmationDetails' element={<BookingConfirmationDetails />} />
+      </Routes>
 
-      </BrowserRouter>
-    </>
+    </BrowserRouter>
   );
 }
 
