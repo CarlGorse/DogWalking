@@ -1,4 +1,4 @@
-import BookingDetails from '../../components/BookingDetails';
+import BookingDetails from '../../components/BookingDetails/BookingDetails';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';

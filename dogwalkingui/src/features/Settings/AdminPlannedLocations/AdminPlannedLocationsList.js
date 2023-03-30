@@ -5,7 +5,7 @@ import DeleteAdminPlannedLocationModal from './DeleteAdminPlannedLocationModal';
 import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 
-function AdminPlannedLocations(props) {
+function AdminPlannedLocationsList(props) {
 
   const [getData, setData] = useState(null);
   const [getShowModal, setShowModal] = useState(false);
@@ -78,4 +78,4 @@ function AdminPlannedLocations(props) {
   );
 }
 
-export default AdminPlannedLocations;
+export default AdminPlannedLocationsList;

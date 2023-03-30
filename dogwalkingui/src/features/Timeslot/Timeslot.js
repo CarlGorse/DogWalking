@@ -2,13 +2,13 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import TimeslotSelector from './TimeslotSelector';
-import TimeslotShowBookingDetails from './TimeslotShowBookingDetails';
+import TimeslotBookingsDetails from './TimeslotBookingDetails';
 
 function Timeslot(props) {
 
   var bookingDetails;
   if (hasBooking() && isFirstTimeslotForBooking()) {
-    bookingDetails = <TimeslotShowBookingDetails timeslot={props.timeslot} />
+    bookingDetails = <TimeslotBookingsDetails timeslot={props.timeslot} />
   }
 
   function hasBooking() {

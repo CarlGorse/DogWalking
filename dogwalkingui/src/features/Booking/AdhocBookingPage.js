@@ -2,7 +2,7 @@ import AdhocBookingPageTimeslots from "./AdhocBookingPageTimeslots";
 import { bookTimeslots } from "./BookingLogic";
 import BookingConfirmationDetails from "./BookingConfirmationDetails";
 import BookingConfirmationModal from './BookingConfirmationModal';
-import { timeslotData } from '../../components/Data';
+import { timeslotData } from '../../components/Data/TimeslotData';
 import { useEffect, useRef, useState } from 'react';
 
 function AdhocBookingPage() {

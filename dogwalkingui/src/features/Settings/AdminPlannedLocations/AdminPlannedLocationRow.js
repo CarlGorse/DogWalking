@@ -1,9 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import DatePicker from "../../components/DatePicker";
+import DatePicker from "../../../components/DateTimePickers/DatePicker";
 import React from 'react';
 import Row from 'react-bootstrap/Row';
-import TimePicker from "../../components/TimePicker";
+import TimePicker from "../../../components/DateTimePickers/TimePicker";
 
 function AdminPlannedLocationRow(props) {
 

@@ -1,7 +1,5 @@
 
 function AboutUs() {
- 
-  
   return (
     <p>About</p>
   );
