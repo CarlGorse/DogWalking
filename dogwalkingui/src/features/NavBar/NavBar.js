@@ -6,7 +6,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 function NavBar() {
 
   return (
-
     <Navbar bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="./home">Dog walking</Navbar.Brand>
