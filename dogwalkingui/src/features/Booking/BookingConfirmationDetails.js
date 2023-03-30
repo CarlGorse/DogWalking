@@ -1,4 +1,3 @@
-import BookingConfirmationModal from './BookingConfirmationModal';
 import BookingDetails from '../../components/BookingDetails';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -10,23 +9,13 @@ import Row from 'react-bootstrap/Row';
 function BookingConfirmationDetails(props) {
 
   const [getShowLogIn, setShowLogIn] = useState(true);
-  const [getShowModal, setShowModal] = useState(false);
 
   function handleCloseLogIn() {
     setShowLogIn(false);
   }
 
-  function handleCloseModal() {
-    props.onBookingMade(props.booking);
-  }
-
   function book() {
-    setShowModal(true);
-  }
-
-  var bookingConfirmationModal;
-  if (getShowModal) {
-    bookingConfirmationModal = <BookingConfirmationModal show={getShowModal} handleClose={handleCloseModal}></BookingConfirmationModal>
+    props.onBookingMade(props.booking);
   }
 
   return (
@@ -63,8 +52,6 @@ function BookingConfirmationDetails(props) {
           <Col>{props.booking.cost}</Col>
         </Row>
       </Container>
-
-      {bookingConfirmationModal}
 
       {/*<Button onClick={() => setShowLogIn(true)}>Log In</Button>*/}
       <Button onClick={book}>Book</Button>

@@ -13,7 +13,7 @@ function BookingConfirmationModal(props) {
         <Modal.Title>Booking</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        You booking has been confirmed.
+        You booking is confirmed.
       </Modal.Body>
     </Modal>
   );
