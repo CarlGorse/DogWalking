@@ -70,4 +70,19 @@ function bookTimeslots(timeslots, booking) {
   return bookedTimeslots;
 }
 
-export { selectTimeslots, bookTimeslots };
+function createBooking(selectedTimeslots) {
+  return {
+    date: selectedTimeslots[0].date,
+    startTime: selectedTimeslots[0].startTime,
+    endTime: selectedTimeslots[selectedTimeslots.length - 1].endTime,
+    duration: (selectedTimeslots.length * 15) + ' mins',
+    cost: '£16',
+    timeslots: selectedTimeslots
+  };
+}
+
+function getSelectedTimeslots(timeslots) {
+  return timeslots.filter(timeslot => timeslot.isSelected);
+}
+
+export { createBooking, bookTimeslots, getSelectedTimeslots, selectTimeslots };
