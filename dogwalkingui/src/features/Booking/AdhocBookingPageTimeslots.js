@@ -1,8 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import DatePicker from "../../components/DatePicker";
-import { selectTimeslots } from "./AdhocBookingPageLogic";
+import { selectTimeslots } from "./BookingLogic";
 import TimeslotList from '../Timeslot/TimeslotList';
-import { useEffect, useState, useRef } from 'react';
+import { useState } from 'react';
 
 function AdhocBookingPageTimeslots(props) {
 

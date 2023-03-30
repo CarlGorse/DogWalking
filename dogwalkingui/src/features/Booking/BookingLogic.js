@@ -59,4 +59,15 @@ const selectTimeslots = (timeslots, actionedTimeslotid, isSelect) => {
   }
 }
 
-export { selectTimeslots };
+function bookTimeslots(timeslots, booking) {
+  let bookedTimeslots = timeslots.slice();
+  booking.timeslots.forEach(bookedTimeslot => {
+    bookedTimeslot.status = 'booked';
+    bookedTimeslot.booking = booking;
+    bookedTimeslot.isSelected = false;
+    bookedTimeslots[bookedTimeslot.id] = bookedTimeslot;
+  });
+  return bookedTimeslots;
+}
+
+export { selectTimeslots, bookTimeslots };

@@ -2,7 +2,7 @@ import BookingDetailsDog from './BookingDetailsDog';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function BookingDetails() {
 

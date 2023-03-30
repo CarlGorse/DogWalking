@@ -1,4 +1,5 @@
 import AdhocBookingPageTimeslots from "./AdhocBookingPageTimeslots";
+import { bookTimeslots } from "./BookingLogic";
 import BookingConfirmationDetails from "./BookingConfirmationDetails";
 import BookingConfirmationModal from './BookingConfirmationModal';
 import { timeslotData } from '../Timeslot/TimeslotData';
@@ -6,8 +7,8 @@ import { useEffect, useRef, useState } from 'react';
 
 function AdhocBookingPage() {
 
+  const [getPageState, setPageState] = useState('timeslots');
   const [getShowModal, setShowModal] = useState(false);
-  const [getState, setState] = useState('timeslots');
   const [getTimeslots, setTimeslots] = useState([]);
 
   var currentBooking = useRef(null);
@@ -18,23 +19,14 @@ function AdhocBookingPage() {
 
   function onStartBooking(booking) {
     currentBooking.current = booking;
-    setState('book');
+    setPageState('book');
   }
 
   function onBookingMade(booking) {
-    var timeslots = getTimeslots;
+    var bookedTimeslots = bookTimeslots(getTimeslots, booking);
 
-    booking.timeslots.forEach(bookedTimeslot => {
-
-      bookedTimeslot.status = 'booked';
-      bookedTimeslot.booking = booking;
-      bookedTimeslot.isSelected = false;
-
-      timeslots[bookedTimeslot.id] = bookedTimeslot;
-    });
-
-    updateTimeslotsState(timeslots);
-    setState('timeslots');
+    updateTimeslotsState(bookedTimeslots);
+    setPageState('timeslots');
 
     setShowModal(true);
   }
@@ -52,12 +44,11 @@ function AdhocBookingPage() {
     setShowModal(false);
   }
 
-  if (getState == 'timeslots') {
+  if (getPageState == 'timeslots') {
 
     return (
       <>
         {bookingConfirmationModal}
-
         <AdhocBookingPageTimeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
       </>
     )

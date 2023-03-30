@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import Modal from 'react-bootstrap/Modal';
+import React, { useEffect, useState } from 'react';
 import Row from 'react-bootstrap/Row';
 
 function LogIn(props) {
