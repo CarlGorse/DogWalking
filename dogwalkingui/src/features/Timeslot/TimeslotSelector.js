@@ -9,11 +9,22 @@ function TimeslotSelector(props) {
     props.handleOnClick(!props.timeslot.isSelected);
   };
 
+  const notBookableVariant = 'dark';
+  const isSelecetdvariant = 'primary';
+  const hasBookingvariant = 'secondary';
+  const isBookableVariant = 'light';
+
+  let variant =
+    props.timeslot.status === 'notBookable' ? notBookableVariant :
+      props.timeslot.isSelected ? isSelecetdvariant :
+        props.timeslot.booking != undefined ? hasBookingvariant :
+          isBookableVariant;
+
   return (
     <Button
       style={{ width: '14rem', color: (props.timeslot.status === 'notBookable' ? 'white' : 'black') }}
       onClick={handleClick}
-      variant={props.timeslot.status === 'notBookable' ? 'dark' : props.timeslot.isSelected ? 'primary' : props.timeslot.booking != undefined ? 'secondary' : 'light'}>
+      variant={variant}>
       {props.text}
     </Button>
   );

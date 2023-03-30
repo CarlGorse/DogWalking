@@ -6,29 +6,31 @@ import TimeslotShowBookingDetails from './TimeslotShowBookingDetails';
 
 function Timeslot(props) {
 
-  function handleOnSelect(isSelected) {
-    props.handleOnSelectTimeslot(props.timeslot.id, isSelected);
-  };
+  var bookingDetails;
+  if (hasBooking() && isFirstTimeslotForBooking()) {
+    bookingDetails = <TimeslotShowBookingDetails timeslot={props.timeslot} />
+  }
 
-  var bookingDetailsButton;
-  if (props.timeslot.booking !== undefined && props.timeslot.booking.startTime === props.timeslot.startTime)
-    bookingDetailsButton = <TimeslotShowBookingDetails
-      show={props.timeslot.booking !== undefined && props.timeslot.booking.startTime === props.timeslot.startTime}
-      timeslot={props.timeslot}
-    />
+  function hasBooking() {
+    return props.timeslot.booking !== undefined;
+  }
+
+  function isFirstTimeslotForBooking() {
+    return props.timeslot.booking.startTime === props.timeslot.startTime;
+  }
 
   return (
     <Container>
       <Row key={props.id} className='h-10'>
         <Col xs={2}>
           <TimeslotSelector
-            handleOnClick={handleOnSelect}
+            handleOnClick={(isSelected) => props.handleOnSelectTimeslot(props.timeslot.id, isSelected)}
             timeslot={props.timeslot}
             text={props.timeslot.startTime + ' - ' + props.timeslot.endTime}>
           </TimeslotSelector>
         </Col>
         <Col xs={6}>
-          {bookingDetailsButton}
+          {bookingDetails}
         </Col>
       </Row>
     </Container>

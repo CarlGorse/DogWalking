@@ -2,10 +2,6 @@ import Timeslot from './Timeslot';
 
 function TimeslotList(props) {
 
-  function handleOnSelectTimeslot(id, isSelected) {
-    props.handleOnSelectTimeslot(id, isSelected);
-  };
-
   return (
     <>
       {props.timeslots?.map((timeslot) => (
@@ -13,7 +9,7 @@ function TimeslotList(props) {
           key={timeslot.id}
           id={timeslot.id}
           timeslot={timeslot}
-          handleOnSelectTimeslot={handleOnSelectTimeslot}
+          handleOnSelectTimeslot={(id, isSelected) => props.handleOnSelectTimeslot(id, isSelected)}
         />
       ))}
     </>

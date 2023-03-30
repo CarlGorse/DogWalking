@@ -23,19 +23,19 @@ function TimeslotShowBookingsDetails(props) {
       <Collapse in={open} style={{ backgroundColor: '#d0f5fb' }}>
         <Container>
           <Row>
-            <Col xs={2}>Location:</Col>
+            <Col xs={3}>Location:</Col>
             <Col xs={4}>{props.timeslot.booking.location}</Col>
           </Row>
           <Row>
-            <Col xs={2}>Start time:</Col>
+            <Col xs={3}>Start time:</Col>
             <Col xs={4}>{props.timeslot.booking.startTime}</Col>
           </Row>
           <Row>
-            <Col xs={2}>End time:</Col>
+            <Col xs={3}>End time:</Col>
             <Col xs={4}>{props.timeslot.booking.endTime}</Col>
           </Row>
           <Row>
-            <Col xs={2}>Duration:</Col>
+            <Col xs={3}>Duration:</Col>
             <Col xs={4}>{props.timeslot.booking.duration}</Col>
           </Row>
         </Container>
