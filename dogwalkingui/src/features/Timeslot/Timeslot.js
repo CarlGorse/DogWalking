@@ -1,8 +1,8 @@
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import TimeslotSelector from './TimeslotSelector';
-import TimeslotBookingsDetails from './TimeslotBookingDetails';
+import TimeslotSelector from 'features/Timeslot/TimeslotSelector';
+import TimeslotBookingsDetails from 'features/Timeslot/TimeslotBookingDetails';
 
 function Timeslot(props) {
 
