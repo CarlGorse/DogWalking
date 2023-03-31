@@ -1,18 +1,16 @@
 import Button from 'react-bootstrap/Button';
 import DatePicker from "components/DateTimePickers/DatePicker";
 import { createBooking, getSelectedTimeslots, selectTimeslots } from "functions/BookingLogic";
-import { timeslotData } from 'components/Data/TimeslotData';
 import TimeslotList from 'components/Timeslot/TimeslotList';
 import { useEffect, useState } from 'react';
 
 function TimeslotsPage(props) {
 
-  const [getCanBook, setCanBook] = useState(false);
   const [getTimeslots, setTimeslots] = useState([]);
 
   useEffect(() => {
-    setTimeslots(timeslotData);
-  }, []);
+    setTimeslots(props.timeslots);
+  }, [props.timeslots]);
 
   function updateTimeslotsState(timeslots) {
     setTimeslots(timeslots.slice()); // copy array for state to recognise any changes
@@ -24,7 +22,6 @@ function TimeslotsPage(props) {
 
   function handleOnSelectTimeslot(actionedTimeslotid, isSelect) {
     updateTimeslotsState(selectTimeslots(getTimeslots, actionedTimeslotid, isSelect));
-    setCanBook(getSelectedTimeslots(props.timeslots).length > 0);
   }
 
   function onSetFilterDate(date) {
@@ -37,16 +34,21 @@ function TimeslotsPage(props) {
     updateTimeslotsState(filteredTimeslots);
   }
 
+  function canBook() {
+    var selectedTimeslots = getSelectedTimeslots(getTimeslots);
+    return selectedTimeslots.length > 0
+  }
+
   return (
     <>
       <p>Make an adhoc booking:</p>
 
       <DatePicker date={new Date()} onSetDate={onSetFilterDate} />
 
-      <Button className="mt-2" variant='primary' onClick={book} disabled={!getCanBook}>Book</Button>
+      <Button className="mt-2" variant='primary' onClick={book} disabled={!canBook()}>Book</Button>
 
       <div className="mt-2">
-        <TimeslotList timeslots={props.timeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
+        <TimeslotList timeslots={getTimeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
       </div>
 
     </>
