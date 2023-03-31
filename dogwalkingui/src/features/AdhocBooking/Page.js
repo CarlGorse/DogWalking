@@ -1,8 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import BookingConfirmationModal from 'features/AdhocBooking/ConfirmationModal';
-import BookTimeslots from "features/AdhocBooking/BookTimeslots";
+import { bookTimeslots } from "functions/BookingLogic";
 import InputBookingDetails from "features/AdhocBooking/InputBookingDetails/Page";
 import { timeslotData } from 'components/Data/TimeslotData';
+import TimeslotsPage from "features/AdhocBooking/TimeslotsPage";
 import { useEffect, useRef, useState } from 'react';
 
 function Page() {
@@ -23,6 +24,7 @@ function Page() {
   }
 
   function onBookingMade(booking) {
+
     var bookedTimeslots = bookTimeslots(getTimeslots, booking);
 
     updateTimeslotsState(bookedTimeslots);
@@ -44,7 +46,7 @@ function Page() {
   }
 
   var bookingConfirmationModal;
-  var bookTimeslots;
+  var timeslotsPage;
   var inputBookingDetails;
 
   if (getShowModal) {
@@ -52,7 +54,7 @@ function Page() {
   }
 
   if (getPageState == 'timeslots') {
-    bookTimeslots = <BookTimeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
+    timeslotsPage = <TimeslotsPage timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
   }
   else {
     inputBookingDetails = <InputBookingDetails booking={currentBooking.current} onBookingMade={(booking) => onBookingMade(booking)} onCancelBooking={onCancelBooking} />
@@ -61,7 +63,7 @@ function Page() {
   return (
     <Container>
       {bookingConfirmationModal}
-      {bookTimeslots}
+      {timeslotsPage}
       {inputBookingDetails}
     </Container>
   )
