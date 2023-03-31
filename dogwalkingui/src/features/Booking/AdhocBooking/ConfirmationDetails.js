@@ -12,6 +12,7 @@ import SelectService from '../../../components/BookingDetails/SelectService';
 function ConfirmationDetails(props) {
 
   const [getShowLogIn, setShowLogIn] = useState(true);
+  const [getPageId, setPageId] = useState(1);
 
   function handleCloseLogIn() {
     setShowLogIn(false);
@@ -19,6 +20,28 @@ function ConfirmationDetails(props) {
 
   function book() {
     props.onBookingMade(props.booking);
+  }
+
+  function nextPage() {
+    setPageId(prevState => prevState + 1);
+  }
+
+  var selectService;
+  var aboutYou;
+  var aboutYourDog;
+  var options;
+
+  if (getPageId == 1) {
+    selectService = <SelectService />;
+  }
+  if (getPageId == 2) {
+    aboutYou = <AboutYou />
+  }
+  if (getPageId == 3) {
+    aboutYourDog = <AboutYourDog />
+  }
+  if (getPageId == 4) {
+    options = <Options />
   }
 
   return (
@@ -47,10 +70,10 @@ function ConfirmationDetails(props) {
         </Container>
       </div>
 
-      <SelectService />
-      <AboutYou />
-      <AboutYourDog />
-      <Options />
+      {selectService}
+      {aboutYou}
+      {aboutYourDog}
+      {options}
 
       <Container>
         <Row>
@@ -60,7 +83,8 @@ function ConfirmationDetails(props) {
       </Container>
 
       {/*<Button onClick={() => setShowLogIn(true)}>Log In</Button>*/}
-      <Button onClick={book}>Book</Button>
+      <Button onClick={nextPage} disabled={getPageId == 4}>Next</Button>
+      <Button onClick={book} disabled={getPageId != 4}>Book</Button>
     </>
   );
 }
