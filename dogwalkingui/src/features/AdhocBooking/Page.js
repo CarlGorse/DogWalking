@@ -1,9 +1,8 @@
 import Container from 'react-bootstrap/Container';
-import BookingConfirmationModal from '../ConfirmationModal';
-import { bookTimeslots } from "../BookingLogic";
-import InputBookingDetails from "./InputBookingDetails";
+import BookingConfirmationModal from 'features/AdhocBooking/ConfirmationModal';
+import BookTimeslots from "features/AdhocBooking/BookTimeslots";
+import InputBookingDetails from "features/AdhocBooking/InputBookingDetails";
 import { timeslotData } from 'components/Data/TimeslotData';
-import BookTimeslots from "./BookTimeslots";
 import { useEffect, useRef, useState } from 'react';
 
 function Page() {

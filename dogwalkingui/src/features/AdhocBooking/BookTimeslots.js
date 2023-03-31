@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import DatePicker from "components/DateTimePickers/DatePicker";
-import { createBooking, getSelectedTimeslots, selectTimeslots } from "../BookingLogic";
-import TimeslotList from '../../Timeslot/TimeslotList';
+import { createBooking, getSelectedTimeslots, selectTimeslots } from "functions/BookingLogic";
+import TimeslotList from 'components/Timeslot/TimeslotList';
 import { useState } from 'react';
 
 function BookTimeslots(props) {

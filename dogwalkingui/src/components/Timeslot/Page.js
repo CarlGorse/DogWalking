@@ -1,8 +1,8 @@
-import BookingsDetails from 'features/Timeslot/BookingDetails';
+import BookingsDetails from 'components/Timeslot/BookingDetails';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import TimeslotSelector from 'features/Timeslot/TimeslotSelector';
+import TimeslotSelector from 'components/Timeslot/TimeslotSelector';
 
 function Page(props) {
 

@@ -1,8 +1,8 @@
-import BookingSummary from 'features/Booking/AdhocBooking/BookingSummary';
-import Cost from 'features/Booking/AdhocBooking/Cost';
+import BookingSummary from 'features/AdhocBooking/BookingSummary';
+import Cost from 'features/AdhocBooking/Cost';
 import Container from 'react-bootstrap/Container';
-import InputBookingDetailsButtons from 'features/Booking/AdhocBooking/InputBookingDetailsButtons';
-import InputBookingDetailsPages from 'features/Booking/AdhocBooking/InputBookingDetailsPages';
+import InputBookingDetailsButtons from 'features/AdhocBooking/InputBookingDetailsButtons';
+import InputBookingDetailsPages from 'features/AdhocBooking/InputBookingDetailsPages';
 import LogIn from 'components/LogIn';
 import React, { useState } from 'react';
 

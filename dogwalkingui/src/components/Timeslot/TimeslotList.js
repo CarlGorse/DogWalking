@@ -1,4 +1,4 @@
-import Page from 'features/Timeslot/Page';
+import Page from 'components/Timeslot/Page';
 
 function TimeslotList(props) {
 
