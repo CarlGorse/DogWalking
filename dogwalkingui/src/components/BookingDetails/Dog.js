@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
-function BookingDetailsDog(props) {
+function Dog(props) {
 
   var removeDogButton = props.showRemoveButton ? <Button size='sm' onClick={() => props.handleRemoveDog(props.id)}>Remove dog</Button> : undefined;
 
@@ -63,4 +63,4 @@ function BookingDetailsDog(props) {
   )
 }
 
-export default BookingDetailsDog;
+export default Dog;
