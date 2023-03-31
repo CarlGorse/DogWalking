@@ -1,14 +1,12 @@
-import AboutYou from 'components/BookingDetails/AboutYou';
-import AboutYourDog from 'components/BookingDetails/AboutYourDog';
 import BookingSummary from 'features/Booking/AdhocBooking/BookingSummary';
-import Button from 'react-bootstrap/Button';
+import Cost from 'features/Booking/AdhocBooking/Cost';
+import InputBookingDetailsButtons from 'features/Booking/AdhocBooking/InputBookingDetailsButtons';
+import InputBookingDetailsPages from 'features/Booking/AdhocBooking/InputBookingDetailsPages';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import LogIn from 'components/LogIn';
-import Options from 'components/BookingDetails/Options';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
-import SelectService from 'components/BookingDetails/SelectService';
 
 function InputBookingDetails(props) {
 
@@ -23,31 +21,13 @@ function InputBookingDetails(props) {
     setPageId(prevState => prevState - 1);
   }
 
-  var selectService;
-  var aboutYou;
-  var aboutYourDog;
-  var options;
-
-  if (getPageId == 1) {
-    selectService = <SelectService />;
-  }
-  if (getPageId == 2) {
-    aboutYou = <AboutYou />;
-  }
-  if (getPageId == 3) {
-    aboutYourDog = <AboutYourDog />;
-  }
-  if (getPageId == 4) {
-    options = <Options />;
-  }
-
   return (
     <Container>
       <LogIn show={getShowLogIn} handleClose={() => setShowLogIn(false)} description='Log in to use your preferences'></LogIn>
 
-      <div className="pt-5">
+      <Container className="pt-5">
         <BookingSummary booking={props.booking} />
-      </div>
+      </Container>
 
       <Container>
         <Row>
@@ -59,16 +39,16 @@ function InputBookingDetails(props) {
       </Container>
 
       <Container className="mt-5 mb-5">
-        <Button variant='light' onClick={prevPage} disabled={getPageId == 1}>Previous</Button>
-        <Button variant='light' onClick={nextPage} disabled={getPageId == 4}>Next</Button>
-        <Button variant='primary' className="ms-3" onClick={() => props.onBookingMade(props.booking)} disabled={getPageId != 4}>Book</Button>
-        <Button variant='secondary' onClick={() => props.onCancelBooking()}>Cancel</Button>
+        <InputBookingDetailsButtons
+          pageId={getPageId}
+          onClickPrevPage={prevPage}
+          onClickNextPage={nextPage}
+          onClickBook={() => props.onBookingMade(props.booking)}
+          onClickCancel={() => props.onCancelBooking()}
+        />
       </Container>
 
-      {selectService}
-      {aboutYou}
-      {aboutYourDog}
-      {options}
+      <InputBookingDetailsPages pageId={getPageId} />
 
     </Container>
   );
