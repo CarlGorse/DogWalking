@@ -1,11 +1,10 @@
 import AboutYou from 'components/BookingDetails/AboutYou';
 import AboutYourDog from 'components/BookingDetails/AboutYourDog';
-import Container from 'react-bootstrap/Container';
 import Options from 'components/BookingDetails/Options';
 import React, { useState } from 'react';
 import SelectService from 'components/BookingDetails/SelectService';
 
-function InputBookingDetailsPages(props) {
+function SubPages(props) {
 
   var selectService;
   var aboutYou;
@@ -35,4 +34,4 @@ function InputBookingDetailsPages(props) {
   );
 }
 
-export default InputBookingDetailsPages;
+export default SubPages;

@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 
-function BookingSummary(booking) {
+function Summary(booking) {
 
   return (
 
@@ -37,4 +37,4 @@ function BookingSummary(booking) {
   );
 }
 
-export default BookingSummary;
+export default Summary;

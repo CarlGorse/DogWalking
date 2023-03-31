@@ -1,8 +1,8 @@
-import BookingSummary from 'features/AdhocBooking/BookingSummary';
-import Cost from 'features/AdhocBooking/Cost';
+import Summary from './Summary';
+import Cost from './Cost';
 import Container from 'react-bootstrap/Container';
-import InputBookingDetailsButtons from 'features/AdhocBooking/InputBookingDetailsButtons';
-import InputBookingDetailsPages from 'features/AdhocBooking/InputBookingDetailsPages';
+import InputBookingDetailsButtons from './Buttons';
+import InputBookingDetailsPages from './SubPages';
 import LogIn from 'components/LogIn';
 import React, { useState } from 'react';
 
@@ -24,7 +24,7 @@ function InputBookingDetails(props) {
       <LogIn show={getShowLogIn} handleClose={() => setShowLogIn(false)} description='Log in to use your preferences'></LogIn>
 
       <Container className="pt-5">
-        <BookingSummary booking={props.booking} />
+        <Summary booking={props.booking} />
       </Container>
 
       <Cost cost={props.booking.cost} />
