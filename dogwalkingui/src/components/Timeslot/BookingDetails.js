@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 
-function TimeslotBookingsDetails(props) {
+function BookingsDetails(props) {
 
   const [open, setOpen] = useState(false);
 
@@ -44,4 +44,4 @@ function TimeslotBookingsDetails(props) {
   );
 }
 
-export default TimeslotBookingsDetails;
+export default BookingsDetails;

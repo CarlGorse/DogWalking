@@ -3,7 +3,7 @@ import BookingConfirmationModal from '../ConfirmationModal';
 import { bookTimeslots } from "../BookingLogic";
 import InputBookingDetails from "./InputBookingDetails";
 import { timeslotData } from 'components/Data/TimeslotData';
-import Timeslots from "./Timeslots";
+import BookTimeslots from "./BookTimeslots";
 import { useEffect, useRef, useState } from 'react';
 
 function Page() {
@@ -46,7 +46,7 @@ function Page() {
   }
 
   var bookingConfirmationModal;
-  var timeslots;
+  var bookTimeslots;
   var inputBookingDetails;
 
   if (getShowModal) {
@@ -54,7 +54,7 @@ function Page() {
   }
 
   if (getPageState == 'timeslots') {
-    timeslots = <Timeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
+    bookTimeslots = <BookTimeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
   }
   else {
     inputBookingDetails = <InputBookingDetails booking={currentBooking.current} onBookingMade={(booking) => onBookingMade(booking)} onCancelBooking={onCancelBooking} />
@@ -63,7 +63,7 @@ function Page() {
   return (
     <Container>
       {bookingConfirmationModal}
-      {timeslots}
+      {bookTimeslots}
       {inputBookingDetails}
     </Container>
   )

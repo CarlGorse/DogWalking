@@ -4,7 +4,7 @@ import { createBooking, getSelectedTimeslots, selectTimeslots } from "../Booking
 import TimeslotList from '../../Timeslot/TimeslotList';
 import { useState } from 'react';
 
-function Timeslots(props) {
+function BookTimeslots(props) {
 
   const [getCanBook, setCanBook] = useState(false);
 
@@ -41,4 +41,4 @@ function Timeslots(props) {
   );
 }
 
-export default Timeslots;
+export default BookTimeslots;

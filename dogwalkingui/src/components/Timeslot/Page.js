@@ -1,14 +1,14 @@
+import BookingsDetails from 'features/Timeslot/BookingDetails';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import TimeslotSelector from 'features/Timeslot/TimeslotSelector';
-import TimeslotBookingsDetails from 'features/Timeslot/TimeslotBookingDetails';
 
-function Timeslot(props) {
+function Page(props) {
 
   var bookingDetails;
   if (hasBooking() && isFirstTimeslotForBooking()) {
-    bookingDetails = <TimeslotBookingsDetails timeslot={props.timeslot} />
+    bookingDetails = <BookingsDetails timeslot={props.timeslot} />
   }
 
   function hasBooking() {
@@ -37,4 +37,4 @@ function Timeslot(props) {
   );
 }
 
-export default Timeslot;
+export default Page;

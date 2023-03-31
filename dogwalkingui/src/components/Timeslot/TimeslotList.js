@@ -1,11 +1,11 @@
-import Timeslot from 'features/Timeslot/Timeslot';
+import Page from 'features/Timeslot/Page';
 
 function TimeslotList(props) {
 
   return (
     <>
       {props.timeslots?.map((timeslot) => (
-        <Timeslot
+        <Page
           key={timeslot.id}
           id={timeslot.id}
           timeslot={timeslot}
