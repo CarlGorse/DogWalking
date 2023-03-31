@@ -1,13 +1,13 @@
 import AboutYou from 'components/BookingDetails/AboutYou';
-import AboutYourDog from '../../../components/BookingDetails/AboutYourDog';
+import AboutYourDog from 'components/BookingDetails/AboutYourDog';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import LogIn from '../../../components/LogIn';
-import Options from '../../../components/BookingDetails/Options';
+import LogIn from 'components/LogIn';
+import Options from 'components/BookingDetails/Options';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
-import SelectService from '../../../components/BookingDetails/SelectService';
+import SelectService from 'components/BookingDetails/SelectService';
 
 function ConfirmationDetails(props) {
 

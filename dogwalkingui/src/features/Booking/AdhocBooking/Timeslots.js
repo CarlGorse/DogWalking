@@ -1,5 +1,5 @@
 import Button from 'react-bootstrap/Button';
-import DatePicker from "../../../components/DateTimePickers/DatePicker";
+import DatePicker from "components/DateTimePickers/DatePicker";
 import { createBooking, getSelectedTimeslots, selectTimeslots } from "../BookingLogic";
 import TimeslotList from '../../Timeslot/TimeslotList';
 import { useState } from 'react';

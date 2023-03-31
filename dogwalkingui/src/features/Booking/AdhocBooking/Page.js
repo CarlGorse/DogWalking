@@ -2,7 +2,7 @@ import Timeslots from "./Timeslots";
 import { bookTimeslots } from "../BookingLogic";
 import BookingConfirmationDetails from "./ConfirmationDetails";
 import BookingConfirmationModal from '../BookingConfirmationModal';
-import { timeslotData } from '../../../components/Data/TimeslotData';
+import { timeslotData } from 'components/Data/TimeslotData';
 import { useEffect, useRef, useState } from 'react';
 
 function Page() {
