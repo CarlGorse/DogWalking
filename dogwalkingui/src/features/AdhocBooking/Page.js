@@ -39,7 +39,6 @@ function Page() {
     setTimeslots(timeslots.slice()); // copy array for state to recognise any changes
   }
 
-
   function handleCloseModal() {
     setShowModal(false);
   }

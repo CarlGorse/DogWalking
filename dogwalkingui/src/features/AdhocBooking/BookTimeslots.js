@@ -33,9 +33,11 @@ function BookTimeslots(props) {
 
       <DatePicker date={new Date()} onSetDate={onSetFilterDate} />
 
-      <Button variant='dark' onClick={book} disabled={!getCanBook}>Book</Button>
+      <Button className="mt-2" variant='primary' onClick={book} disabled={!getCanBook}>Book</Button>
 
-      <TimeslotList timeslots={props.timeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
+      <div className="mt-2">
+        <TimeslotList timeslots={props.timeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
+      </div>
 
     </>
   );
