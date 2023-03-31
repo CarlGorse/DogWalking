@@ -4,20 +4,21 @@ import Row from 'react-bootstrap/Row';
 
 function Options() {
   return (
-    <div style={{ border: '1px solid black' }}>
+
+    <Container>
       <b>Options</b>
-      <Container>
-        <Row>
-          <Col>Can another dog join your walk (at reduced cost?):</Col>
-          <Col>
-            <select defaultValue='No'>
-              <option>Yes</option>
-              <option>No</option>
-            </select>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+      <Row>
+        <Col></Col>
+        <Col xs={4}>Can another dog join your walk (at reduced cost?):</Col>
+        <Col xs={4}>
+          <select defaultValue='No'>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </Col>
+        <Col></Col>
+      </Row>
+    </Container>
   );
 }
 

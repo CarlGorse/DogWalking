@@ -1,7 +1,7 @@
 import Timeslots from "./Timeslots";
 import { bookTimeslots } from "../BookingLogic";
-import BookingConfirmationDetails from "./ConfirmationDetails";
-import BookingConfirmationModal from '../BookingConfirmationModal';
+import InputBookingDetails from "./InputBookingDetails";
+import BookingConfirmationModal from '../ConfirmationModal';
 import { timeslotData } from 'components/Data/TimeslotData';
 import { useEffect, useRef, useState } from 'react';
 
@@ -31,6 +31,10 @@ function Page() {
     setShowModal(true);
   }
 
+  function onCancelBooking() {
+    setPageState('timeslots');
+  }
+
   function updateTimeslotsState(timeslots) {
     setTimeslots(timeslots.slice()); // copy array for state to recognise any changes
   }
@@ -54,7 +58,7 @@ function Page() {
     )
   }
   else {
-    return <BookingConfirmationDetails booking={currentBooking.current} onBookingMade={(booking) => onBookingMade(booking)} />
+    return <InputBookingDetails booking={currentBooking.current} onBookingMade={(booking) => onBookingMade(booking)} onCancelBooking={onCancelBooking} />
   }
 
 }

@@ -1,5 +1,8 @@
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import Dog from './Dog';
+import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
 
 function AboutYourDog() {
@@ -16,13 +19,22 @@ function AboutYourDog() {
   }
 
   return (
-    <div style={{ border: '1px solid black' }}>
-      <b>About your dog(s)</b>
-      {getDogs.map(dog => (
-        <Dog key={dog.id} id={dog.id} showRemoveButton={dog.showRemoveButton} handleRemoveDog={removeDog} />
-      ))}
-      <Button size='sm' onClick={addDog}>Add dog</Button>
-    </div>
+    <>
+      <Container>
+        <b>About your dog(s)</b>
+        {getDogs.map(dog => (
+          <Dog key={dog.id} id={dog.id} showRemoveButton={dog.showRemoveButton} handleRemoveDog={removeDog} />
+        ))}
+        <Row>
+          <Col></Col>
+          <Col xs={4}>
+            <Button size='sm' onClick={addDog}>Add dog</Button>
+          </Col>
+          <Col xs={4}></Col>
+          <Col></Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 

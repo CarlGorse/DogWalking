@@ -5,30 +5,38 @@ import Row from 'react-bootstrap/Row';
 function AboutYou() {
 
   return (
-    <div style={{ border: '1px solid black' }}>
+
+    <Container>
       <b>About you</b>
-      <Container>
-        <Row>
-          <Col>Name:</Col>
-          <Col><input type='textbox' placeholder="Your name"></input></Col>
-        </Row>
-        <Row>
-          <Col>Post code:</Col>
-          <Col><input type='textbox' placeholder="AA1 1AA"></input></Col>
-        </Row>
-        <Row>
-          <Col>Property number/name:</Col>
-          <Col>
-            <select>
-            </select>
-          </Col>
-        </Row>
-        <Row>
-          <Col>Location details:</Col>
-          <Col><input type='textbox' placeholder="Any other details that will help to locate you"></input></Col>
-        </Row>
-      </Container>
-    </div>
+      <Row>
+        <Col></Col>
+        <Col xs={4}>Name:</Col>
+        <Col xs={4}><input type='textbox' placeholder="Your name"></input></Col>
+        <Col></Col>
+      </Row>
+      <Row>
+        <Col></Col>
+        <Col xs={4}>Post code:</Col>
+        <Col xs={4}><input type='textbox' placeholder="AA1 1AA"></input></Col>
+        <Col></Col>
+      </Row>
+      <Row>
+        <Col></Col>
+        <Col xs={4}>Property number/name:</Col>
+        <Col xs={4}>
+          <select>
+          </select>
+        </Col>
+        <Col></Col>
+      </Row>
+      <Row>
+        <Col></Col>
+        <Col xs={4}>Location details:</Col>
+        <Col xs={4}><input type='textbox' placeholder="Any other details that will help to locate you"></input></Col>
+        <Col></Col>
+      </Row>
+    </Container>
+
   );
 }
 
