@@ -4,8 +4,7 @@ import Row from 'react-bootstrap/Row';
 
 function Options() {
   return (
-
-    <Container>
+    <>
       <b>Options</b>
       <Row>
         <Col></Col>
@@ -18,7 +17,7 @@ function Options() {
         </Col>
         <Col></Col>
       </Row>
-    </Container>
+    </>
   );
 }
 

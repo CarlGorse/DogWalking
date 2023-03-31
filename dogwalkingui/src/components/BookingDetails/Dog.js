@@ -8,7 +8,7 @@ function Dog(props) {
   var removeDogButton = props.showRemoveButton ? <Button size='sm' onClick={() => props.handleRemoveDog(props.id)}>Remove dog</Button> : undefined;
 
   return (
-    <Container className="pb-5">
+    <>
       <Row>
         <Col></Col>
         <Col xs={4}><b>Dog #{props.id}</b></Col>
@@ -70,8 +70,7 @@ function Dog(props) {
         <Col xs={4}><input type='textbox' placeholder="e.g. significant behaviours"></input></Col>
         <Col></Col>
       </Row>
-
-    </Container>
+    </>
   )
 }
 

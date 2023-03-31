@@ -5,8 +5,8 @@ import Row from 'react-bootstrap/Row';
 function AboutYou() {
 
   return (
+    <>
 
-    <Container>
       <b>About you</b>
       <Row>
         <Col></Col>
@@ -35,7 +35,7 @@ function AboutYou() {
         <Col xs={4}><input type='textbox' placeholder="Any other details that will help to locate you"></input></Col>
         <Col></Col>
       </Row>
-    </Container>
+    </>
 
   );
 }

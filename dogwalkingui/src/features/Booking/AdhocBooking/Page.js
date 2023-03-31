@@ -1,8 +1,9 @@
-import Timeslots from "./Timeslots";
+import Container from 'react-bootstrap/Container';
+import BookingConfirmationModal from '../ConfirmationModal';
 import { bookTimeslots } from "../BookingLogic";
 import InputBookingDetails from "./InputBookingDetails";
-import BookingConfirmationModal from '../ConfirmationModal';
 import { timeslotData } from 'components/Data/TimeslotData';
+import Timeslots from "./Timeslots";
 import { useEffect, useRef, useState } from 'react';
 
 function Page() {
@@ -39,28 +40,33 @@ function Page() {
     setTimeslots(timeslots.slice()); // copy array for state to recognise any changes
   }
 
-  var bookingConfirmationModal;
-  if (getShowModal) {
-    bookingConfirmationModal = <BookingConfirmationModal show={getShowModal} handleClose={handleCloseModal}></BookingConfirmationModal>
-  }
 
   function handleCloseModal() {
     setShowModal(false);
   }
 
-  if (getPageState == 'timeslots') {
+  var bookingConfirmationModal;
+  var timeslots;
+  var inputBookingDetails;
 
-    return (
-      <>
-        {bookingConfirmationModal}
-        <Timeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
-      </>
-    )
+  if (getShowModal) {
+    bookingConfirmationModal = <BookingConfirmationModal show={getShowModal} handleClose={handleCloseModal}></BookingConfirmationModal>
+  }
+
+  if (getPageState == 'timeslots') {
+    timeslots = <Timeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
   }
   else {
-    return <InputBookingDetails booking={currentBooking.current} onBookingMade={(booking) => onBookingMade(booking)} onCancelBooking={onCancelBooking} />
+    inputBookingDetails = <InputBookingDetails booking={currentBooking.current} onBookingMade={(booking) => onBookingMade(booking)} onCancelBooking={onCancelBooking} />
   }
 
+  return (
+    <Container>
+      {bookingConfirmationModal}
+      {timeslots}
+      {inputBookingDetails}
+    </Container>
+  )
 }
 
 export default Page;

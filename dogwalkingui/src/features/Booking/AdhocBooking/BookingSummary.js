@@ -7,7 +7,7 @@ function BookingSummary(booking) {
 
   return (
 
-    <Container>
+    <>
       <b>Booking</b>
       <Row>
         <Col></Col>
@@ -33,7 +33,7 @@ function BookingSummary(booking) {
         <Col xs={4}>{booking.duration}</Col>
         <Col></Col>
       </Row>
-    </Container>
+    </>
   );
 }
 

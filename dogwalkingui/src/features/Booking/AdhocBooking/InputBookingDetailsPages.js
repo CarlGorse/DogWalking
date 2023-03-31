@@ -26,12 +26,12 @@ function InputBookingDetailsPages(props) {
   }
 
   return (
-    <Container>
+    <>
       {selectService}
       {aboutYou}
       {aboutYourDog}
       {options}
-    </Container>
+    </>
   );
 }
 

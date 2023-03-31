@@ -20,20 +20,20 @@ function AboutYourDog() {
 
   return (
     <>
-      <Container>
-        <b>About your dog(s)</b>
-        {getDogs.map(dog => (
+      <b>About your dog(s)</b>
+      {getDogs.map(dog => (
+        <div className="mb-5">
           <Dog key={dog.id} id={dog.id} showRemoveButton={dog.showRemoveButton} handleRemoveDog={removeDog} />
-        ))}
-        <Row>
-          <Col></Col>
-          <Col xs={4}>
-            <Button size='sm' onClick={addDog}>Add dog</Button>
-          </Col>
-          <Col xs={4}></Col>
-          <Col></Col>
-        </Row>
-      </Container>
+        </div>
+      ))}
+      <Row>
+        <Col></Col>
+        <Col xs={4}>
+          <Button size='sm' onClick={addDog}>Add dog</Button>
+        </Col>
+        <Col xs={4}></Col>
+        <Col></Col>
+      </Row>
     </>
   );
 }

@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 function SelectService() {
 
   return (
-    <Container>
+    <>
       <b>Select service:</b>
       <Row>
         <Col></Col>
@@ -33,7 +33,7 @@ function SelectService() {
         </Col>
         <Col></Col>
       </Row>
-    </Container>
+    </>
   );
 }
 
