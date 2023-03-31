@@ -14,8 +14,8 @@ function BookingDetails() {
     setDogs(arr => [...arr, newDog]); // push doesn't work on arrays in state
   }
 
-  function removeDog() {
-    setDogs(getDogs.splice(getDogs.length - 2, 1)); // pop doesn't work on arrays in state
+  function removeDog(id) {
+    setDogs(getDogs.filter(dog => dog.id != id));
   }
 
   return (
@@ -73,7 +73,7 @@ function BookingDetails() {
       <div style={{ border: '1px solid black' }}>
         <b>About your dog(s)</b>
         {getDogs.map(dog => (
-          <BookingDetailsDog key={dog.id} showRemoveButton={dog.showRemoveButton} handleRemoveDog={removeDog} />
+          <BookingDetailsDog key={dog.id} id={dog.id} showRemoveButton={dog.showRemoveButton} handleRemoveDog={removeDog} />
         ))}
         <Button size='sm' onClick={addDog}>Add dog</Button>
       </div>

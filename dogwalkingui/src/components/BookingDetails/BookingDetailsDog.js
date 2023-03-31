@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 
 function BookingDetailsDog(props) {
 
-  var removeDogButton = props.showRemoveButton ? <Button size='sm' onClick={props.handleRemoveDog}>Remove dog</Button> : undefined;
+  var removeDogButton = props.showRemoveButton ? <Button size='sm' onClick={() => props.handleRemoveDog(props.id)}>Remove dog</Button> : undefined;
 
   return (
     <Container>
