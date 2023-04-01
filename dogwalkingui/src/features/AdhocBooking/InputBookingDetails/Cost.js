@@ -8,13 +8,13 @@ function Cost(props) {
 
   return (
 
-    <Container>
+    <div>
       <Row>
         <Col xs={3}>Cost:</Col>
         <Col xs={6}>{props.cost}</Col>
         <Col></Col>
       </Row>
-    </Container>
+    </div>
   );
 }
 
