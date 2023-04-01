@@ -16,11 +16,9 @@ function LogIn(props) {
   return (
     <Modal
       show={getShow}
-      backdrop="static"
-      keyboard={false}
     >
 
-      <Modal.Header closeButton>{props.description}:</Modal.Header>
+      <Modal.Header>{props.description}:</Modal.Header>
       <Modal.Body>
         <Container>
           <Row>
@@ -41,6 +39,14 @@ function LogIn(props) {
           </Row>
         </Container>
       </Modal.Body>
+      <Modal.Footer>
+        <Button variant="primary" onClick={props.onLogIn}>
+          Log in
+        </Button>
+        <Button variant="secondary" onClick={props.onCancel}>
+          Cancel
+        </Button>
+      </Modal.Footer>
     </Modal >
   );
 }

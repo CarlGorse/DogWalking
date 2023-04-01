@@ -35,6 +35,11 @@ function InputBookingDetails(props) {
 
       <Cost cost={props.booking.cost} />
 
+      <div class="pt-5">
+        <Button variant='primary' className="me-1" onClick={() => props.onBookingMade(props.booking)} disabled={getPageId != 4}>Confirm booking</Button>
+        <Button variant='light' onClick={() => props.onCancelBooking()}>Cancel</Button>
+      </div>
+
       <Toast className="mt-5" show={getShowLogInHint} onClose={() => setShowLogInHint(false)}>
         <Toast.Header>
           <strong className="me-auto">Auto populate</strong>
@@ -47,12 +52,7 @@ function InputBookingDetails(props) {
 
       <LogIn show={getShowLogIn} onCancel={() => setShowLogIn(false)} onLogIn={onLogIn} description='Log in to use your preferences'></LogIn >
 
-      <div className="pt-5 pb-3">
-        <Button variant='primary' className="me-1" onClick={() => props.onBookingMade(props.booking)} disabled={getPageId != 4}>Confirm booking</Button>
-        <Button variant='light' onClick={() => props.onCancelBooking()}>Cancel</Button>
-      </div>
-
-      <div>
+      <div class="mt-5">
         <Row>
           <Col className="p-3 border rounded-3">
 
