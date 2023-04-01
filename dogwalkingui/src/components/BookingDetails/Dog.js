@@ -9,19 +9,19 @@ function Dog(props) {
 
   return (
     <>
-      <Row>
+      <Row className="mt-1">
         <Col xs={3}><b>Dog #{props.id}</b></Col>
         <Col xs={6}>
           {removeDogButton}
         </Col>
         <Col></Col>
       </Row>
-      <Row>
+      <Row className="mt-1">
         <Col xs={3}>Name:</Col>
         <Col xs={6}><input style={{ width: "100%" }} type='textbox' placeholder="Your dog's name"></input></Col>
         <Col></Col>
       </Row>
-      <Row>
+      <Row className="mt-1">
         <Col xs={3}>Breed:</Col>
         <Col xs={6}>
           <select defaultValue='Other'>
@@ -34,7 +34,7 @@ function Dog(props) {
         </Col>
         <Col></Col>
       </Row>
-      <Row>
+      <Row className="mt-1">
         <Col xs={3}>Size:</Col>
         <Col xs={6}>
           <select defaultValue='Please select'>
@@ -47,7 +47,7 @@ function Dog(props) {
         </Col>
         <Col></Col>
       </Row>
-      <Row>
+      <Row className="mt-1">
         <Col xs={3}>Can be let off the lead?: <InputHint hint="Can your dog be left off the lead in a park or countryside?" /></Col>
         <Col xs={6}>
           <select defaultValue='No'>
@@ -59,7 +59,7 @@ function Dog(props) {
         </Col>
         <Col></Col>
       </Row>
-      <Row>
+      <Row className="mt-1">
         <Col xs={3}>Comments:</Col>
         <Col xs={6}><input style={{ width: "100%" }} type='textbox' placeholder="e.g. significant behaviours"></input></Col>
         <Col></Col>

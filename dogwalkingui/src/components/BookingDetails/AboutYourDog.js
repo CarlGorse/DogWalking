@@ -21,9 +21,7 @@ function AboutYourDog() {
     <>
       <b>About your dog(s)</b>
       {getDogs.map(dog => (
-        <div className="mt-3">
-          <Dog key={dog.id} id={dog.id} showRemoveButton={dog.showRemoveButton} handleRemoveDog={removeDog} />
-        </div>
+        <Dog key={dog.id} id={dog.id} showRemoveButton={dog.showRemoveButton} handleRemoveDog={removeDog} />
       ))}
       <Row className="mt-3">
         <Col xs={4}>

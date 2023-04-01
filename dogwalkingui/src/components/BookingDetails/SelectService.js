@@ -6,7 +6,7 @@ function SelectService() {
   return (
     <>
       <b>Select service:</b>
-      <Row>
+      <Row className="mt-1">
         <Col xs={3}>Service:</Col>
         <Col xs={6}>
           <select defaultValue='Please select'>
@@ -18,7 +18,7 @@ function SelectService() {
         </Col>
         <Col></Col>
       </Row>
-      <Row>
+      <Row className="mt-1">
         <Col xs={3}>Type of walk:</Col>
         <Col xs={6}>
           <select defaultValue='Any'>

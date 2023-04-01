@@ -6,7 +6,7 @@ function Options() {
   return (
     <>
       <b>Options</b>
-      <Row>
+      <Row className="mt-1">
         <Col xs={3}>Can another dog join us?: <InputHint hint="Select Yes if you don't mind whether another dog joins our walk. Your cost will be reduced. Otherwise select No." /></Col>
         <Col xs={4}>
           <select defaultValue='No'>
