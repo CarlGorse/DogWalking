@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import Dog from './Dog';
+import Dog from './Dog/Page';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
@@ -20,13 +20,18 @@ function AboutYourDog() {
   }
 
   function addDog() {
-    var ids = getDogs?.map(x => x.id);
-    var newDog = { id: Math.max(ids) + 1 }
+    var newId;
+    if (getDogs.length == 0) {
+      newId = 0;
+    }
+    else {
+      newId = Math.max(...getDogs?.map(x => x.id)) + 1;
+    }
+    var newDog = { id: newId }
     setDogs([newDog, ...getDogs]);
   }
 
   function removeDog(dogId) {
-    console.log(getDogs);
     var newDogs = getDogs.filter(dog => dog.id != dogId);
     setDogs(newDogs);
   }
