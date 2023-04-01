@@ -49,7 +49,6 @@ function TimeslotsPage(props) {
 
       <Button className="mt-2" variant='primary' onClick={book} disabled={!canBook()}>Book</Button>
 
-
       <TimeslotList timeslots={getTimeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
     </>
   );
