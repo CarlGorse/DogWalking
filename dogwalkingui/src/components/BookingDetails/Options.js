@@ -1,5 +1,5 @@
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
+import InputHint from './InputHint';
 import Row from 'react-bootstrap/Row';
 
 function Options() {
@@ -7,8 +7,7 @@ function Options() {
     <>
       <b>Options</b>
       <Row>
-        <Col></Col>
-        <Col xs={4}>Can another dog join your walk (at reduced cost?):</Col>
+        <Col xs={3}>Can another dog join us?: <InputHint hint="Select Yes if you don't mind whether another dog joins our walk. Your cost will be reduced. Otherwise select No." /></Col>
         <Col xs={4}>
           <select defaultValue='No'>
             <option>Yes</option>

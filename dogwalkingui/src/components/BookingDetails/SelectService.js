@@ -1,5 +1,4 @@
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 function SelectService() {
@@ -8,9 +7,8 @@ function SelectService() {
     <>
       <b>Select service:</b>
       <Row>
-        <Col></Col>
-        <Col xs={4}>Service:</Col>
-        <Col xs={4}>
+        <Col xs={3}>Service:</Col>
+        <Col xs={6}>
           <select defaultValue='Please select'>
             <option>Please select</option>
             <option>Walk</option>
@@ -21,9 +19,8 @@ function SelectService() {
         <Col></Col>
       </Row>
       <Row>
-        <Col></Col>
-        <Col xs={4}>Type of walk:</Col>
-        <Col xs={4}>
+        <Col xs={3}>Type of walk:</Col>
+        <Col xs={6}>
           <select defaultValue='Any'>
             <option>Any</option>
             <option>Town/street</option>

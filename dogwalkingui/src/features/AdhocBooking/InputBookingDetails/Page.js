@@ -1,10 +1,12 @@
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
 import Cost from './Cost';
 import Container from 'react-bootstrap/Container';
 import InputBookingDetailsButtons from './Buttons';
 import InputBookingDetailsPages from './SubPages';
 import LogIn from 'components/LogIn';
 import React, { useState } from 'react';
+import Row from 'react-bootstrap/Row';
 import Summary from './Summary';
 import Toast from 'react-bootstrap/Toast';
 
@@ -22,9 +24,9 @@ function InputBookingDetails(props) {
     setPageId(prevState => prevState - 1);
   }
 
-  function onCloseLogInHint() {
-    setShowLogInHint(false);
-    setShowLogIn(true);
+  function onLogIn() {
+    setShowLogInHint(false)
+    setShowLogIn(false)
   }
 
   return (
@@ -42,13 +44,13 @@ function InputBookingDetails(props) {
         </Toast.Header>
         <Toast.Body>
           You can auto populate the booking details with your preferences if you log in.
-          <Button className="ms-2" size="sm" variant="light" onClick={onCloseLogInHint}>Log in</Button>
+          <Button className="ms-2" size="sm" variant="secondary" onClick={() => setShowLogIn(true)}>Log in</Button>
         </Toast.Body>
       </Toast >
 
-      <LogIn show={getShowLogIn} handleClose={() => setShowLogIn(false)} description='Log in to use your preferences'></LogIn>
+      <LogIn show={getShowLogIn} onCancel={() => setShowLogIn(false)} onLogIn={onLogIn} description='Log in to use your preferences'></LogIn >
 
-      <Container className="mt-5 mb-5">
+      <Container className="pt-5 pb-3">
         <InputBookingDetailsButtons
           pageId={getPageId}
           onClickPrevPage={prevPage}
@@ -58,9 +60,14 @@ function InputBookingDetails(props) {
         />
       </Container>
 
-      <div className="pt-0">
-        <InputBookingDetailsPages pageId={getPageId} />
-      </div>
+      <Container>
+        <Row>
+          <Col className="p-3 bg-light rounded-3">
+            <InputBookingDetailsPages pageId={getPageId} />
+          </Col>
+          <Col xs={2}></Col>
+        </Row>
+      </Container>
 
     </>
   );

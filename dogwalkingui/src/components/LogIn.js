@@ -9,10 +9,6 @@ function LogIn(props) {
 
   const [getShow, setShow] = useState(props.show);
 
-  function HandleClose() {
-    props.handleClose();
-  };
-
   useEffect(() => {
     setShow(props.show);
   }, [props.show]);
@@ -24,7 +20,7 @@ function LogIn(props) {
       keyboard={false}
     >
 
-      <Modal.Header>{props.description}:</Modal.Header>
+      <Modal.Header closeButton>{props.description}:</Modal.Header>
       <Modal.Body>
         <Container>
           <Row>
@@ -44,12 +40,8 @@ function LogIn(props) {
             </Col>
           </Row>
         </Container>
-        <Modal.Footer>
-          <Button variant="primary" onClick={HandleClose}>Log in</Button>
-          <Button variant="secondary" onClick={HandleClose}>Cancel</Button>
-        </Modal.Footer>
       </Modal.Body>
-    </Modal>
+    </Modal >
   );
 }
 

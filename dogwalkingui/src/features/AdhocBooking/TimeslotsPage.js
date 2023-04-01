@@ -43,7 +43,7 @@ function TimeslotsPage(props) {
 
   return (
     <>
-      <p>Make an adhoc booking:</p>
+      <p>Worlde:</p>
 
       <DatePicker date={new Date()} onSetDate={onSetFilterDate} />
 
