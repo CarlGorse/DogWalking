@@ -1,19 +1,23 @@
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import InputHint from './InputHint';
 import Row from 'react-bootstrap/Row';
 
 function Dog(props) {
 
-  var removeDogButton = props.showRemoveButton ? <Button size='sm' onClick={() => props.handleRemoveDog(props.id)}>Remove dog</Button> : undefined;
+  var removeDogButton = props.showRemoveButton ?
+    <Button variant="light" size='sm' onClick={() => props.handleRemoveDog(props.id)}>
+      Remove dog
+    </Button> : undefined;
 
   return (
-    <>
+    <div className="mb-3 border-top">
       <Row className="mt-1">
-        <Col xs={3}><b>Dog #{props.id}</b></Col>
-        <Col xs={6}>
+        <Col xs={3}>
           {removeDogButton}
         </Col>
+        <Col xs={6}></Col>
         <Col></Col>
       </Row>
       <Row className="mt-1">
@@ -64,7 +68,7 @@ function Dog(props) {
         <Col xs={6}><input style={{ width: "100%" }} type='textbox' placeholder="e.g. significant behaviours"></input></Col>
         <Col></Col>
       </Row>
-    </>
+    </div>
   )
 }
 
