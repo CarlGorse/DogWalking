@@ -20,7 +20,7 @@ function InputHint(props) {
 
   return (
     <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-      <Badge pill size="sm" bg="secondary" ref={target} onClick={() => setShow(!getShow)}>
+      <Badge pill size="sm" bg="info" ref={target} onClick={() => setShow(!getShow)}>
         i
       </Badge>
     </OverlayTrigger>
