@@ -3,10 +3,10 @@ import Col from 'react-bootstrap/Col';
 import Cost from './Cost';
 import InputBookingDetailsPages from './SubPages';
 import LogIn from 'components/LogIn';
+import LogInHint from './LogInHint';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Summary from './Summary';
-import Toast from 'react-bootstrap/Toast';
 
 function InputBookingDetails(props) {
 
@@ -40,15 +40,7 @@ function InputBookingDetails(props) {
         <Button variant='light' onClick={() => props.onCancelBooking()}>Cancel</Button>
       </div>
 
-      <Toast className="mt-5" show={getShowLogInHint} onClose={() => setShowLogInHint(false)}>
-        <Toast.Header>
-          <strong className="me-auto">Auto populate</strong>
-        </Toast.Header>
-        <Toast.Body>
-          You can auto populate the booking details with your preferences if you log in.
-          <Button className="ms-2" size="sm" variant="secondary" onClick={() => setShowLogIn(true)}>Log in</Button>
-        </Toast.Body>
-      </Toast >
+      <LogInHint show={getShowLogInHint} onClose={() => setShowLogInHint(false)} onClickLogIn={() => setShowLogIn(true)} />
 
       <LogIn show={getShowLogIn} onCancel={() => setShowLogIn(false)} onLogIn={onLogIn} description='Log in to use your preferences'></LogIn >
 
