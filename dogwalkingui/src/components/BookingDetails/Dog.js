@@ -13,6 +13,7 @@ function Dog(props) {
 
   return (
     <div className="mb-3 border-top">
+
       <Row className="mt-1">
         <Col xs={3}>
           {removeDogButton}
@@ -20,11 +21,13 @@ function Dog(props) {
         <Col xs={6}></Col>
         <Col></Col>
       </Row>
+
       <Row className="mt-1">
         <Col xs={3}>Name:</Col>
         <Col xs={6}><input style={{ width: "100%" }} type='textbox' placeholder="Your dog's name"></input></Col>
         <Col></Col>
       </Row>
+
       <Row className="mt-1">
         <Col xs={3}>Breed:</Col>
         <Col xs={6}>
@@ -38,6 +41,7 @@ function Dog(props) {
         </Col>
         <Col></Col>
       </Row>
+
       <Row className="mt-1">
         <Col xs={3}>Size:</Col>
         <Col xs={6}>
@@ -51,6 +55,7 @@ function Dog(props) {
         </Col>
         <Col></Col>
       </Row>
+
       <Row className="mt-1">
         <Col xs={3}>Can be let off the lead?: <InputHint hint="Can your dog be left off the lead in a park or countryside?" /></Col>
         <Col xs={6}>
@@ -63,6 +68,7 @@ function Dog(props) {
         </Col>
         <Col></Col>
       </Row>
+
       <Row className="mt-1">
         <Col xs={3}>Comments:</Col>
         <Col xs={6}><input style={{ width: "100%" }} type='textbox' placeholder="e.g. significant behaviours"></input></Col>

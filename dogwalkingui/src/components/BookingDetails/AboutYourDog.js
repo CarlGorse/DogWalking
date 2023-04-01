@@ -6,29 +6,31 @@ import { useState } from 'react';
 
 function AboutYourDog() {
 
-  const [getDogs, setDogs] = useState([{ id: 1, showRemoveButton: false }]);
+  const [getDogs, setDogs] = useState(['']);
+
+  var newDog = <Dog id={getDogs.length} showRemoveButton={getDogs.length > 1} handleRemoveDog={removeDog} />
 
   function addDog() {
-    var newDog = { id: getDogs.length + 1, showRemoveButton: true };
-    setDogs(arr => [...arr, newDog]); // push doesn't work on arrays in state
+    setDogs(dogs => [newDog, ...dogs]);
   }
 
-  function removeDog(id) {
-    setDogs(getDogs.filter(dog => dog.id != id));
+  function removeDog() {
+    setDogs(dogs => dogs.slice(1, dogs.length));
   }
+
+  console.log(getDogs);
 
   return (
     <>
-      <b>About your dog(s)</b>
-      {getDogs.map(dog => (
-        <Dog key={dog.id} id={dog.id} showRemoveButton={dog.showRemoveButton} handleRemoveDog={removeDog} />
-      ))}
-      <Row className="mt-3">
-        <Col xs={4}>
-          <Button size='sm' onClick={addDog}>Add dog</Button>
+      <Row>
+        <Col xs={3}><b>About your dog(s)</b></Col>
+        <Col xs={6}>
+          <Button variant="light" size='sm' onClick={addDog}>Add new dog</Button>
         </Col>
-        <Col xs={4}></Col>
       </Row>
+
+      {getDogs}
+
     </>
   );
 }
