@@ -13,6 +13,7 @@ function InputBookingDetails(props) {
   const [getShowLogIn, setShowLogIn] = useState(false);
   const [getShowLogInHint, setShowLogInHint] = useState(true);
   const [getPageId, setPageId] = useState(1);
+  const [getConfirmBookingEnabled, setConfirmBookingEnabled] = useState(false);
 
   function onLogIn() {
     setShowLogInHint(false)
@@ -28,7 +29,7 @@ function InputBookingDetails(props) {
       <Cost cost={props.booking.cost} />
 
       <div class="pt-5">
-        <Button variant='primary' className="me-1" onClick={() => props.onBookingMade(props.booking)} disabled={false}>Confirm booking</Button>
+        <Button variant='primary' className="me-1" onClick={() => props.onBookingMade(props.booking)} disabled={!getConfirmBookingEnabled}>Confirm booking</Button>
         <Button variant='light' onClick={() => props.onCancelBooking()}>Cancel</Button>
       </div>
 
@@ -38,7 +39,7 @@ function InputBookingDetails(props) {
 
       <Row className="mt-5">
         <Col>
-          <InputBookingDetailsPages pageId={getPageId} />
+          <InputBookingDetailsPages pageId={getPageId} onSetInputs={isComplete => setConfirmBookingEnabled(isComplete)} />
         </Col>
         <Col xs={2}></Col>
       </Row>
