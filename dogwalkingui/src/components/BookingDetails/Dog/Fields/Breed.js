@@ -23,7 +23,7 @@ function Breed(props) {
       <Col xs={6}>
         <select
           //value={getValue}
-          defaultValue='Other'
+          defaultValue='Please select'
           onChange={e => changeValue(e.target.value)}
         >
           <option>Please select</option>

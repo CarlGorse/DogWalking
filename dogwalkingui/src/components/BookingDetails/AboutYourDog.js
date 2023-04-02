@@ -9,6 +9,7 @@ function AboutYourDog(props) {
   const [getDogs, setDogs] = useState([]);
 
   useEffect(() => {
+    setDogs([]);
     addDog();
   }, []);
 
@@ -18,7 +19,8 @@ function AboutYourDog(props) {
 
     let validDogs = getDogs.filter(dog =>
       dog.name?.length > 0
-      && dog.breed?.length > 0
+      && dog.breed != 'Please select'
+      && dog.size != 'Please select'
       && dog.canBeOffLead != 'Please select');
 
     if (validDogs.length == getDogs.length) {
@@ -48,7 +50,7 @@ function AboutYourDog(props) {
     else {
       newId = Math.max(...getDogs?.map(x => x.id)) + 1;
     }
-    var newDog = { id: newId }
+    var newDog = { id: newId, name: '', breed: 'Please select', size: 'Please select', canBeOffLead: 'Please select', comments: '' }
     setDogs([newDog, ...getDogs]);
   }
 
