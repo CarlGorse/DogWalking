@@ -1,8 +1,7 @@
-import AboutYou from 'components/BookingDetails/AboutYou';
-import AboutYourDog from 'components/BookingDetails/AboutYourDog';
-import Options from 'components/BookingDetails/Options';
-import SelectService from 'components/BookingDetails/SelectService';
+import Col from 'react-bootstrap/Col';
+import SubPages from 'components/BookingDetails/SubPages';
 import React from 'react';
+import Row from 'react-bootstrap/Row';
 
 function UserSettings(props) {
 
@@ -11,10 +10,12 @@ function UserSettings(props) {
 
       <p>You can change your own settings here.</p>
 
-      <SelectService />
-      <AboutYou />
-      <AboutYourDog />
-      <Options />
+      <Row className="mt-5">
+        <Col>
+          <SubPages onSetInputs={isComplete => { }} />
+        </Col>
+        <Col xs={2}></Col>
+      </Row>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import Cost from './Cost';
-import InputBookingDetailsPages from './SubPages';
+import Cost from './SubPages/Cost';
+import SubPages from 'components/BookingDetails/SubPages';
 import LogIn from 'components/LogIn';
 import LogInHint from './LogInHint';
 import React, { useState } from 'react';
@@ -12,7 +12,6 @@ function InputBookingDetails(props) {
 
   const [getShowLogIn, setShowLogIn] = useState(false);
   const [getShowLogInHint, setShowLogInHint] = useState(true);
-  const [getPageId, setPageId] = useState(1);
   const [getConfirmBookingEnabled, setConfirmBookingEnabled] = useState(false);
 
   function onLogIn() {
@@ -39,7 +38,7 @@ function InputBookingDetails(props) {
 
       <Row className="mt-5">
         <Col>
-          <InputBookingDetailsPages pageId={getPageId} onSetInputs={isComplete => setConfirmBookingEnabled(isComplete)} />
+          <SubPages onSetInputs={isComplete => setConfirmBookingEnabled(isComplete)} />
         </Col>
         <Col xs={2}></Col>
       </Row>

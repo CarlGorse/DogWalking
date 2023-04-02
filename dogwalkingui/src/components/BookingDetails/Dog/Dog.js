@@ -1,14 +1,14 @@
-import Breed from './Breed'
+import Breed from './Fields/Breed'
 import Button from 'react-bootstrap/Button';
-import CanBeOffLead from './CanBeOffLead'
+import CanBeOffLead from './Fields/CanBeOffLead'
 import Col from 'react-bootstrap/Col';
-import Comments from './Comments'
-import Name from './Name'
+import Comments from './Fields/Comments'
+import Name from './Fields/Name'
 import Row from 'react-bootstrap/Row';
-import Size from './Size';
+import Size from './Fields/Size';
 import { useState } from 'react';
 
-function Page(props) {
+function Dog(props) {
 
   const [getNameIsComploete, setNameIsComplete] = useState(false);
   const [getBreedIsComplete, setBreedIsComplete] = useState(false);
@@ -46,4 +46,4 @@ function Page(props) {
   )
 }
 
-export default Page;
+export default Dog;
