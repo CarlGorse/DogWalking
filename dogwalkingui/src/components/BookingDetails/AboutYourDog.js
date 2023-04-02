@@ -4,22 +4,43 @@ import Dog from './Dog/Page';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
-function AboutYourDog() {
+function AboutYourDog(props) {
 
   const [getDogs, setDogs] = useState([]);
 
+  useEffect(() => {
+    addDog();
+  }, []);
+
+  var isComplete = false;
+  console.log(getDogs);
+  if (getDogs?.length > 0) {
+
+    let validDogs = getDogs.filter(dog =>
+      dog.name?.length > 0
+      && dog.breed?.length > 0
+      && dog.canBeOffLead != 'Please select');
+
+    if (validDogs.length == getDogs.length) {
+      isComplete = true;
+    }
+  }
+  props.onSetInputs(isComplete);
+
   function updateDog(dog) {
-    var dogs = getDogs;
+    var dogs = Array.from(getDogs);
     var index = dogs.findIndex(x => x.id == dog.id);
     dogs[index].name = dog.name
     dogs[index].breed = dog.breed
     dogs[index].size = dog.size
     dogs[index].canBeOffLead = dog.canBeOffLead
     dogs[index].comments = dog.comments
+
     setDogs(dogs);
   }
 
   function addDog() {
+
     var newId;
     if (getDogs.length == 0) {
       newId = 0;
@@ -35,10 +56,6 @@ function AboutYourDog() {
     var newDogs = getDogs.filter(dog => dog.id != dogId);
     setDogs(newDogs);
   }
-
-  useEffect(() => {
-    addDog();
-  }, []);
 
   return (
     <>

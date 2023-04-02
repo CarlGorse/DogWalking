@@ -2,17 +2,19 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
-function Name(props) {
+function Breed(props) {
 
-  const [getValue, setValue] = useState('');
+  //const [getValue, setValue] = useState('');
+
+  //props.updateDog({ ...props.dog, ...{ breed: getValue } });
 
   useEffect(() => {
-    setValue(props.dog.breed);
+    //setValue(props.dog.breed);
   }, []);
 
   function changeValue(value) {
-    setValue(value);
-    props.updateDog({ ...props.dog, ...{ breed: getValue } });
+    props.updateDog({ ...props.dog, ...{ breed: value } });
+    //setValue(value);
   }
 
   return (
@@ -20,7 +22,7 @@ function Name(props) {
       <Col xs={3}>Breed:</Col>
       <Col xs={6}>
         <select
-          value={getValue}
+          //value={getValue}
           defaultValue='Other'
           onChange={e => changeValue(e.target.value)}
         >
@@ -36,4 +38,4 @@ function Name(props) {
   )
 }
 
-export default Name;
+export default Breed;

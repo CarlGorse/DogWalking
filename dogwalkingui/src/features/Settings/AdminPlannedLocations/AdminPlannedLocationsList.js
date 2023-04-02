@@ -64,6 +64,7 @@ function AdminPlannedLocationsList(props) {
             deleteRecordHandler={() => deleteRecordHandler(record.id)}
           />)
         }
+
         <Row className="justify-content-md-center mt-2">
           <Col xs={2}><input type="text" /></Col>
           <Col xs={1}><input type="text" /></Col>

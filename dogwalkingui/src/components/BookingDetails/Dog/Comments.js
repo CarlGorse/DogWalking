@@ -2,17 +2,19 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
-function Name(props) {
+function Comments(props) {
 
-  const [getValue, setValue] = useState('');
+  //const [getValue, setValue] = useState('');
+
+  //props.updateDog({ ...props.dog, ...{ comments: getValue } });
 
   useEffect(() => {
-    setValue(props.dog.comments);
+    //setValue(props.dog.comments);
   }, []);
 
   function changeValue(value) {
-    setValue(value);
-    props.updateDog({ ...props.dog, ...{ comments: getValue } });
+    //setValue(value);
+    props.updateDog({ ...props.dog, ...{ comments: value } });
   }
 
   return (
@@ -22,7 +24,7 @@ function Name(props) {
         <input
           type='textbox'
           placeholder="e.g. any relevent behaviours"
-          value={getValue}
+          //value={getValue}
           style={{ width: "100%" }}
           onInput={e => changeValue(e.target.value)}
         />
@@ -32,4 +34,4 @@ function Name(props) {
   )
 }
 
-export default Name;
+export default Comments;

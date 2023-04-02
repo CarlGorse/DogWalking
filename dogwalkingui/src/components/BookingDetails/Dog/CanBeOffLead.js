@@ -3,17 +3,19 @@ import InputHint from 'components/BookingDetails/InputHint';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
-function Name(props) {
+function CanBeLetOffLead(props) {
 
-  const [getValue, setValue] = useState('');
+  //const [getValue, setValue] = useState('');
+
+  //props.updateDog({ ...props.dog, ...{ canBeOffLead: getValue } });
 
   useEffect(() => {
-    setValue(props.dog.canBeOffLead);
+    //setValue(props.dog.canBeOffLead);
   }, []);
 
   function changeValue(value) {
-    setValue(value);
-    props.updateDog({ ...props.dog, ...{ canBeOffLead: getValue } });
+    //setValue(value);
+    props.updateDog({ ...props.dog, ...{ canBeOffLead: value } });
   }
 
   return (
@@ -21,10 +23,11 @@ function Name(props) {
       <Col xs={3}>Can be let off the lead?: <InputHint hint="Can your dog be left off the lead in a park or countryside?" /></Col>
       <Col xs={6}>
         <select
-          value={getValue}
-          defaultValue='No'
+          //value={getValue}
+          defaultValue='Please select'
           onChange={e => changeValue(e.target.value)}
         >
+          <option>Please select</option>
           <option>Either</option>
           <option>Countryside only</option>
           <option>Park only</option>
@@ -36,4 +39,4 @@ function Name(props) {
   )
 }
 
-export default Name;
+export default CanBeLetOffLead;

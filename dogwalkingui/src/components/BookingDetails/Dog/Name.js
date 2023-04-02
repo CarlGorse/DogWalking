@@ -4,15 +4,17 @@ import { useEffect, useState } from 'react';
 
 function Name(props) {
 
-  const [getName, setName] = useState('');
+  //const [getValue, setValue] = useState('');
+
+  //props.updateDog({ ...props.dog, ...{ name: getValue } });
 
   useEffect(() => {
-    setName(props.dog.name);
+    //setValue(props.dog.name);
   }, []);
 
-  function changeName(value) {
-    setName(value);
-    props.updateDog({ ...props.dog, ...{ name: getName } });
+  function changeValue(value) {
+    //setValue(value);
+    props.updateDog({ ...props.dog, ...{ name: value } });
   }
 
   return (
@@ -22,9 +24,9 @@ function Name(props) {
         <input
           type='textbox'
           style={{ width: "100%" }}
-          value={getName}
+          //value={getValue}
           placeholder="Your dog's name"
-          onChange={e => changeName(e.target.value)}
+          onChange={e => changeValue(e.target.value)}
         />
       </Col>
       <Col></Col>

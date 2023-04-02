@@ -4,8 +4,8 @@ import { useState } from 'react';
 
 function SelectService(props) {
 
-  const [getService, setService] = useState('');
-  const [getTypeOfWalk, setTypeOfWalk] = useState('');
+  const [getService, setService] = useState('Please select');
+  const [getTypeOfWalk, setTypeOfWalk] = useState('Please select');
 
   var isComplete = false;
   if ((getService != 'Please select')
@@ -13,7 +13,6 @@ function SelectService(props) {
     isComplete = true;
   }
   props.onSetInputs(isComplete);
-
 
   function onSetService(value) {
     setService(value);

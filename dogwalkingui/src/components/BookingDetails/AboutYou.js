@@ -17,7 +17,6 @@ function AboutYou(props) {
   ) {
     isComplete = true;
   }
-
   props.onSetInputs(isComplete);
 
   function onSetName(value) {

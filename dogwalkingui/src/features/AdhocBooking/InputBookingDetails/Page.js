@@ -22,9 +22,9 @@ function InputBookingDetails(props) {
 
   return (
     <>
-      <div className="pt-5">
+      <div class="pt-5">
         <Summary booking={props.booking} />
-      </div>
+      </div >
 
       <Cost cost={props.booking.cost} />
 

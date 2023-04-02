@@ -13,61 +13,39 @@ function SubPages(props) {
   const [getAboutYourDogIsComplete, setAboutYourDogIsComplete] = useState(false);
   const [getOptionsIsComplete, setOptionsIsComplete] = useState(false);
 
-  function onSetInputs() {
-    var isComplete = false;
-    if (getSelectServiceIsComplete
-      && getAboutYouIsComplete
-      && getAboutYourDogIsComplete
-      && getOptionsIsComplete) {
-      isComplete = true;
-    }
-    props.onSetInputs(isComplete);
+  var isComplete = false;
+  if (getSelectServiceIsComplete
+    && getAboutYouIsComplete
+    && getAboutYourDogIsComplete
+    && getOptionsIsComplete) {
+    isComplete = true;
   }
-
-  function onSetSelectServiceIsComplete(isComplete) {
-    setSelectServiceIsComplete(isComplete)
-    onSetInputs();
-  }
-
-  function onSetAboutYouIsComplete(isComplete) {
-    setAboutYouIsComplete(isComplete)
-    onSetInputs();
-  }
-
-  function onSetAboutYourDogIsComplete(isComplete) {
-    setAboutYourDogIsComplete(isComplete)
-    onSetInputs();
-  }
-
-  function onSetOptionsIsComplete(isComplete) {
-    setOptionsIsComplete(isComplete)
-    onSetInputs();
-  }
+  props.onSetInputs(isComplete);
 
   return (
     <Accordion flush>
       <Accordion.Item eventKey="0">
         <SubPageHeader title="Select service" isComplete={getSelectServiceIsComplete} />
         <Accordion.Body>
-          <SelectService onSetInputs={(isComplete) => onSetSelectServiceIsComplete(isComplete)} />
+          <SelectService onSetInputs={(isComplete) => setSelectServiceIsComplete(isComplete)} />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="1">
         <SubPageHeader title="About you" isComplete={getAboutYouIsComplete} />
         <Accordion.Body>
-          <AboutYou onSetInputs={(isComplete) => onSetAboutYouIsComplete(isComplete)} />
+          <AboutYou onSetInputs={(isComplete) => setAboutYouIsComplete(isComplete)} />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="2">
         <SubPageHeader title="About your dog(s)" isComplete={getAboutYourDogIsComplete} />
         <Accordion.Body>
-          <AboutYourDog onSetInputs={(isComplete) => onSetAboutYourDogIsComplete(isComplete)} />
+          <AboutYourDog onSetInputs={(isComplete) => setAboutYourDogIsComplete(isComplete)} />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="3">
         <SubPageHeader title="Options" isComplete={getOptionsIsComplete} />
         <Accordion.Body>
-          <Options onSetInputs={(isComplete) => onSetOptionsIsComplete(isComplete)} />
+          <Options onSetInputs={(isComplete) => setOptionsIsComplete(isComplete)} />
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
