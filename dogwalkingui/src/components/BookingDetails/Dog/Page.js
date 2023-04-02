@@ -14,7 +14,7 @@ function Page(props) {
   }
 
   var removeDogButton = props.showRemoveButton ?
-    <Button variant="light" size='sm' onClick={() => props.removeDog(props.dog.id)}>
+    <Button variant="warning" size='sm' onClick={() => props.removeDog(props.dog.id)}>
       Remove dog
     </Button> : undefined;
 

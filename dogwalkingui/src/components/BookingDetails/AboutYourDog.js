@@ -42,10 +42,9 @@ function AboutYourDog() {
 
   return (
     <>
-      <Row>
-        <Col xs={3}><b>About your dog(s)</b></Col>
-        <Col xs={6}>
-          <Button variant="light" size='sm' onClick={addDog}>Add new dog</Button>
+      <Row className="mb-2">
+        <Col xs={3}>
+          <Button variant="primary" size='sm' onClick={addDog}>Add new dog</Button>
         </Col>
       </Row>
 

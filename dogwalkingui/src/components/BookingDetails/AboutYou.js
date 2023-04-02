@@ -6,7 +6,6 @@ function AboutYou() {
 
   return (
     <>
-      <b>About you</b>
       <Row className="mt-1">
         <Col xs={3}>Name:</Col>
         <Col xs={9}><input style={{ width: "100%" }} type='textbox' placeholder="Your name"></input></Col>

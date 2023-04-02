@@ -14,14 +14,6 @@ function InputBookingDetails(props) {
   const [getShowLogInHint, setShowLogInHint] = useState(true);
   const [getPageId, setPageId] = useState(1);
 
-  function nextPage() {
-    setPageId(prevState => prevState + 1);
-  }
-
-  function prevPage() {
-    setPageId(prevState => prevState - 1);
-  }
-
   function onLogIn() {
     setShowLogInHint(false)
     setShowLogIn(false)
@@ -36,7 +28,7 @@ function InputBookingDetails(props) {
       <Cost cost={props.booking.cost} />
 
       <div class="pt-5">
-        <Button variant='primary' className="me-1" onClick={() => props.onBookingMade(props.booking)} disabled={getPageId != 4}>Confirm booking</Button>
+        <Button variant='primary' className="me-1" onClick={() => props.onBookingMade(props.booking)} disabled={false}>Confirm booking</Button>
         <Button variant='light' onClick={() => props.onCancelBooking()}>Cancel</Button>
       </div>
 
@@ -44,20 +36,12 @@ function InputBookingDetails(props) {
 
       <LogIn show={getShowLogIn} onCancel={() => setShowLogIn(false)} onLogIn={onLogIn} description='Log in to use your preferences'></LogIn >
 
-      <div class="mt-5">
-        <Row>
-          <Col className="p-3 border rounded-3">
-
-            <Button className="me-1" variant="light" size="sm" onClick={prevPage} disabled={getPageId == 1}>Previous</Button>
-            <Button variant='light' size="sm" onClick={nextPage} disabled={getPageId == 4}>Next</Button>
-
-            <div className="mt-3">
-              <InputBookingDetailsPages pageId={getPageId} />
-            </div>
-          </Col>
-          <Col xs={2}></Col>
-        </Row>
-      </div>
+      <Row className="mt-5">
+        <Col>
+          <InputBookingDetailsPages pageId={getPageId} />
+        </Col>
+        <Col xs={2}></Col>
+      </Row>
     </>
   );
 }

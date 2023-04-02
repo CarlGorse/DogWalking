@@ -5,7 +5,6 @@ function SelectService() {
 
   return (
     <>
-      <b>Select service:</b>
       <Row className="mt-1">
         <Col xs={3}>Service:</Col>
         <Col xs={6}>
