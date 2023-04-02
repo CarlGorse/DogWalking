@@ -21,13 +21,13 @@ function InputBookingDetails(props) {
 
   return (
     <>
-      <div class="pt-5">
+      <div className="pt-5">
         <Summary booking={props.booking} />
       </div >
 
       <Cost cost={props.booking.cost} />
 
-      <div class="pt-5">
+      <div className="pt-5">
         <Button variant='primary' className="me-1" onClick={() => props.onBookingMade(props.booking)} disabled={!getConfirmBookingEnabled}>Confirm booking</Button>
         <Button variant='light' onClick={() => props.onCancelBooking()}>Cancel</Button>
       </div>

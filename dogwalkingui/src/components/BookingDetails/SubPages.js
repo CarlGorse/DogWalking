@@ -3,7 +3,7 @@ import AboutYou from 'components/BookingDetails/AboutYou';
 import AboutYourDog from 'components/BookingDetails/AboutYourDog';
 import Options from 'components/BookingDetails/Options';
 import SelectService from 'components/BookingDetails/SelectService';
-import SubPageHeader from '../../features/AdhocBooking/InputBookingDetails/SubPages/SubPageHeader';
+import SubPageHeader from 'features/AdhocBooking/InputBookingDetails/SubPages/SubPageHeader';
 import { useState } from 'react';
 
 function SubPages(props) {
