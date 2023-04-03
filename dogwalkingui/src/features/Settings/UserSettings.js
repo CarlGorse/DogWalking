@@ -10,9 +10,9 @@ function UserSettings(props) {
 
       <p>You can change your own settings here.</p>
 
-      <Row className="mt-5">
-        <Col>
-          <BookingDetails onSetInputs={isComplete => { }} />
+      <Row className='mt-5 justify-content-center'>
+        <Col xs={6}>
+          <BookingDetails onSetInputs={() => { }} />
         </Col>
         <Col xs={2}></Col>
       </Row>

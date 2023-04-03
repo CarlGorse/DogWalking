@@ -1,7 +1,9 @@
+import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import ConfirmationModal from './Components/ConfirmationModal';
 import { bookTimeslots } from "functions/BookingLogic";
 import InputBookingDetails from "./Components/InputBookingDetails/InputBookingDetails";
+import Row from 'react-bootstrap/Row';
 import SelectTimeslots from "./Components/SelectTimeslots/SelectTimeslots";
 import { timeslotData } from 'components/Data/TimeslotData';
 import { useEffect, useRef, useState } from 'react';
@@ -46,7 +48,7 @@ function Page() {
   }
 
   var bookingConfirmationModal;
-  var timeslotsPage;
+  var selectTimeslots;
   var inputBookingDetails;
 
   if (getShowModal) {
@@ -54,16 +56,16 @@ function Page() {
   }
 
   if (getPageState == 'timeslots') {
-    timeslotsPage = <SelectTimeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
+    selectTimeslots = <SelectTimeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
   }
   else {
     inputBookingDetails = <InputBookingDetails booking={currentBooking.current} onBookingMade={(booking) => onBookingMade(booking)} onCancelBooking={onCancelBooking} />
   }
 
   return (
-    <Container>
+    <Container className='mt-5'>
       {bookingConfirmationModal}
-      {timeslotsPage}
+      {selectTimeslots}
       {inputBookingDetails}
     </Container>
   )

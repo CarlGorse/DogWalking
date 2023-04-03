@@ -1,10 +1,13 @@
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import { createBooking, getSelectedTimeslots, selectTimeslots } from "functions/BookingLogic";
 import DatePicker from "components/DateTimePickers/DatePicker";
+import Row from 'react-bootstrap/Row';
 import TimeslotList from './TimeslotList/TimeslotList';
 import { useEffect, useState } from 'react';
 
-function Timeslots(props) {
+function SelectTimeslots(props) {
 
   const [getTimeslots, setTimeslots] = useState([]);
 
@@ -40,14 +43,27 @@ function Timeslots(props) {
   }
 
   return (
-    <>
-      <DatePicker date={new Date()} onSetDate={onSetFilterDate} />
+    <Container>
 
-      <Button className="mt-2" variant='primary' onClick={book} disabled={!canBook()}>Book</Button>
+      <Row className='justify-content-center'>
+        <Col xs={4}>
+          <DatePicker date={new Date()} onSetDate={onSetFilterDate} />
+        </Col>
+      </Row>
 
-      <TimeslotList timeslots={getTimeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
-    </>
+      <Row className='justify-content-center'>
+        <Col xs={4}>
+          <Button className="mt-2" variant='primary' onClick={book} disabled={!canBook()}>Book</Button>
+        </Col>
+      </Row>
+
+      <Row className='justify-content-center mt-3'>
+        <Col xs={4} >
+          <TimeslotList timeslots={getTimeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
-export default Timeslots;
+export default SelectTimeslots;
