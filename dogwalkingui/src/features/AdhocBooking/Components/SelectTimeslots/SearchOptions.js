@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 
-function BookingsSearchFilter() {
+function SearchOptions() {
 
   return (
     <Container>
@@ -35,4 +35,4 @@ function BookingsSearchFilter() {
   );
 }
 
-export default BookingsSearchFilter;
+export default SearchOptions;

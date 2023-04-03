@@ -1,12 +1,10 @@
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import DatePicker from "components/DateTimePickers/DatePicker";
 import { createBooking, getSelectedTimeslots, selectTimeslots } from "functions/BookingLogic";
-import TimeslotList from 'components/Timeslot/TimeslotList';
+import DatePicker from "components/DateTimePickers/DatePicker";
+import TimeslotList from './TimeslotList/TimeslotList';
 import { useEffect, useState } from 'react';
 
-function TimeslotsPage(props) {
+function Timeslots(props) {
 
   const [getTimeslots, setTimeslots] = useState([]);
 
@@ -43,8 +41,6 @@ function TimeslotsPage(props) {
 
   return (
     <>
-      <p>Worlde:</p>
-
       <DatePicker date={new Date()} onSetDate={onSetFilterDate} />
 
       <Button className="mt-2" variant='primary' onClick={book} disabled={!canBook()}>Book</Button>
@@ -54,4 +50,4 @@ function TimeslotsPage(props) {
   );
 }
 
-export default TimeslotsPage;
+export default Timeslots;

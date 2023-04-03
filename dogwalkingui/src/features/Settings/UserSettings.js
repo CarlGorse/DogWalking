@@ -1,5 +1,5 @@
+import BookingDetails from 'components/BookingDetails/BookingDetails';
 import Col from 'react-bootstrap/Col';
-import SubPages from 'components/BookingDetails/SubPages';
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 
@@ -12,7 +12,7 @@ function UserSettings(props) {
 
       <Row className="mt-5">
         <Col>
-          <SubPages onSetInputs={isComplete => { }} />
+          <BookingDetails onSetInputs={isComplete => { }} />
         </Col>
         <Col xs={2}></Col>
       </Row>

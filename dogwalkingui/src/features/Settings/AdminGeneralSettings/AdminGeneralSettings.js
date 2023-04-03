@@ -1,6 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import React from 'react';
-import Setting from './Setting';
+import Setting from './Components/Setting';
 
 function AdminGeneralSettings(props) {
 

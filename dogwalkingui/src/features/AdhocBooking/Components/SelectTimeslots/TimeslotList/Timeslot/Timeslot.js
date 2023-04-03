@@ -1,10 +1,9 @@
 import BookingsDetails from './BookingDetails';
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import TimeslotSelector from 'components/Timeslot/TimeslotSelector';
+import Selector from './Selector/Selector';
 
-function Page(props) {
+function Timeslot(props) {
 
   var bookingDetails;
   if (hasBooking() && isFirstTimeslotForBooking()) {
@@ -23,11 +22,11 @@ function Page(props) {
 
     <Row key={props.id} className='justify-content-center'>
       <Col xs={2}>
-        <TimeslotSelector
+        <Selector
           handleOnClick={(isSelected) => props.handleOnSelectTimeslot(props.timeslot.id, isSelected)}
           timeslot={props.timeslot}
           text={props.timeslot.startTime + ' - ' + props.timeslot.endTime}>
-        </TimeslotSelector>
+        </Selector>
       </Col>
       <Col xs={6}>
         {bookingDetails}
@@ -37,4 +36,4 @@ function Page(props) {
   );
 }
 
-export default Page;
+export default Timeslot;
