@@ -45,19 +45,19 @@ function SelectTimeslots(props) {
   return (
     <Container>
 
-      <Row className='justify-content-center'>
+      <Row>
         <Col xs={4}>
           <DatePicker date={new Date()} onSetDate={onSetFilterDate} />
         </Col>
       </Row>
 
-      <Row className='justify-content-center'>
+      <Row>
         <Col xs={4}>
           <Button className="mt-2" variant='primary' onClick={book} disabled={!canBook()}>Book</Button>
         </Col>
       </Row>
 
-      <Row className='justify-content-center mt-3'>
+      <Row className='mt-3'>
         <Col xs={4} >
           <TimeslotList timeslots={getTimeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
         </Col>
