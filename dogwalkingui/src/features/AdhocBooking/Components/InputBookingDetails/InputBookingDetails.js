@@ -21,7 +21,7 @@ function InputBookingDetails(props) {
 
   return (
     <>
-      <div className="pt-5">
+      <div className="pt-0">
         <Summary booking={props.booking} />
       </div >
 
