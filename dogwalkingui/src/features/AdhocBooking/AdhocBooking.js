@@ -1,9 +1,7 @@
-import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import ConfirmationModal from './Components/ConfirmationModal';
 import { bookTimeslots } from "functions/BookingLogic";
 import InputBookingDetails from "./Components/InputBookingDetails/InputBookingDetails";
-import Row from 'react-bootstrap/Row';
 import SelectTimeslots from "./Components/SelectTimeslots/SelectTimeslots";
 import { timeslotData } from 'components/Data/TimeslotData';
 import { useEffect, useRef, useState } from 'react';

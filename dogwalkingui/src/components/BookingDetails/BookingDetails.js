@@ -23,7 +23,7 @@ function BookingDetails(props) {
   props.onSetInputs(isComplete);
 
   return (
-    <Accordion flush>
+    <Accordion flush alwaysOpen>
       <Accordion.Item eventKey="0">
         <PageHeader title="Select service" isComplete={getSelectServiceIsComplete} />
         <Accordion.Body>

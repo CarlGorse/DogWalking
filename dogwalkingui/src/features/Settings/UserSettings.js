@@ -14,7 +14,6 @@ function UserSettings(props) {
         <Col xs={6}>
           <BookingDetails onSetInputs={() => { }} />
         </Col>
-        <Col xs={2}></Col>
       </Row>
     </>
   );
