@@ -1,4 +1,5 @@
 import Col from 'react-bootstrap/Col';
+import Select from 'components/Forms/Select';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
@@ -21,17 +22,20 @@ function Name(props) {
     <Row className="mt-1">
       <Col xs={3}>Size:</Col>
       <Col xs={6}>
-        <select
+        <Select
           //value={getValue}
           defaultValue='Please select'
           onChange={e => changeValue(e.target.value)}
-        >
-          <option>Please select</option>
-          <option>Toy</option>
-          <option>Small</option>
-          <option>Medium</option>
-          <option>Large</option>
-        </select>
+          options={
+            <>
+              <option>Please select</option>
+              <option>Toy</option>
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+            </>
+          }
+        />
       </Col>
       <Col></Col>
     </Row>

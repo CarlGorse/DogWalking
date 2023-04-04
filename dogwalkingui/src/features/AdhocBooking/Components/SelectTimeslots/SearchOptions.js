@@ -1,9 +1,9 @@
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import DatePicker from "./DatePicker";
-import Form from 'react-bootstrap/Form';
 import React from 'react';
 import Row from 'react-bootstrap/Row';
+import Select from 'components/Forms/Select';
 
 function SearchOptions() {
 
@@ -12,11 +12,14 @@ function SearchOptions() {
       <Row className="justify-content-md-center">
         <Col xs={6}>Area</Col>
         <Col xs={6}>
-          <Form.Select>
-            <option>Midsomer Norton</option>
-            <option>Keynsham</option>
-            <option>Bristol</option>
-          </Form.Select>
+          <Select options={
+            <>
+              <option>Midsomer Norton</option>
+              <option>Keynsham</option>
+              <option>Bristol</option>
+            </>
+          }
+          />
         </Col>
       </Row>
       <Row className="justify-content-md-center">
@@ -31,7 +34,7 @@ function SearchOptions() {
           <DatePicker />
         </Col>
       </Row>
-    </Container>
+    </Container >
   );
 }
 

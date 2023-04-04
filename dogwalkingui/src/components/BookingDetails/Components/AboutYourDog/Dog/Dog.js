@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import CanBeOffLead from './Components/CanBeOffLead'
 import Col from 'react-bootstrap/Col';
 import Comments from './Components/Comments'
+import Form from 'react-bootstrap/Form';
 import Name from './Components/Name'
 import Row from 'react-bootstrap/Row';
 import Size from './Components/Size';

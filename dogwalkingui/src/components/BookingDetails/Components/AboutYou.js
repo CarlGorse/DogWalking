@@ -1,4 +1,5 @@
 import Col from 'react-bootstrap/Col';
+import Input from 'components/Forms/Input';
 import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
 
@@ -40,10 +41,8 @@ function AboutYou(props) {
       <Row className="mt-1">
         <Col xs={3}>Name:</Col>
         <Col xs={9}>
-          <input
-            style={{ width: "100%" }}
+          <Input
             value={getName}
-            type='textbox'
             placeholder="Your name"
             onInput={e => onSetName(e.target.value)}
           />
@@ -53,10 +52,9 @@ function AboutYou(props) {
       <Row className="mt-1">
         <Col xs={3}>Post code:</Col>
         <Col xs={2}>
-          <input
+          <Input
             style={{ width: "100%" }}
             value={getPostCode}
-            type='textbox'
             placeholder="AA1 1AA"
             onInput={e => onSetPostCode(e.target.value)}
           />
@@ -66,10 +64,8 @@ function AboutYou(props) {
       <Row className="mt-1">
         <Col xs={3}>Property number/name:</Col>
         <Col xs={4}>
-          <input
-            style={{ width: "100%" }}
+          <Input
             value={getPropertyNumberName}
-            type='textbox'
             onInput={e => onSetPropertyNumberName(e.target.value)}
           />
         </Col>
@@ -78,10 +74,8 @@ function AboutYou(props) {
       <Row className="mt-1">
         <Col xs={3}>Location details:</Col>
         <Col xs={9}>
-          <input
-            style={{ width: "100%" }}
+          <Input
             value={getLocationDetails}
-            type='textbox'
             placeholder="Any other details that will help to locate you"
             onInput={e => onSetLocationDetails(e.target.value)}
           />

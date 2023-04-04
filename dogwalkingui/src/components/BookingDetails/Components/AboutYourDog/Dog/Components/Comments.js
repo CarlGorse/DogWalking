@@ -1,6 +1,7 @@
 import Col from 'react-bootstrap/Col';
+import Input from 'components/Forms/Input';
 import Row from 'react-bootstrap/Row';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 function Comments(props) {
 
@@ -21,11 +22,9 @@ function Comments(props) {
     <Row className="mt-1">
       <Col xs={3}>Comments:</Col>
       <Col xs={6}>
-        <input
-          type='textbox'
+        <Input
           placeholder="e.g. any relevent behaviours"
           //value={getValue}
-          style={{ width: "100%" }}
           onInput={e => changeValue(e.target.value)}
         />
       </Col>

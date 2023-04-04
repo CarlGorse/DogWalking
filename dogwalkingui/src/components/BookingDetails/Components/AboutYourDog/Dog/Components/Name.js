@@ -1,6 +1,7 @@
 import Col from 'react-bootstrap/Col';
+import Input from 'components/Forms/Input';
 import Row from 'react-bootstrap/Row';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 function Name(props) {
 
@@ -21,9 +22,7 @@ function Name(props) {
     <Row className="mt-1">
       <Col xs={3}>Name:</Col>
       <Col xs={6}>
-        <input
-          type='textbox'
-          style={{ width: "100%" }}
+        <Input
           //value={getValue}
           placeholder="Your dog's name"
           onChange={e => changeValue(e.target.value)}

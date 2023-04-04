@@ -1,6 +1,7 @@
 import Col from 'react-bootstrap/Col';
+import Select from 'components/Forms/Select';
 import Row from 'react-bootstrap/Row';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 function Breed(props) {
 
@@ -21,17 +22,19 @@ function Breed(props) {
     <Row className="mt-1">
       <Col xs={3}>Breed:</Col>
       <Col xs={6}>
-        <select
+        <Select
           //value={getValue}
           defaultValue='Please select'
           onChange={e => changeValue(e.target.value)}
-        >
-          <option>Please select</option>
-          <option>Cockapoo</option>
-          <option>Spaniel</option>
-          <option>Labrador</option>
-          <option>Other</option>
-        </select>
+          options={<>
+            <option>Please select</option>
+            <option>Cockapoo</option>
+            <option>Spaniel</option>
+            <option>Labrador</option>
+            <option>Other</option>
+          </>
+          }
+        />
       </Col>
       <Col></Col>
     </Row>

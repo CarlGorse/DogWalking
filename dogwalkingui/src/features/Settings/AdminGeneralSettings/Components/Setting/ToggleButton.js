@@ -11,7 +11,9 @@ function ToggleButton(props) {
     <Form>
       <Form.Check onClick={handleClick}
         type="switch"
-        label={isOn ? props.onText : props.offText}
+        isOn={isOn}
+        onText={props.onText}
+        offText={props.offText}
         defaultChecked={isOn}
       />
     </Form>
