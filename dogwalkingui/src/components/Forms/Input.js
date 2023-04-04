@@ -7,7 +7,7 @@ function Input(props) {
             size='sm'
             value={props.value}
             placeholder={props.placeholder}
-            onInput={props.onInput}
+            onChange={props.onChange}
         />
     );
 }

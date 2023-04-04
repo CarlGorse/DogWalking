@@ -14,7 +14,6 @@ function AboutYourDog(props) {
   }, []);
 
   var isComplete = false;
-  console.log(getDogs);
   if (getDogs?.length > 0) {
 
     let validDogs = getDogs.filter(dog =>
