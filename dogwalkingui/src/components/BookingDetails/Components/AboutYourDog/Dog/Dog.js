@@ -27,14 +27,11 @@ function Dog(props) {
     </Button> : undefined;
 
   return (
-    <div className="p-3 mb-1 border">
+    <div className="p-3 mb-1 border-top">
 
       <Row className="mt-1">
-        <Col xs={3}>
-
-        </Col>
-        <Col xs={6}></Col>
-        <Col>{removeDogButton}</Col>
+        <Col xs={3} />
+        <Col xs={6}>{removeDogButton}</Col>
       </Row>
 
       <Name dog={props.dog} updateDog={updateDog} onSetInput={isComplete => setNameIsComplete(isComplete)} />

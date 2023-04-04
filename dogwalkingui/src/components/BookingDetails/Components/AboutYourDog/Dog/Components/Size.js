@@ -1,6 +1,6 @@
 import Col from 'react-bootstrap/Col';
-import Select from 'components/Forms/Select';
 import Row from 'react-bootstrap/Row';
+import Select from 'components/Forms/Select';
 import { useEffect, useState } from 'react';
 
 function Name(props) {
@@ -21,7 +21,7 @@ function Name(props) {
   return (
     <Row className="mt-1">
       <Col xs={3}>Size:</Col>
-      <Col xs={6}>
+      <Col xs={3}>
         <Select
           //value={getValue}
           defaultValue='Please select'

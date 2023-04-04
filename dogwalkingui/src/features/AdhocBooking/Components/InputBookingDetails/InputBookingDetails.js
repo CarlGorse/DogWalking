@@ -37,10 +37,9 @@ function InputBookingDetails(props) {
       <LogIn show={getShowLogIn} onCancel={() => setShowLogIn(false)} onLogIn={onLogIn} description='Log in to use your preferences'></LogIn >
 
       <Row className="mt-5">
-        <Col>
+        <Col xs={9}>
           <BookingDetails onSetInputs={isComplete => setConfirmBookingEnabled(isComplete)} />
         </Col>
-        <Col xs={2}></Col>
       </Row>
     </>
   );

@@ -21,7 +21,7 @@ function Name(props) {
   return (
     <Row className="mt-1">
       <Col xs={3}>Name:</Col>
-      <Col xs={6}>
+      <Col xs={9}>
         <Input
           //value={getValue}
           placeholder="Your dog's name"

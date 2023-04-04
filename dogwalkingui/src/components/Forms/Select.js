@@ -1,11 +1,14 @@
-import Input from 'components/Forms/Input';
+import Form from 'react-bootstrap/Form';
 
 function Select(props) {
 
     return (
-        <Input defaultValue={props.defaultralue} onChange={props.onChange}>
+        <Form.Select
+            size='sm'
+            defaultValue={props.defaultralue}
+            onChange={props.onChange}>
             {props.options}
-        </Input>
+        </Form.Select>
     );
 }
 

@@ -22,7 +22,7 @@ function CanBeLetOffLead(props) {
   return (
     <Row className="mt-1">
       <Col xs={3}>Can be let off the lead?: <InputHint hint="Can your dog be left off the lead in a park or countryside?" /></Col>
-      <Col xs={6}>
+      <Col xs={3}>
         <Select
           //value={getValue}
           defaultValue='Please select'

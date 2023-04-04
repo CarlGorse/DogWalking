@@ -21,7 +21,7 @@ function Comments(props) {
   return (
     <Row className="mt-1">
       <Col xs={3}>Comments:</Col>
-      <Col xs={6}>
+      <Col xs={9}>
         <Input
           placeholder="e.g. any relevent behaviours"
           //value={getValue}

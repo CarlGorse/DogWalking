@@ -63,7 +63,7 @@ function AboutYou(props) {
       </Row>
       <Row className="mt-1">
         <Col xs={3}>Property number/name:</Col>
-        <Col xs={4}>
+        <Col xs={9}>
           <Input
             value={getPropertyNumberName}
             onInput={e => onSetPropertyNumberName(e.target.value)}

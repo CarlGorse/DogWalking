@@ -21,7 +21,7 @@ function Breed(props) {
   return (
     <Row className="mt-1">
       <Col xs={3}>Breed:</Col>
-      <Col xs={6}>
+      <Col xs={3}>
         <Select
           //value={getValue}
           defaultValue='Please select'
