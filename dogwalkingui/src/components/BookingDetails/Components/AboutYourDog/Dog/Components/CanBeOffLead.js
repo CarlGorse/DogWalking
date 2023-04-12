@@ -10,7 +10,7 @@ function CanBeLetOffLead(props) {
 
   useEffect(() => {
     setValue(props.dog.canBeOffLead);
-  }, []);
+  }, [props.dog.canBeOffLead]);
 
   function changeValue(value) {
     setValue(value);

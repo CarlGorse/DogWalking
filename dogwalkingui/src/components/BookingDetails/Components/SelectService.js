@@ -11,11 +11,11 @@ function SelectService(props) {
   useEffect(() => {
     setService(props.data?.service ?? '');
     setTypeOfWalk(props.data?.typeOfWalk ?? '');
-  }, [])
+  }, [props.data?.service, props.data?.typeOfWalk])
 
   var isComplete = false;
-  if ((getService.length > 0 && getService != 'Please select')
-    && (getTypeOfWalk.length > 0 && getTypeOfWalk != 'Please select')) {
+  if ((getService.length > 0 && getService !== 'Please select')
+    && (getTypeOfWalk.length > 0 && getTypeOfWalk !== 'Please select')) {
     isComplete = true;
   }
   props.onSetInputs(isComplete);

@@ -10,24 +10,25 @@ function AdminPlannedLocationsList(props) {
   const [getData, setData] = useState(null);
   const [getShowModal, setShowModal] = useState(false);
 
-  const startData = [
-    {
-      id: 1,
-      date: Date.parse('07/21/2023'),
-      startTime: Date.parse('01/01/2001 09:00:00'),
-      endTime: Date.parse('01/01/2001 14:00:00'),
-      location: 'Midsomer Norton'
-    },
-    {
-      id: 2,
-      date: Date.parse('08/21/2023'),
-      startTime: Date.parse('01/01/2001 13:00:00'),
-      endTime: Date.parse('01/01/2001 16:00:00'),
-      location: 'Midsomer Norton'
-    },
-  ];
-
   useEffect(() => {
+
+    const startData = [
+      {
+        id: 1,
+        date: Date.parse('07/21/2023'),
+        startTime: Date.parse('01/01/2001 09:00:00'),
+        endTime: Date.parse('01/01/2001 14:00:00'),
+        location: 'Midsomer Norton'
+      },
+      {
+        id: 2,
+        date: Date.parse('08/21/2023'),
+        startTime: Date.parse('01/01/2001 13:00:00'),
+        endTime: Date.parse('01/01/2001 16:00:00'),
+        location: 'Midsomer Norton'
+      },
+    ];
+
     setData(startData);
   }, []);
 
@@ -37,7 +38,7 @@ function AdminPlannedLocationsList(props) {
 
   function deleteRecordHandler2(id) {
     setData(getData.filter(function (record) {
-      return record.id != id;
+      return record.id !== id;
     }));
   }
 

@@ -9,7 +9,7 @@ function Comments(props) {
 
   useEffect(() => {
     setValue(props.dog.comments ?? '');
-  }, []);
+  }, [props.dog.comments]);
 
   function changeValue(value) {
     setValue(value);

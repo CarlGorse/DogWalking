@@ -33,7 +33,7 @@ function SelectTimeslots(props) {
 
   // Doesn't work as filter removes timeslots from parent state! probably need to "reload" timeslots data
   function setTimeslotFilter(thisFilterDate) {
-    var filteredTimeslots = getTimeslots.filter(timeslot => timeslot.date == thisFilterDate.toLocaleDateString("en-GB"));
+    var filteredTimeslots = getTimeslots.filter(timeslot => timeslot.date = thisFilterDate.toLocaleDateString("en-GB"));
     updateTimeslotsState(filteredTimeslots);
   }
 

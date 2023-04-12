@@ -11,10 +11,10 @@ function AboutYourDog(props) {
   useEffect(() => {
     setDogs(props.data);
     //addDog();
-  }, []);
+  }, [props.data]);
 
   useEffect(() => {
-    if (getDogs.length == 0) {
+    if (getDogs.length === 0) {
       //addDog();
     }
   }, [getDogs]);
@@ -23,11 +23,11 @@ function AboutYourDog(props) {
   if (getDogs?.length > 0) {
     let validDogs = getDogs.filter(dog =>
       dog.name?.length > 0
-      && dog.breed?.length > 0 && dog.breed != 'Please select'
-      && dog.size?.length > 0 && dog.size != 'Please select'
-      && dog.canBeOffLead?.length > 0 && dog.canBeOffLead != 'Please select');
+      && dog.breed?.length > 0 && dog.breed !== 'Please select'
+      && dog.size?.length > 0 && dog.size !== 'Please select'
+      && dog.canBeOffLead?.length > 0 && dog.canBeOffLead !== 'Please select');
 
-    if (validDogs.length == getDogs.length) {
+    if (validDogs.length === getDogs.length) {
       isComplete = true;
     }
   }
@@ -35,7 +35,7 @@ function AboutYourDog(props) {
 
   function updateDog(dog) {
     var dogs = Array.from(getDogs);
-    var index = dogs.findIndex(x => x.id == dog.id);
+    var index = dogs.findIndex(x => x.id === dog.id);
     dogs[index].name = dog.name
     dogs[index].breed = dog.breed
     dogs[index].size = dog.size
@@ -48,7 +48,7 @@ function AboutYourDog(props) {
   function addDog() {
 
     var newId;
-    if (getDogs.length == 0) {
+    if (getDogs.length === 0) {
       newId = 0;
     }
     else {
@@ -59,7 +59,7 @@ function AboutYourDog(props) {
   }
 
   function removeDog(dogId) {
-    var newDogs = getDogs.filter(dog => dog.id != dogId);
+    var newDogs = getDogs.filter(dog => dog.id !== dogId);
     setDogs(newDogs);
   }
 

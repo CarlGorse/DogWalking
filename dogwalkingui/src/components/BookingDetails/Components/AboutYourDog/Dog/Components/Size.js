@@ -9,7 +9,7 @@ function Name(props) {
 
   useEffect(() => {
     setValue(props.dog.size);
-  }, []);
+  }, [props.dog.size]);
 
   function changeValue(value) {
     setValue(value);

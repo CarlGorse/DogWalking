@@ -10,10 +10,10 @@ function Options(props) {
 
   useEffect(() => {
     setCanAnotherDogJoin(props.data?.canOtherDogJoin ?? '');
-  }, [])
+  }, [props.data?.canOtherDogJoin])
 
   var isComplete = false;
-  if (getCanAnotherDogJoin != 'Please select') {
+  if (getCanAnotherDogJoin !== 'Please select') {
     isComplete = true;
   }
   props.onSetInputs(isComplete);

@@ -9,7 +9,7 @@ function Breed(props) {
 
   useEffect(() => {
     setValue(props.dog.breed ?? '');
-  }, [])
+  }, [props.dog.breed])
 
   function changeValue(value) {
     setValue(value);
