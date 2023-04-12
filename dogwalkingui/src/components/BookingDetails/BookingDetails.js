@@ -27,25 +27,37 @@ function BookingDetails(props) {
       <Accordion.Item eventKey="0">
         <PageHeader title="Select service" isComplete={getSelectServiceIsComplete} />
         <Accordion.Body>
-          <SelectService onSetInputs={(isComplete) => setSelectServiceIsComplete(isComplete)} />
+          <SelectService
+            data={props.data?.selectService}
+            onSetInputs={(isComplete) => setSelectServiceIsComplete(isComplete)}
+          />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="1">
         <PageHeader title="About you" isComplete={getAboutYouIsComplete} />
         <Accordion.Body>
-          <AboutYou onSetInputs={(isComplete) => setAboutYouIsComplete(isComplete)} />
+          <AboutYou
+            data={props.data?.aboutYou}
+            onSetInputs={(isComplete) => setAboutYouIsComplete(isComplete)}
+          />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="2">
         <PageHeader title="About your dog(s)" isComplete={getAboutYourDogIsComplete} />
         <Accordion.Body>
-          <AboutYourDog onSetInputs={(isComplete) => setAboutYourDogIsComplete(isComplete)} />
+          <AboutYourDog
+            data={props.data?.aboutYourDogs}
+            onSetInputs={(isComplete) => setAboutYourDogIsComplete(isComplete)}
+          />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="3">
         <PageHeader title="Options" isComplete={getOptionsIsComplete} />
         <Accordion.Body>
-          <Options onSetInputs={(isComplete) => setOptionsIsComplete(isComplete)} />
+          <Options
+            data={props.data?.options}
+            onSetInputs={(isComplete) => setOptionsIsComplete(isComplete)}
+          />
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>

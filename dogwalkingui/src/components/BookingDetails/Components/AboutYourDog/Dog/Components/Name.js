@@ -1,20 +1,18 @@
 import Col from 'react-bootstrap/Col';
 import Input from 'components/Forms/Input';
 import Row from 'react-bootstrap/Row';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function Name(props) {
 
-  //const [getValue, setValue] = useState('');
-
-  //props.updateDog({ ...props.dog, ...{ name: getValue } });
+  const [getValue, setValue] = useState('');
 
   useEffect(() => {
-    //setValue(props.dog.name);
+    setValue(props.dog.name);
   }, []);
 
   function changeValue(value) {
-    //setValue(value);
+    setValue(value);
     props.updateDog({ ...props.dog, ...{ name: value } });
   }
 
@@ -23,7 +21,7 @@ function Name(props) {
       <Col xs={3}>Name:</Col>
       <Col xs={9}>
         <Input
-          //value={getValue}
+          value={getValue}
           placeholder="Your dog's name"
           onChange={e => changeValue(e.target.value)}
         />

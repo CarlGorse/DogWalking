@@ -1,20 +1,18 @@
 import Col from 'react-bootstrap/Col';
 import Input from 'components/Forms/Input';
 import Row from 'react-bootstrap/Row';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function Comments(props) {
 
-  //const [getValue, setValue] = useState('');
-
-  //props.updateDog({ ...props.dog, ...{ comments: getValue } });
+  const [getValue, setValue] = useState('');
 
   useEffect(() => {
-    //setValue(props.dog.comments);
+    setValue(props.dog.comments ?? '');
   }, []);
 
   function changeValue(value) {
-    //setValue(value);
+    setValue(value);
     props.updateDog({ ...props.dog, ...{ comments: value } });
   }
 
@@ -24,7 +22,7 @@ function Comments(props) {
       <Col xs={9}>
         <Input
           placeholder="e.g. any relevent behaviours"
-          //value={getValue}
+          value={getValue}
           onInput={e => changeValue(e.target.value)}
         />
       </Col>

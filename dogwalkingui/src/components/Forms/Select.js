@@ -5,7 +5,7 @@ function Select(props) {
     return (
         <Form.Select
             size='sm'
-            defaultValue={props.defaultralue}
+            value={props.defaultValue}
             onChange={props.onChange}>
             {props.options}
         </Form.Select>

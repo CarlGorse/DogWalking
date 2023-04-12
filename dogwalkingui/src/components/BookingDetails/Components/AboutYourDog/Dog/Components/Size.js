@@ -7,14 +7,12 @@ function Name(props) {
 
   const [getValue, setValue] = useState('');
 
-  //props.updateDog({ ...props.dog, ...{ size: getValue } });
-
   useEffect(() => {
-    //setValue(props.dog.size);
+    setValue(props.dog.size);
   }, []);
 
   function changeValue(value) {
-    //setValue(value);
+    setValue(value);
     props.updateDog({ ...props.dog, ...{ size: value } });
   }
 
@@ -23,8 +21,7 @@ function Name(props) {
       <Col xs={3}>Size:</Col>
       <Col xs={3}>
         <Select
-          //value={getValue}
-          defaultValue='Please select'
+          defaultValue={getValue}
           onChange={e => changeValue(e.target.value)}
           options={
             <>

@@ -1,13 +1,14 @@
-const userSettings = [
-  {
-    selectService: { service: null },
-    aboutYou: {},
-    aboutYourDogs: [
-      { name: 'Alfie', breed: 'cockapoo', size: 'medium', canBeOffLead: true, comments: null },
-      { name: 'River', breed: 'kingCharles', size: 'small', canBeOffLead: false, comments: 'Shits a lot.' }
-    ],
-    options: { otherDogCanJoin: true }
-  },
-];
+const userSettings =
+{
+  selectService: { typeOfWalk: 'Any' },
+  aboutYou: { name: 'Carl', postCode: 'BA1 1AA', locationDetails: 'I live on a hill.' },
+  aboutYourDogs: [
+    { name: 'Alfie', breed: 'Cockapoo', size: 'Medium', canBeOffLead: 'Either', comments: null },
+    { name: 'River', breed: 'KingCharles', size: 'Small', canBeOffLead: 'No', comments: 'Shits a lot.' }
+  ],
+  options: {
+    canOtherDogJoin: 'Yes'
+  }
+};
 
 export { userSettings };

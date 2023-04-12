@@ -2,22 +2,24 @@ import Col from 'react-bootstrap/Col';
 import Select from 'components/Forms/Select';
 import InputHint from './InputHint';
 import Row from 'react-bootstrap/Row';
+import { useEffect, useState } from 'react';
 
 function Options(props) {
 
-  var canAnotherDogJoin;
+  const [getCanAnotherDogJoin, setCanAnotherDogJoin] = useState('Please select');
 
-  function onSetInputs() {
-    var isComplete = false;
-    if (canAnotherDogJoin != 'Please select') {
-      isComplete = true;
-    }
-    props.onSetInputs(isComplete);
+  useEffect(() => {
+    setCanAnotherDogJoin(props.data?.canOtherDogJoin ?? '');
+  }, [])
+
+  var isComplete = false;
+  if (getCanAnotherDogJoin != 'Please select') {
+    isComplete = true;
   }
+  props.onSetInputs(isComplete);
 
-  function setCanAnotherDogJoin(value) {
-    canAnotherDogJoin = value;
-    onSetInputs();
+  function onSetCanAnotherDogJoin(value) {
+    setCanAnotherDogJoin(value);
   }
 
   return (
@@ -25,7 +27,7 @@ function Options(props) {
     <Row className="mt-0">
       <Col xs={3}>Can another dog join us?: <InputHint hint="Select Yes if you don't mind whether another dog joins our walk. Your cost will be reduced. Otherwise select No." /></Col>
       <Col xs={4}>
-        <Select defaultValue='Please select' onChange={e => setCanAnotherDogJoin(e.target.value)}
+        <Select defaultValue={getCanAnotherDogJoin} onChange={e => onSetCanAnotherDogJoin(e.target.value)}
           options={
             <>
               <option>Please select</option>

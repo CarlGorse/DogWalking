@@ -1,7 +1,7 @@
 import Col from 'react-bootstrap/Col';
 import Input from 'components/Forms/Input';
 import Row from 'react-bootstrap/Row';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function AboutYou(props) {
 
@@ -9,6 +9,13 @@ function AboutYou(props) {
   const [getPostCode, setPostCode] = useState('');
   const [getPropertyNumberName, setPropertyNumberName] = useState('');
   const [getLocationDetails, setLocationDetails] = useState('');
+
+  useEffect(() => {
+    setName(props.data?.name ?? '');
+    setPostCode(props.data?.postCode ?? '');
+    setPropertyNumberName(props.data?.propertyNumberName ?? '');
+    setLocationDetails(props.data?.locationDetails ?? '');
+  }, [])
 
   var isComplete = false;
   if (

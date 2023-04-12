@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button';
 import CanBeOffLead from './Components/CanBeOffLead'
 import Col from 'react-bootstrap/Col';
 import Comments from './Components/Comments'
-import Form from 'react-bootstrap/Form';
 import Name from './Components/Name'
 import Row from 'react-bootstrap/Row';
 import Size from './Components/Size';
@@ -11,11 +10,11 @@ import { useState } from 'react';
 
 function Dog(props) {
 
-  const [getNameIsComploete, setNameIsComplete] = useState(false);
-  const [getBreedIsComplete, setBreedIsComplete] = useState(false);
-  const [getSizeIsComplete, setSizeIsComplete] = useState(false);
-  const [getCanBeOffLeadIsComplete, setCanBeOffLeadIsComplete] = useState(false);
-  const [getCommentsIsComplete, setCommentsIsComplete] = useState(false);
+  const setNameIsComplete = useState(false)[1];
+  const setBreedIsComplete = useState(false)[1];
+  const setSizeIsComplete = useState(false)[1];
+  const setCanBeOffLeadIsComplete = useState(false)[1];
+  const setCommentsIsComplete = useState(false)[1];
 
   function updateDog(dog) {
     props.updateDog(dog);

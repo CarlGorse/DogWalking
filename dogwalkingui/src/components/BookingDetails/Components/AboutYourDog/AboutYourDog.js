@@ -9,24 +9,23 @@ function AboutYourDog(props) {
   const [getDogs, setDogs] = useState([]);
 
   useEffect(() => {
-    setDogs([]);
+    setDogs(props.data);
     //addDog();
   }, []);
 
   useEffect(() => {
     if (getDogs.length == 0) {
-      addDog();
+      //addDog();
     }
   }, [getDogs]);
 
   var isComplete = false;
   if (getDogs?.length > 0) {
-
     let validDogs = getDogs.filter(dog =>
       dog.name?.length > 0
-      && dog.breed != 'Please select'
-      && dog.size != 'Please select'
-      && dog.canBeOffLead != 'Please select');
+      && dog.breed?.length > 0 && dog.breed != 'Please select'
+      && dog.size?.length > 0 && dog.size != 'Please select'
+      && dog.canBeOffLead?.length > 0 && dog.canBeOffLead != 'Please select');
 
     if (validDogs.length == getDogs.length) {
       isComplete = true;

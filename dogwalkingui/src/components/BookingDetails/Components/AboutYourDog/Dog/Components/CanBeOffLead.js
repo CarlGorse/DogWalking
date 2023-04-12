@@ -2,20 +2,18 @@ import Col from 'react-bootstrap/Col';
 import InputHint from '../../../InputHint';
 import Row from 'react-bootstrap/Row';
 import Select from 'components/Forms/Select';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function CanBeLetOffLead(props) {
 
-  //const [getValue, setValue] = useState('');
-
-  //props.updateDog({ ...props.dog, ...{ canBeOffLead: getValue } });
+  const [getValue, setValue] = useState('');
 
   useEffect(() => {
-    //setValue(props.dog.canBeOffLead);
+    setValue(props.dog.canBeOffLead);
   }, []);
 
   function changeValue(value) {
-    //setValue(value);
+    setValue(value);
     props.updateDog({ ...props.dog, ...{ canBeOffLead: value } });
   }
 
@@ -24,8 +22,7 @@ function CanBeLetOffLead(props) {
       <Col xs={3}>Can be let off the lead?: <InputHint hint="Can your dog be left off the lead in a park or countryside?" /></Col>
       <Col xs={3}>
         <Select
-          //value={getValue}
-          defaultValue='Please select'
+          defaultValue={getValue}
           onChange={e => changeValue(e.target.value)}
           options={
             <>
