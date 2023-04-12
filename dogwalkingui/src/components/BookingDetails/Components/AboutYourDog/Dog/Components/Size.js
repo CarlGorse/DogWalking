@@ -1,9 +1,9 @@
-import BaseSelect from './Components/BaseSelect';
+import Select from './Components/SelectRow';
 
 function Size(props) {
 
   return (
-    <BaseSelect
+    <Select
       label='Size'
       dog={props.dog}
       updateDog={props.updateDog}

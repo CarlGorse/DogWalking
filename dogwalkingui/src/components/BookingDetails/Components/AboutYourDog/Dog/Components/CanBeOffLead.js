@@ -1,9 +1,9 @@
-import BaseSelect from './Components/BaseSelect';
+import Select from './Components/SelectRow';
 
 function CanBeLetOffLead(props) {
 
   return (
-    <BaseSelect
+    <Select
       label='Can be let off the lead?'
       inputHint='Can your dog be left off the lead in a park or countryside?'
       dog={props.dog}

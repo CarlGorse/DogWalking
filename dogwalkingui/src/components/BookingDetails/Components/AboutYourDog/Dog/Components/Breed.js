@@ -1,9 +1,9 @@
-import BaseSelect from './Components/BaseSelect';
+import SelectRow from './Components/SelectRow';
 
 function Breed(props) {
 
   return (
-    <BaseSelect
+    <SelectRow
       label='Breed'
       dog={props.dog}
       updateDog={props.updateDog}
