@@ -29,8 +29,9 @@ function Breed(props) {
           options={<>
             <option>Please select</option>
             <option>Cockapoo</option>
-            <option>Spaniel</option>
+            <option>King Charles</option>
             <option>Labrador</option>
+            <option>Spaniel</option>
             <option>Other</option>
           </>
           }
