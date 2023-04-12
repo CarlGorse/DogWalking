@@ -1,33 +1,17 @@
-import Col from 'react-bootstrap/Col';
-import Input from 'components/Forms/Input';
-import Row from 'react-bootstrap/Row';
-import { useEffect, useState } from 'react';
+import BaseInput from './Components/BaseInput';
 
 function Comments(props) {
 
-  const [getValue, setValue] = useState('');
-
-  useEffect(() => {
-    setValue(props.dog.comments ?? '');
-  }, [props.dog.comments]);
-
-  function changeValue(value) {
-    setValue(value);
-    props.updateDog({ ...props.dog, ...{ comments: value } });
-  }
-
   return (
-    <Row className="mt-1">
-      <Col xs={3}>Comments:</Col>
-      <Col xs={9}>
-        <Input
-          placeholder="e.g. any relevent behaviours"
-          value={getValue}
-          onInput={e => changeValue(e.target.value)}
-        />
-      </Col>
-      <Col></Col>
-    </Row>
+
+    <BaseInput
+      label='Comments'
+      dog={props.dog}
+      updateDog={props.updateDog}
+      propertyName='comments'
+      placeholder="e.g. any relevent behaviours"
+    />
+
   )
 }
 

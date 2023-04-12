@@ -48,7 +48,7 @@ function AboutYourDog(props) {
   function addDog() {
 
     var newId;
-    if (getDogs.length === 0) {
+    if (getDogs?.length === 0) {
       newId = 0;
     }
     else {
