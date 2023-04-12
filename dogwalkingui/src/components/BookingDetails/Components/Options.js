@@ -13,7 +13,7 @@ function Options(props) {
   }, [props.data?.canOtherDogJoin])
 
   var isComplete = false;
-  if (getCanAnotherDogJoin !== 'Please select') {
+  if (getCanAnotherDogJoin.length > 0 && getCanAnotherDogJoin !== 'Please select') {
     isComplete = true;
   }
   props.onSetInputs(isComplete);

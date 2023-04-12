@@ -14,7 +14,7 @@ function AboutYourDog(props) {
   }, [props.data]);
 
   useEffect(() => {
-    if (getDogs.length === 0) {
+    if (getDogs?.length === 0) {
       //addDog();
     }
   }, [getDogs]);
@@ -71,7 +71,7 @@ function AboutYourDog(props) {
         </Col>
       </Row>
 
-      {getDogs.map(dog =>
+      {getDogs?.map(dog =>
         <Dog key={dog.id} dog={dog} showRemoveButton={getDogs.length > 1} removeDog={removeDog} updateDog={updateDog} />
       )
       }

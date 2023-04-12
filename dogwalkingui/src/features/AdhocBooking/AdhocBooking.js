@@ -53,7 +53,7 @@ function Page() {
     bookingConfirmationModal = <ConfirmationModal show={getShowModal} handleClose={handleCloseModal} />
   }
 
-  if (getPageState == 'timeslots') {
+  if (getPageState === 'timeslots') {
     selectTimeslots = <SelectTimeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
   }
   else {
