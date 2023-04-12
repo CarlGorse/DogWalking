@@ -20,7 +20,7 @@ function BookingDetails(props) {
     && getOptionsIsComplete) {
     isComplete = true;
   }
-  props.onSetInputs(isComplete);
+  props.onSetInputs?.(isComplete);
 
   return (
     <Accordion flush alwaysOpen>

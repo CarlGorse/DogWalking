@@ -2,8 +2,9 @@ import BookingDetails from 'components/BookingDetails/BookingDetails';
 import Col from 'react-bootstrap/Col';
 import React from 'react';
 import Row from 'react-bootstrap/Row';
+import { userSettings } from 'components/Data/UserSettings';
 
-function UserSettings(props) {
+function UserSettings() {
 
   return (
     <>
@@ -12,7 +13,7 @@ function UserSettings(props) {
 
       <Row className='mt-5 justify-content-center'>
         <Col xs={6}>
-          <BookingDetails onSetInputs={() => { }} />
+          <BookingDetails data={userSettings} />
         </Col>
       </Row>
     </>
