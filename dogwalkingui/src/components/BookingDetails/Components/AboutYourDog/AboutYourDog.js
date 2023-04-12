@@ -10,8 +10,14 @@ function AboutYourDog(props) {
 
   useEffect(() => {
     setDogs([]);
-    addDog();
+    //addDog();
   }, []);
+
+  useEffect(() => {
+    if (getDogs.length == 0) {
+      addDog();
+    }
+  }, [getDogs]);
 
   var isComplete = false;
   if (getDogs?.length > 0) {
