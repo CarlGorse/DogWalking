@@ -44,7 +44,7 @@ function AboutYou(props) {
           <Input
             value={getName}
             placeholder="Your name"
-            onInput={e => onSetName(e.target.value)}
+            onChange={e => onSetName(e.target.value)}
           />
         </Col>
         <Col></Col>
@@ -56,7 +56,7 @@ function AboutYou(props) {
             style={{ width: "100%" }}
             value={getPostCode}
             placeholder="AA1 1AA"
-            onInput={e => onSetPostCode(e.target.value)}
+            onChange={e => onSetPostCode(e.target.value)}
           />
         </Col>
         <Col></Col>
@@ -66,7 +66,7 @@ function AboutYou(props) {
         <Col xs={9}>
           <Input
             value={getPropertyNumberName}
-            onInput={e => onSetPropertyNumberName(e.target.value)}
+            onChange={e => onSetPropertyNumberName(e.target.value)}
           />
         </Col>
         <Col></Col>
@@ -77,7 +77,7 @@ function AboutYou(props) {
           <Input
             value={getLocationDetails}
             placeholder="Any other details that will help to locate you"
-            onInput={e => onSetLocationDetails(e.target.value)}
+            onChange={e => onSetLocationDetails(e.target.value)}
           />
         </Col>
         <Col></Col>
