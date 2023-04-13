@@ -10,7 +10,7 @@ function Cost(props) {
 
     <div>
       <Row>
-        <Col xs={3}>Cost:</Col>
+        <Col xs={2}>Cost:</Col>
         <Col xs={6}>{props.cost}</Col>
         <Col></Col>
       </Row>

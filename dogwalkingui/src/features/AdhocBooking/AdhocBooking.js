@@ -56,10 +56,11 @@ function Page() {
   var inputBookingDetails;
 
   if (getPageState === 'timeslots') {
-    selectTimeslots = <SelectTimeslots
+    selectTimeslots = <div className="pt-3"><SelectTimeslots
       timeslots={getTimeslots}
       onBook={(booking) => onStartBooking(booking)}
       onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
+    </div>
   }
   else {
     inputBookingDetails = <InputBookingDetails booking={currentBooking.current} onBookingMade={(booking) => onBookingMade(booking)} onCancelBooking={onCancelBooking} />

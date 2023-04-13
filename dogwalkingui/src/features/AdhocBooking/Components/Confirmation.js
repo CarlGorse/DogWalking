@@ -14,12 +14,9 @@ function ConfirmationModal(props) {
   );
 
   return (
-    <Alert className="fs-6" show={getShow} variant="dark" onClose={() => setShow(false)} dismissible>
-      <h5>{props.title}</h5>
-      <p>{props.message}</p>
-
-      <h5>Your booking is confirmed:</h5>
-      <div className="ms-5">
+    <Alert className="fs-6" show={getShow} variant="success" onClose={() => setShow(false)} dismissible>
+      <Alert.Heading>Your booking is confirmed!</Alert.Heading>
+      <div className="ms-3">
         <Summary booking={props.booking} />
       </div>
 

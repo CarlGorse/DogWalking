@@ -46,12 +46,12 @@ function SelectTimeslots(props) {
     <Container>
 
       <Row>
-        <Col xs={4}>
+        <Col>
           <DatePicker date={new Date()} onSetDate={onSetFilterDate} />
         </Col>
       </Row>
 
-      <Row>
+      <Row className="mt-3">
         <Col xs={4}>
           <Button className="mt-2" variant='primary' onClick={book} disabled={!canBook()}>Book</Button>
         </Col>
