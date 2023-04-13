@@ -4,18 +4,18 @@ import Select from 'components/Forms/Select';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
-function BaseSelect(props) {
+function SelectRow(props) {
 
   const [getValue, setValue] = useState('');
 
   useEffect(() => {
-    setValue(props.dog[props.propertyName] ?? '');
-  }, [props.dog, props.propertyName])
+    setValue(props.baseProps.dog[props.propertyName] ?? '');
+  }, [props.baseProps.dog, props.propertyName])
 
   function changeValue(value) {
     setValue(value);
-    props.dog[props.propertyName] = value;
-    props.updateDog(props.dog);
+    props.baseProps.dog[props.propertyName] = value;
+    props.baseProps.updateDog(props.baseProps.dog);
   }
 
   var inputHint;
@@ -38,4 +38,4 @@ function BaseSelect(props) {
   )
 }
 
-export default BaseSelect;
+export default SelectRow;

@@ -1,17 +1,14 @@
-import Input from './Components/InputRow';
+import InputRow from './Components/InputRow';
 
 function Name(props) {
 
   return (
-
-    <Input
+    <InputRow
       label='Name'
-      dog={props.dog}
-      updateDog={props.updateDog}
+      baseProps={props.baseProps}
       propertyName='name'
       placeholder="Your dog's name"
     />
-
   )
 }
 

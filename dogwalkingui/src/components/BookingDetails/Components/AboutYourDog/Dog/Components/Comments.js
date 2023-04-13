@@ -1,17 +1,14 @@
-import Input from './Components/InputRow';
+import InputRow from './Components/InputRow';
 
 function Comments(props) {
 
   return (
-
-    <Input
+    <InputRow
       label='Comments'
-      dog={props.dog}
-      updateDog={props.updateDog}
+      baseProps={props.baseProps}
       propertyName='comments'
       placeholder="e.g. any relevent behaviours"
     />
-
   )
 }
 

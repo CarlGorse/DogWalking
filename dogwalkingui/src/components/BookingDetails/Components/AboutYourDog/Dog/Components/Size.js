@@ -1,12 +1,11 @@
-import Select from './Components/SelectRow';
+import SelectRow from './Components/SelectRow';
 
 function Size(props) {
 
   return (
-    <Select
+    <SelectRow
       label='Size'
-      dog={props.dog}
-      updateDog={props.updateDog}
+      baseProps={props.baseProps}
       propertyName='size'
       options={<>
         <option>Please select</option>

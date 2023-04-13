@@ -10,12 +10,6 @@ import { useState } from 'react';
 
 function Dog(props) {
 
-  const setNameIsComplete = useState(false)[1];
-  const setBreedIsComplete = useState(false)[1];
-  const setSizeIsComplete = useState(false)[1];
-  const setCanBeOffLeadIsComplete = useState(false)[1];
-  const setCommentsIsComplete = useState(false)[1];
-
   function updateDog(dog) {
     props.updateDog(dog);
   }
@@ -25,6 +19,8 @@ function Dog(props) {
       Remove dog
     </Button> : undefined;
 
+  const baseProps = { dog: props.dog, updateDog: updateDog };
+
   return (
     <div className="p-3 mb-1 border-top">
 
@@ -33,11 +29,11 @@ function Dog(props) {
         <Col xs={6}>{removeDogButton}</Col>
       </Row>
 
-      <Name dog={props.dog} updateDog={updateDog} onSetInput={isComplete => setNameIsComplete(isComplete)} />
-      <Breed dog={props.dog} updateDog={updateDog} onSetInput={isComplete => setBreedIsComplete(isComplete)} />
-      <Size dog={props.dog} updateDog={updateDog} onSetInput={isComplete => setSizeIsComplete(isComplete)} />
-      <CanBeOffLead dog={props.dog} updateDog={updateDog} onSetInput={isComplete => setCanBeOffLeadIsComplete(isComplete)} />
-      <Comments dog={props.dog} updateDog={updateDog} onSetInput={isComplete => setCommentsIsComplete(isComplete)} />
+      <Name baseProps={baseProps} />
+      <Breed baseProps={baseProps} />
+      <Size baseProps={baseProps} />
+      <CanBeOffLead baseProps={baseProps} />
+      <Comments baseProps={baseProps} />
 
     </div>
   )

@@ -5,8 +5,7 @@ function Breed(props) {
   return (
     <SelectRow
       label='Breed'
-      dog={props.dog}
-      updateDog={props.updateDog}
+      baseProps={props.baseProps}
       propertyName='breed'
       options={<>
         <option>Please select</option>

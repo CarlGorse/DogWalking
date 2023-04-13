@@ -3,18 +3,18 @@ import Input from 'components/Forms/Input';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
-function BaseInput(props) {
+function InputRow(props) {
 
   const [getValue, setValue] = useState('');
 
   useEffect(() => {
-    setValue(props.dog[props.propertyName] ?? '');
-  }, [props.dog, props.propertyName])
+    setValue(props.baseProps.dog[props.propertyName] ?? '');
+  }, [props.baseProps.dog, props.propertyName])
 
   function changeValue(value) {
     setValue(value);
-    props.dog[props.propertyName] = value;
-    props.updateDog(props.dog);
+    props.baseProps.dog[props.propertyName] = value;
+    props.baseProps.updateDog(props.baseProps.dog);
   }
 
   return (
@@ -32,4 +32,4 @@ function BaseInput(props) {
   )
 }
 
-export default BaseInput;
+export default InputRow;
