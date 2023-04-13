@@ -17,7 +17,7 @@ function TimeslotSelector(props) {
   let variant =
     props.timeslot.status === 'notBookable' ? notBookableVariant :
       props.timeslot.isSelected ? isSelecetdvariant :
-        props.timeslot.booking != undefined ? hasBookingvariant :
+        props.timeslot.booking !== undefined ? hasBookingvariant :
           isBookableVariant;
 
   return (

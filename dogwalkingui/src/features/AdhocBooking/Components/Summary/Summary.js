@@ -7,7 +7,6 @@ function Summary({ booking }) {
   return (
 
     <>
-      <b>Booking</b>
       <Row>
         <Col xs={3}>Date:</Col>
         <Col xs={6}>{booking.date}</Col>

@@ -44,8 +44,6 @@ function LogIn(props) {
       </Button>
 
     </Alert>
-
-
   );
 }
 

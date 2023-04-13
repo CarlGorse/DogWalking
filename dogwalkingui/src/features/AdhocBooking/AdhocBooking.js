@@ -1,6 +1,6 @@
-import Container from 'react-bootstrap/Container';
-import ConfirmationModal from './Components/ConfirmationModal';
 import { bookTimeslots } from "functions/BookingLogic";
+import Container from 'react-bootstrap/Container';
+import Confirmation from './Components/Confirmation';
 import InputBookingDetails from "./Components/InputBookingDetails/InputBookingDetails";
 import SelectTimeslots from "./Components/SelectTimeslots/SelectTimeslots";
 import { timeslotData } from 'components/Data/TimeslotData';
@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from 'react';
 function Page() {
 
   const [getPageState, setPageState] = useState('timeslots');
-  const [getShowModal, setShowModal] = useState(false);
+  const [getConfirmationModal, setConfirmationModal] = useState(null);
   const [getTimeslots, setTimeslots] = useState([]);
 
   var currentBooking = useRef(null);
@@ -19,6 +19,7 @@ function Page() {
   }, []);
 
   function onStartBooking(booking) {
+    setConfirmationModal(null);
     currentBooking.current = booking;
     setPageState('book');
   }
@@ -30,7 +31,13 @@ function Page() {
     updateTimeslotsState(bookedTimeslots);
     setPageState('timeslots');
 
-    setShowModal(true);
+    let confirmationModal = <Confirmation
+      booking={booking}
+      show={true}
+      handleClose={handleCloseModal}
+    />
+
+    setConfirmationModal(confirmationModal)
   }
 
   function onCancelBooking() {
@@ -42,19 +49,17 @@ function Page() {
   }
 
   function handleCloseModal() {
-    setShowModal(false);
+    setConfirmationModal(null);
   }
 
-  var bookingConfirmationModal;
   var selectTimeslots;
   var inputBookingDetails;
 
-  if (getShowModal) {
-    bookingConfirmationModal = <ConfirmationModal show={getShowModal} handleClose={handleCloseModal} />
-  }
-
   if (getPageState === 'timeslots') {
-    selectTimeslots = <SelectTimeslots timeslots={getTimeslots} onBook={(booking) => onStartBooking(booking)} onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
+    selectTimeslots = <SelectTimeslots
+      timeslots={getTimeslots}
+      onBook={(booking) => onStartBooking(booking)}
+      onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
   }
   else {
     inputBookingDetails = <InputBookingDetails booking={currentBooking.current} onBookingMade={(booking) => onBookingMade(booking)} onCancelBooking={onCancelBooking} />
@@ -62,7 +67,7 @@ function Page() {
 
   return (
     <Container className='mt-5'>
-      {bookingConfirmationModal}
+      {getConfirmationModal}
       {selectTimeslots}
       {inputBookingDetails}
     </Container>
