@@ -48,14 +48,13 @@ function AboutYourDog(props) {
   function addDog() {
 
     var newId;
-    if (getDogs?.length === 0) {
-      newId = 0;
+    var dogs = getDogs;
+    if (dogs === undefined) {
+      dogs = [];
     }
-    else {
-      newId = Math.max(...getDogs?.map(x => x.id)) + 1;
-    }
+    newId = Math.max(...dogs.map(x => x.id)) + 1;
     var newDog = { id: newId, name: '', breed: 'Please select', size: 'Please select', canBeOffLead: 'Please select', comments: '' }
-    setDogs([newDog, ...getDogs]);
+    setDogs([newDog, ...dogs]);
   }
 
   function removeDog(dogId) {
