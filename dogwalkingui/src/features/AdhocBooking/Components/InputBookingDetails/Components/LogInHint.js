@@ -1,11 +1,11 @@
-import Button from 'react-bootstrap/Button';
+import LogIn from './LogIn';
 import React, { useEffect, useState } from 'react';
 import Toast from 'react-bootstrap/Toast';
 
 function LogInHint(props) {
 
   const [getShow, setShow] = useState(true);
-
+  console.log(props);
   useEffect(() => {
     setShow(props.show);
   }, [props.show]);
@@ -17,7 +17,11 @@ function LogInHint(props) {
       </Toast.Header>
       <Toast.Body>
         You can auto populate the booking details with your preferences if you log in.
-        <Button className="ms-2" size="sm" variant="secondary" onClick={props.onClickLogIn}>Log in</Button>
+
+        <div className="mt-2">
+          <LogIn onLogIn={props.onLogIn} description='Log in to use your preferences'></LogIn >
+        </div>
+
       </Toast.Body>
     </Toast >
   );

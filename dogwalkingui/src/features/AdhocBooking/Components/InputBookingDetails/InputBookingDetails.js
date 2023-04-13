@@ -1,6 +1,7 @@
 import BookingDetails from 'components/BookingDetails/BookingDetails';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import Collapse from 'react-bootstrap/Collapse';
 import Cost from './Components/Summary/Cost';
 import LogIn from './Components/LogIn';
 import LogInHint from './Components/LogInHint';
@@ -44,9 +45,13 @@ function InputBookingDetails(props) {
         </Button>
       </div>
 
-      <LogInHint show={getShowLogInHint} onClose={() => setShowLogInHint(false)} onClickLogIn={() => setShowLogIn(true)} />
-
-      <LogIn show={getShowLogIn} onCancel={() => setShowLogIn(false)} onLogIn={onLogIn} description='Log in to use your preferences'></LogIn >
+      <div className="pt-0">
+        <LogInHint show={getShowLogInHint}
+          onClose={() => setShowLogInHint(false)}
+          onClickLogIn={() => setShowLogIn(true)}
+          onLogIn={() => onLogIn()}
+        />
+      </div>
 
       <Row className="mt-5">
         <Col xs={9}>

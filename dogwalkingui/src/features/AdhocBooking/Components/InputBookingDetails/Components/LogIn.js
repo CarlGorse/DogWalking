@@ -1,53 +1,36 @@
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import Modal from 'react-bootstrap/Modal';
-import React, { useEffect, useState } from 'react';
+import Input from 'components/Forms/Input';
 import Row from 'react-bootstrap/Row';
 
 function LogIn(props) {
 
-  const [getShow, setShow] = useState(props.show);
-
-  useEffect(() => {
-    setShow(props.show);
-  }, [props.show]);
-
   return (
-    <Modal
-      show={getShow}
-    >
+    <>
+      <Container>
+        <Row>
+          <Col xs={4}>
+            E-mail
+          </Col>
+          <Col>
+            <Input />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={4}>
+            Password
+          </Col>
+          <Col>
+            <Input />
+          </Col>
+        </Row>
+      </Container>
 
-      <Modal.Header>{props.description}:</Modal.Header>
-      <Modal.Body>
-        <Container>
-          <Row>
-            <Col>
-              E-mail
-            </Col>
-            <Col>
-              <input type='textbox'></input>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              Password
-            </Col>
-            <Col>
-              <input type='textbox'></input>
-            </Col>
-          </Row>
-        </Container>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="primary" onClick={props.onLogIn}>
-          Log in
-        </Button>
-        <Button variant="secondary" onClick={props.onCancel}>
-          Cancel
-        </Button>
-      </Modal.Footer>
-    </Modal >
+      <Button className="mt-2" variant="primary" size='sm' onClick={props.onLogIn}>
+        Log in
+      </Button>
+    </>
   );
 }
 
