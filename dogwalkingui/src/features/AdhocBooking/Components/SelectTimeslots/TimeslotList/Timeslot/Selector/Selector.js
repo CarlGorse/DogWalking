@@ -9,9 +9,9 @@ function TimeslotSelector(props) {
     props.handleOnClick(!props.timeslot.isSelected);
   };
 
-  const notBookableVariant = 'dark';
+  const notBookableVariant = 'secondary';
   const isSelecetdvariant = 'primary';
-  const hasBookingvariant = 'secondary';
+  const hasBookingvariant = 'outline-secondary';
   const isBookableVariant = 'light';
 
   let variant =
