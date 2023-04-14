@@ -25,15 +25,15 @@ function Timeslot(props) {
   return (
 
     <Row key={props.id}>
-      <Col>
+      <Col className="col-auto pe-0">
         <Selector
           handleOnClick={(isSelected) => props.handleOnSelectTimeslot(props.timeslot.id, isSelected)}
           timeslot={props.timeslot}
           text={props.timeslot.startTime + ' - ' + props.timeslot.endTime}>
         </Selector>
-        <span className="ps-0">
-          {bookingDetails}
-        </span>
+      </Col>
+      <Col className="col-auto ps-1">
+        {bookingDetails}
       </Col>
     </Row >
 

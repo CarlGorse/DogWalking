@@ -52,13 +52,13 @@ function SelectTimeslots(props) {
       </Row>
 
       <Row className="mt-3">
-        <Col xs={4}>
+        <Col>
           <Button className="mt-2" variant='primary' onClick={book} disabled={!canBook()}>Book</Button>
         </Col>
       </Row>
 
       <Row className='mt-3'>
-        <Col xs={4} >
+        <Col>
           <TimeslotList timeslots={getTimeslots} handleOnSelectTimeslot={handleOnSelectTimeslot} />
         </Col>
       </Row>
