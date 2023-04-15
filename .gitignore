@@ -1,3 +1,5 @@
-﻿DogWalkingApi/.vs
-DogWalkingApi/obj
-DogWalkingApi/bin
+﻿*/.vs
+*/obj
+*/bin
+*.cache
+*/obj/*
