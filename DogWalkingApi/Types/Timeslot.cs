@@ -9,9 +9,19 @@ namespace DogWalkingApi.Types {
         public int TimeslotId { get; }
 
         public DateOnly Date { get; set; }
+
         public TimeOnly StartTime { get; set; }
+
         public TimeOnly EndTime { get; set; }
+
         public TimeslotStatus Status;
+
         public Booking? Booking { get; set; }
+
+        public int DurationMins {
+            get {
+                return (EndTime - StartTime).Minutes;
+            }
+        }
     }
 }
