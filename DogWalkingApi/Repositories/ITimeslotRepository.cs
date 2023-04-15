@@ -1,6 +1,4 @@
-﻿using DogWalkingApi.Types;
-
-namespace DogWalkingApi.Repositories {
+﻿namespace DogWalkingApi.Repositories {
     public interface ITimeslotRepository {
         IQueryable<Timeslot> Get();
     }

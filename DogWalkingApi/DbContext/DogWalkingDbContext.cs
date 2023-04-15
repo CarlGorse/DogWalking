@@ -1,6 +1,4 @@
-﻿using DogWalkingApi.Enums;
-using DogWalkingApi.Types;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace DogWalkingApi.DbContext {
 

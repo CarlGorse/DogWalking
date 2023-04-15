@@ -1,8 +1,4 @@
-﻿using DogWalkingApi.DbContext;
-using DogWalkingApi.Repositories;
-using DogWalkingApi.Services;
-using DogWalkingApi.Types;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace DogWalkingApiTests {
 

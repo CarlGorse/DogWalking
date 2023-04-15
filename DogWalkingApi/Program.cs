@@ -1,6 +1,3 @@
-using DogWalkingApi.DbContext;
-using DogWalkingApi.Repositories;
-using DogWalkingApi.Services;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
 

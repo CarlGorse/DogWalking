@@ -1,5 +1,4 @@
-﻿using DogWalkingApi.Types;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace DogWalkingApi.DbContext {
     public interface IDogWalkingDbContext {

@@ -1,7 +1,4 @@
-﻿using DogWalkingApi.DbContext;
-using DogWalkingApi.Types;
-
-namespace DogWalkingApi.Repositories {
+﻿namespace DogWalkingApi.Repositories {
 
     public class TimeslotRepository : ITimeslotRepository {
 

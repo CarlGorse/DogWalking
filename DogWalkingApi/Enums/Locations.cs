@@ -1,8 +1,8 @@
-﻿namespace DogWalkingApi.Types {
+﻿namespace DogWalkingApi.Enums {
 
-        public enum Locations {
-            Bristol,
-            MidsomerNorton,
-            Paulton
-        }
+    public enum Locations {
+        Bristol,
+        MidsomerNorton,
+        Paulton
+    }
 }

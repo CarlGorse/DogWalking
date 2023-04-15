@@ -1,7 +1,4 @@
-﻿using DogWalkingApi.Repositories;
-using DogWalkingApi.Types;
-
-namespace DogWalkingApi.Services {
+﻿namespace DogWalkingApi.Services {
 
     public class TimeslotService : ITimeslotService {
 
