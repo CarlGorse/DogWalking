@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogWalkingApi", "DogWalkingApi.csproj", "{8FF54D4C-8384-472D-9795-C1CC916BD471}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogWalkingApi", "DogWalkingApi.csproj", "{8FF54D4C-8384-472D-9795-C1CC916BD471}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogWalkingApiTests", "..\DogWalkingApiTests\DogWalkingApiTests.csproj", "{E50653B8-42D8-4574-9CF2-278E4183EFD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8FF54D4C-8384-472D-9795-C1CC916BD471}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FF54D4C-8384-472D-9795-C1CC916BD471}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FF54D4C-8384-472D-9795-C1CC916BD471}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E50653B8-42D8-4574-9CF2-278E4183EFD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E50653B8-42D8-4574-9CF2-278E4183EFD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E50653B8-42D8-4574-9CF2-278E4183EFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E50653B8-42D8-4574-9CF2-278E4183EFD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

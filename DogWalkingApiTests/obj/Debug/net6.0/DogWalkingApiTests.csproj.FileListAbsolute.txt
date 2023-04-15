@@ -1,0 +1,5 @@
+C:\Git\Repos\DogWalking\DogWalkingApiTests\obj\Debug\net6.0\DogWalkingApiTests.csproj.AssemblyReference.cache
+C:\Git\Repos\DogWalking\DogWalkingApiTests\obj\Debug\net6.0\DogWalkingApiTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\Repos\DogWalking\DogWalkingApiTests\obj\Debug\net6.0\DogWalkingApiTests.AssemblyInfoInputs.cache
+C:\Git\Repos\DogWalking\DogWalkingApiTests\obj\Debug\net6.0\DogWalkingApiTests.AssemblyInfo.cs
+C:\Git\Repos\DogWalking\DogWalkingApiTests\obj\Debug\net6.0\DogWalkingApiTests.csproj.CoreCompileInputs.cache
