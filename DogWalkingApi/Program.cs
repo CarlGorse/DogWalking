@@ -2,6 +2,7 @@ using DogWalkingApi.DbContext;
 using DogWalkingApi.Repositories;
 using DogWalkingApi.Services;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IDogWalkingDbContext, InMemoryDogWalkingDbContext>();
 builder.Services.AddScoped<ITimeslotRepository, TimeslotRepository>();
 builder.Services.AddScoped<ITimeslotService, TimeslotService>();
+
+builder.Services.AddMvc().AddNewtonsoftJson(options => {
+    options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+});
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
