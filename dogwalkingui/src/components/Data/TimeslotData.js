@@ -11,7 +11,7 @@ const timeslotData = [
   { id: 7, date: dateTime, startTime: '09:45', endTime: '10:00', duration: '15', status: 'bookable', booking: { id: 1, location: 'Bristol', startTime: '09:45', endTime: '10:15', duration: '30 mins' } },
   { id: 8, date: dateTime, startTime: '10:00', endTime: '10:15', duration: '15', status: 'bookable', booking: { id: 1, location: 'Bristol', startTime: '09:45', endTime: '10:15', duration: '30 mins' } },
   { id: 9, date: dateTime, startTime: '10:15', endTime: '10:30', duration: '15', status: 'notBookable', booking: { id: 2, location: 'Midsomer Norton', startTime: '10:15', endTime: '10:45', duration: '30 mins' } },
-  { id: 10, date: dateTime, startTime: '10:30', endTime: '10:45', duration: '15', status: 'notBookable', booking: { id: 2, location: 'Midsomer', startTime: '10:15', endTime: '10:45', duration: '30 mins' } },
+  { id: 10, date: dateTime, startTime: '10:30', endTime: '10:45', duration: '15', status: 'notBookable', booking: { id: 2, location: 'Midsomer Norton', startTime: '10:15', endTime: '10:45', duration: '30 mins' } },
   { id: 11, date: dateTime, startTime: '10:45', endTime: '11:00', duration: '15', status: 'bookable' },
   { id: 12, date: dateTime, startTime: '11:00', endTime: '11:15', duration: '15', status: 'bookable' },
   { id: 13, date: dateTime, startTime: '11:15', endTime: '11:30', duration: '15', status: 'bookable' },
