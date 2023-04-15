@@ -1,28 +1,45 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace DogWalkingApi.DbContext {
+namespace DogWalkingApi.DbContext
+{
 
-    public class DogWalkingDbContext : Microsoft.EntityFrameworkCore.DbContext, IDogWalkingDbContext {
+    public class DogWalkingDbContext : Microsoft.EntityFrameworkCore.DbContext, IDogWalkingDbContext
+    {
 
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Timeslot> Timeslots { get; set; }
+        public DbSet<UserSetting> UserSettings { get; set; }
 
-        public DogWalkingDbContext(DbContextOptions options, bool prePopulate = true) : base(options) {
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Timeslot>()
+                .HasOne(x => x.Booking)
+                .WithMany(x => x.Timeslots);
 
-            if (!prePopulate) {
+            modelBuilder.Entity<Booking>()
+                .HasMany(x => x.Timeslots)
+                .WithOne(x => x.Booking);
+        }
+
+        public DogWalkingDbContext(DbContextOptions options, bool prePopulate = true) : base(options)
+        {
+
+            if (!prePopulate)
+            {
                 return;
             }
 
             PopulateDbSets();
-            SaveChanges();
         }
 
-        private void PopulateDbSets() {
+        private void PopulateDbSets()
+        {
             PopulateTimeslots();
             PopulateBookings();
         }
 
-        private void PopulateTimeslots() {
+        private void PopulateTimeslots()
+        {
 
             var dateTime = DateOnly.FromDateTime(DateTime.Now);
 
@@ -64,17 +81,35 @@ namespace DogWalkingApi.DbContext {
               new Timeslot { Date = dateTime, StartTime = new TimeOnly(16,30), EndTime= new TimeOnly(16,45), Status = TimeslotStatus.Bookable },
               new Timeslot { Date = dateTime, StartTime = new TimeOnly(16,45), EndTime= new TimeOnly(17,0), Status = TimeslotStatus.Bookable },
             });
+
+            SaveChanges();
         }
 
-        private void PopulateBookings() {
+        private void PopulateBookings()
+        {
             Bookings.AddRange(new Booking[] {
-                new Booking { TimeslotId= 7, Location= Locations.Bristol },
-                new Booking { TimeslotId= 8, Location= Locations.Bristol },
-                new Booking { TimeslotId= 9, Location= Locations.MidsomerNorton },
-                new Booking { TimeslotId= 26, Location= Locations.Paulton },
-                new Booking { TimeslotId= 27, Location= Locations.Paulton },
-                new Booking { TimeslotId= 28, Location= Locations.Paulton }
+                new Booking { TimeslotIds = new int[] { 7, 8 }, Location= Locations.Bristol },
+                new Booking { TimeslotIds = new int[] { 9, 10 }, Location= Locations.MidsomerNorton },
+                new Booking { TimeslotIds = new int[] { 26, 27, 28 }, Location= Locations.Paulton }
             });
+
+            SaveChanges();
+        }
+
+        public void PopulakteUserSettings()
+        {
+            UserSettings.AddRange(new UserSetting[] {
+                new UserSetting {
+                    SelectService = new Types.UserSettings.SelectService { TypeOfWalk = TypesOfWalk.Any },
+                    AboutYou = new Types.UserSettings.AboutYou { Name= "Carl", PostCode = "NA1 1AA", LocationDetails = "I live on a hill." },
+                    AboutYourDogs = new Types.UserSettings.AboutYourDogs { Dogs = new Dog[] {
+                        new Dog { Name = "Alfie", Breed = Breed.Cockapoo, Size = Size.Medium, CanBeOffLead = CanBeOffLead.Either },
+                        new Dog { Name = "River", Breed = Breed.KingCharles, Size = Size.Small, CanBeOffLead = CanBeOffLead.No, Comments = "Shits a lot." },
+                    } },
+                    Options = new Types.UserSettings.Options { CanOtherDogJoin = true }
+                }
+            }
+            );
         }
     }
 }

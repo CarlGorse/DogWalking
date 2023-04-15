@@ -1,21 +1,25 @@
 ﻿using NUnit.Framework;
 
-namespace DogWalkingApiTests {
+namespace DogWalkingApiTests
+{
 
     [TestFixture]
-    internal class TimeslotServiceTests {
+    internal class TimeslotServiceTests
+    {
 
-        private IDogWalkingDbContext _DbContext;
-        private ITimeslotService _TimeslotService;
+        private IDogWalkingDbContext _DbContext = null!;
+        private ITimeslotService _TimeslotService = null!;
 
         [SetUp]
-        public void SetUp() {
+        public void SetUp()
+        {
             _DbContext = TestResources.CreateDbContext();
             _TimeslotService = new TimeslotService(new TimeslotRepository(_DbContext));
         }
 
         [Test]
-        public void TimeslothasBooking_ReturnsBooking() {
+        public void TimeslothasBooking_ReturnsBooking()
+        {
 
             var booking = new Booking();
             _DbContext.Bookings.Add(booking);

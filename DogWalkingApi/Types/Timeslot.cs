@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace DogWalkingApi.Types {
-
-    [PrimaryKey(nameof(TimeslotId))]
-    public class Timeslot {
-
+namespace DogWalkingApi.Types
+{
+    public class Timeslot
+    {
+        [Key]
         public int TimeslotId { get; }
 
         public DateOnly Date { get; set; }
@@ -15,10 +15,13 @@ namespace DogWalkingApi.Types {
 
         public TimeslotStatus Status;
 
+        public int BookingId { get; set; }
         public Booking? Booking { get; set; }
 
-        public int DurationMins {
-            get {
+        public int DurationMins
+        {
+            get
+            {
                 return (EndTime - StartTime).Minutes;
             }
         }

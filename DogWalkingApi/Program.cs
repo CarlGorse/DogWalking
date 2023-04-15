@@ -10,7 +10,8 @@ builder.Services.AddScoped<IDogWalkingDbContext, DogWalkingDbContext>();
 builder.Services.AddScoped<ITimeslotRepository, TimeslotRepository>();
 builder.Services.AddScoped<ITimeslotService, TimeslotService>();
 
-builder.Services.AddMvc().AddNewtonsoftJson(options => {
+builder.Services.AddMvc().AddNewtonsoftJson(options =>
+{
     options.SerializerSettings.ContractResolver = new DefaultContractResolver();
 });
 
