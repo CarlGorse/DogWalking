@@ -5,7 +5,7 @@ namespace DogWalkingApi.DbContext {
     public class DogWalkingDbContext : Microsoft.EntityFrameworkCore.DbContext, IDogWalkingDbContext {
 
         public DogWalkingDbContext(DbContextOptions options) : base(options) {
-            
+
         }
 
         public DbSet<Booking> Bookings { get; set; }

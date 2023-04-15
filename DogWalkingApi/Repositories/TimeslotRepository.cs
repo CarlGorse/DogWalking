@@ -1,13 +1,13 @@
 ﻿using DogWalkingApi.DbContext;
-using System.Security.Cryptography.X509Certificates;
+using DogWalkingApi.Types;
 
 namespace DogWalkingApi.Repositories {
 
     public class TimeslotRepository : ITimeslotRepository {
 
-        private readonly DogWalkingDbContext _DbContext;
+        private readonly IDogWalkingDbContext _DbContext;
 
-        public TimeslotRepository(DogWalkingDbContext dbContext) {
+        public TimeslotRepository(IDogWalkingDbContext dbContext) {
             _DbContext = dbContext;
         }
 
