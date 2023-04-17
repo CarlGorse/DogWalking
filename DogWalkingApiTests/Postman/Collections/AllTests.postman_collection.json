@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "0e75a17e-827b-4c94-bce8-499d0da6659c",
+		"name": "AllTests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Timeslots",
+			"item": [
+				{
+					"name": "DateProvided_ReturnsResponseCode200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"  pm.expect(pm.response.code).to.eql(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7083/Timeslots",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7083",
+							"path": [
+								"Timeslots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DateNotProvided_ReturnsResponseCode200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"  pm.expect(pm.response.code).to.eql(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7083/Timeslots/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7083",
+							"path": [
+								"Timeslots",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
