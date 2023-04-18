@@ -9,6 +9,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IDogWalkingDbContext, DogWalkingDbContext>();
 builder.Services.AddScoped<ITimeslotRepository, TimeslotRepository>();
 builder.Services.AddScoped<ITimeslotService, TimeslotService>();
+builder.Services.AddScoped<IUserSettingsRepository, UserSettingsRepository>();
+builder.Services.AddScoped<IUserSettingsService, UserSettingsService>();
 
 builder.Services.AddMvc().AddNewtonsoftJson(options =>
 {
@@ -29,6 +31,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "api/{controller}/{action}");
 
 app.Run();

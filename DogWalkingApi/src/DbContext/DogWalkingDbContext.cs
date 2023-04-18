@@ -8,7 +8,7 @@ namespace DogWalkingApi.DbContext
 
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Timeslot> Timeslots { get; set; }
-        public DbSet<UserSetting> UserSettings { get; set; }
+        public DbSet<UserSettings> UserSettings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -98,15 +98,15 @@ namespace DogWalkingApi.DbContext
 
         public void PopulakteUserSettings()
         {
-            UserSettings.AddRange(new UserSetting[] {
-                new UserSetting {
-                    SelectService = new Types.UserSettings.SelectService { TypeOfWalk = TypesOfWalk.Any },
-                    AboutYou = new Types.UserSettings.AboutYou { Name= "Carl", PostCode = "NA1 1AA", LocationDetails = "I live on a hill." },
-                    AboutYourDogs = new Types.UserSettings.AboutYourDogs { Dogs = new Dog[] {
+            UserSettings.AddRange(new UserSettings[] {
+                new UserSettings {
+                    SelectService = new Types.UserSettingsSubclasses.SelectService { TypeOfWalk = TypesOfWalk.Any },
+                    AboutYou = new Types.UserSettingsSubclasses.AboutYou { Name= "Carl", PostCode = "NA1 1AA", LocationDetails = "I live on a hill." },
+                    AboutYourDogs = new Types.UserSettingsSubclasses.AboutYourDogs { Dogs = new Dog[] {
                         new Dog { Name = "Alfie", Breed = Breed.Cockapoo, Size = Size.Medium, CanBeOffLead = CanBeOffLead.Either },
                         new Dog { Name = "River", Breed = Breed.KingCharles, Size = Size.Small, CanBeOffLead = CanBeOffLead.No, Comments = "Shits a lot." },
                     } },
-                    Options = new Types.UserSettings.Options { CanOtherDogJoin = true }
+                    Options = new Types.UserSettingsSubclasses.Options { CanOtherDogJoin = true }
                 }
             }
             );

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DogWalkingApi.Types.UserSettings
+namespace DogWalkingApi.Types.UserSettingsSubclasses
 {
     public class SelectService
     {

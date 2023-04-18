@@ -1,25 +1,18 @@
-using DogWalkingApi.Repositories;
-using DogWalkingApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DogWalkingApi.Controllers
 {
 
-    [ApiController]
-    [Route("[controller]")]
     public class TimeslotsController : ControllerBase
     {
 
-        private readonly ITimeslotRepository _TimeslotRepository;
         private readonly ITimeslotService _TimeslotService;
 
-        public TimeslotsController(ITimeslotService timeslotService, ITimeslotRepository timeslotRepository)
+        public TimeslotsController(ITimeslotService timeslotService)
         {
             _TimeslotService = timeslotService;
-            _TimeslotRepository = timeslotRepository;
         }
 
-        [HttpGet(Name = "Get")]
         public IActionResult Get(DateTime date)
         {
 

@@ -1,18 +1,21 @@
-﻿namespace DogWalkingApi.Services {
+﻿namespace DogWalkingApi.Services
+{
 
-    public class TimeslotService : ITimeslotService {
+    public class TimeslotService : ITimeslotService
+    {
 
         private readonly ITimeslotRepository _TimeslotRepository;
 
-        public TimeslotService(ITimeslotRepository timeslotRepository) {
+        public TimeslotService(ITimeslotRepository timeslotRepository)
+        {
             _TimeslotRepository = timeslotRepository;
         }
 
-        public IReadOnlyCollection<Timeslot> Get(DateOnly date) {
+        public IReadOnlyCollection<Timeslot> Get(DateOnly date)
+        {
             return _TimeslotRepository
                 .Get()
                 .Where(x => x.Date == date)
-                //.Include(x => x.Booking)
                 .ToList()
                 .AsReadOnly();
         }

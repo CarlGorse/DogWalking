@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace DogWalkingApi.Types
 {
+    [PrimaryKey(nameof(TimeslotId))]
     public class Timeslot
     {
-        [Key]
         public int TimeslotId { get; }
 
         public DateOnly Date { get; set; }
