@@ -1,11 +1,11 @@
 ﻿using DogWalkingApi.Types.UserSettingsSubclasses;
-using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace DogWalkingApi.Types
 {
+    [PrimaryKey(nameof(UserSettingId))]
     public class UserSettings
     {
-        [Key]
         public int UserSettingId { get; set; }
         public string Username { get; set; } = null!;
         public SelectService SelectService { get; set; } = null!;
