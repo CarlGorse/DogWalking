@@ -1,9 +1,9 @@
+import axios from 'axios';
 import { bookTimeslots } from "functions/BookingLogic";
 import Container from 'react-bootstrap/Container';
 import Confirmation from './Components/Confirmation';
 import InputBookingDetails from "./Components/InputBookingDetails/InputBookingDetails";
 import SelectTimeslots from "./Components/SelectTimeslots/SelectTimeslots";
-import { timeslotData } from 'components/Data/TimeslotData';
 import { useEffect, useRef, useState } from 'react';
 
 function Page() {
@@ -15,7 +15,11 @@ function Page() {
   var currentBooking = useRef(null);
 
   useEffect(() => {
-    setTimeslots(timeslotData);
+    axios.get("https://localhost:7083/api/timeslots/get")
+      .then(response => {
+        console.log(response.data);
+        setTimeslots(response.data)
+      })
   }, []);
 
   function onStartBooking(booking) {

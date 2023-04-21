@@ -15,6 +15,7 @@ function Timeslot(props) {
   }
 
   function hasBooking() {
+    console.log(props.timeslot.booking !== undefined && props.timeslot.booking != null);
     return props.timeslot.booking !== undefined;
   }
 
