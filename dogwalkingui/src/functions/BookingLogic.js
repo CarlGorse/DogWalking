@@ -46,15 +46,19 @@ const selectTimeslots = (timeslots, actionedTimeslotid, isSelect) => {
   function selectTimeslots(timeslotsToSelect) {
     timeslotsToSelect?.forEach(timeslot => {
       timeslot.isSelected = true;
-      timeslots[timeslot.id] = timeslot;
+      updateTimeslot(timeslot);
     });
   }
 
   function deselectTimeslots(timeslotsToDeselect) {
     timeslotsToDeselect?.forEach(timeslot => {
       timeslot.isSelected = false;
-      timeslots[timeslot.id] = timeslot;
+      updateTimeslot(timeslot);
     });
+  }
+
+  function updateTimeslot(timeslot) {
+    timeslots.filter(x => x.id === timeslot.id)[0] = timeslot;
   }
 }
 

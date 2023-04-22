@@ -91,7 +91,7 @@ namespace DogWalkingApi.DbContext
         private void PopulateBookings()
         {
             addBooking(_CurrentDate, new TimeOnly[] { new TimeOnly(8, 0, 0), new TimeOnly(8, 15, 0) }, Locations.Bristol);
-            addBooking(_CurrentDate, new TimeOnly[] { new TimeOnly(10, 0, 0) }, Locations.MidsomerNorton);
+            addBooking(_CurrentDate, new TimeOnly[] { new TimeOnly(9, 45, 0), new TimeOnly(10, 0, 0) }, Locations.MidsomerNorton);
 
             SaveChanges();
 
