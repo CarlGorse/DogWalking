@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import { createBooking, getSelectedTimeslots, selectTimeslots } from "functions/BookingLogic";
+import { createDraftBooking, getSelectedTimeslots, selectTimeslots } from "functions/BookingLogic";
 import DatePicker from "components/DateTimePickers/DatePicker";
 import Row from 'react-bootstrap/Row';
 import TimeslotList from './TimeslotList/TimeslotList';
@@ -20,7 +20,7 @@ function SelectTimeslots(props) {
   }
 
   function book() {
-    props.onBook(createBooking(getSelectedTimeslots(getTimeslots)));
+    props.onBook(createDraftBooking(getSelectedTimeslots(getTimeslots)));
   }
 
   function handleOnSelectTimeslot(actionedTimeslotid, isSelect) {

@@ -46,34 +46,23 @@ const selectTimeslots = (timeslots, actionedTimeslotid, isSelect) => {
   function selectTimeslots(timeslotsToSelect) {
     timeslotsToSelect?.forEach(timeslot => {
       timeslot.isSelected = true;
-      updateTimeslot(timeslot);
+      updateTimeslot(timeslots, timeslot);
     });
   }
 
   function deselectTimeslots(timeslotsToDeselect) {
     timeslotsToDeselect?.forEach(timeslot => {
       timeslot.isSelected = false;
-      updateTimeslot(timeslot);
+      updateTimeslot(timeslots, timeslot);
     });
   }
-
-  function updateTimeslot(timeslot) {
-    timeslots.filter(x => x.id === timeslot.id)[0] = timeslot;
-  }
 }
 
-function bookTimeslots(timeslots, booking) {
-  let bookedTimeslots = timeslots.slice();
-  booking.timeslots.forEach(bookedTimeslot => {
-    bookedTimeslot.status = 'booked';
-    bookedTimeslot.booking = booking;
-    bookedTimeslot.isSelected = false;
-    bookedTimeslots[bookedTimeslot.id] = bookedTimeslot;
-  });
-  return bookedTimeslots;
+function updateTimeslot(timeslots, timeslot) {
+  timeslots.filter(x => x.id === timeslot.id)[0] = timeslot;
 }
 
-function createBooking(selectedTimeslots) {
+function createDraftBooking(selectedTimeslots) {
   return {
     date: selectedTimeslots[0].date,
     startTime: selectedTimeslots[0].startTime,
@@ -84,8 +73,20 @@ function createBooking(selectedTimeslots) {
   };
 }
 
+function confirmBooking(timeslots, booking) {
+  var bookedTimeslots = timeslots;
+  booking.timeslots.forEach(timeslot => {
+    timeslot.status = 'booked';
+    timeslot.booking = booking;
+    timeslot.hasBooking = true;
+    timeslot.isSelected = false;
+    updateTimeslot(bookedTimeslots, timeslot);
+  });
+  return bookedTimeslots;
+}
+
 function getSelectedTimeslots(timeslots) {
   return timeslots.filter(timeslot => timeslot.isSelected);
 }
 
-export { createBooking, bookTimeslots, getSelectedTimeslots, selectTimeslots };
+export { createDraftBooking, confirmBooking, getSelectedTimeslots, selectTimeslots };

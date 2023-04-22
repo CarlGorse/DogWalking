@@ -30,7 +30,7 @@ function InputBookingDetails(props) {
         <Button
           variant='primary'
           size='sm'
-          onClick={() => props.onBookingMade(props.booking)}
+          onClick={() => props.confirmBooking(props.booking)}
           //disabled={!getConfirmBookingEnabled}>
           disabled={false}>
           Confirm booking

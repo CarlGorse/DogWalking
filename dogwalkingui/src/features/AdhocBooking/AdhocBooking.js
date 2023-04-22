@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { bookTimeslots } from "functions/BookingLogic";
+import { confirmBooking } from "functions/BookingLogic";
 import Container from 'react-bootstrap/Container';
 import Confirmation from './Components/Confirmation';
 import InputBookingDetails from "./Components/InputBookingDetails/InputBookingDetails";
@@ -27,11 +27,11 @@ function Page() {
     setPageState('book');
   }
 
-  function onBookingMade(booking) {
+  function doConfirmBooking(booking) {
 
-    var bookedTimeslots = bookTimeslots(getTimeslots, booking);
-
+    var bookedTimeslots = confirmBooking(getTimeslots.slice(), booking);
     updateTimeslotsState(bookedTimeslots);
+
     setPageState('timeslots');
 
     let confirmationModal = <Confirmation
@@ -66,7 +66,7 @@ function Page() {
     </div>
   }
   else {
-    inputBookingDetails = <InputBookingDetails booking={currentBooking.current} onBookingMade={(booking) => onBookingMade(booking)} onCancelBooking={onCancelBooking} />
+    inputBookingDetails = <InputBookingDetails booking={currentBooking.current} confirmBooking={(booking) => doConfirmBooking(booking)} onCancelBooking={onCancelBooking} />
   }
 
   return (
