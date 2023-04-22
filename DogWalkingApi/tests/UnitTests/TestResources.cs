@@ -1,10 +1,12 @@
-﻿using DogWalkingApi.DbContext;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace DogWalkingApiTests {
+namespace UnitTests
+{
 
-    internal class TestResources {
-        public static IDogWalkingDbContext CreateDbContext() {
+    internal class TestResources
+    {
+        public static TestDogWalkingDbContext CreateTestDbContext()
+        {
 
             var optionsBuilder = new DbContextOptionsBuilder<DogWalkingDbContext>()
                 .UseInMemoryDatabase("DogWalking");

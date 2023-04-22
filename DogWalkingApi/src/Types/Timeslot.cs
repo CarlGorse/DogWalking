@@ -23,7 +23,7 @@ namespace DogWalkingApi.Types
         [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public TimeslotStatus Status;
 
-        public int BookingId { get; set; }
+        public int? BookingId { get; set; }
 
         [JsonProperty("booking")]
         public Booking? Booking { get; set; }
