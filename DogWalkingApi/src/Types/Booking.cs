@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DogWalkingApi.Types
@@ -17,6 +19,8 @@ namespace DogWalkingApi.Types
         [JsonIgnore]
         public ICollection<Timeslot> Timeslots { get; set; } = null!;
 
+        [JsonProperty("location")]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public Locations Location { get; set; }
 
         [JsonProperty("date")]
