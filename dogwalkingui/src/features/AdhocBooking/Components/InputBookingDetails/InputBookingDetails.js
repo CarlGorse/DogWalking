@@ -9,7 +9,7 @@ import Summary from '../Summary/Summary';
 
 function InputBookingDetails(props) {
 
-  const [getConfirmBookingEnabled, setConfirmBookingEnabled] = useState(false);
+  const setConfirmBookingEnabled = useState(false)[1];
 
   return (
     <>
