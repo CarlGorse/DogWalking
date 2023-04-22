@@ -7,9 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<IDogWalkingDbContext, DogWalkingDbContext>();
 builder.Services.AddScoped<IDogWalkingDbContext, DogWalkingDbContext>();
 builder.Services.AddScoped<ITimeslotRepository, TimeslotRepository>();
 builder.Services.AddScoped<ITimeslotService, TimeslotService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IUserSettingsRepository, UserSettingsRepository>();
 builder.Services.AddScoped<IUserSettingsService, UserSettingsService>();
 

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { confirmBooking } from "functions/BookingLogic";
 import Container from 'react-bootstrap/Container';
 import Confirmation from './Components/Confirmation';
 import InputBookingDetails from "./Components/InputBookingDetails/InputBookingDetails";
@@ -15,11 +14,15 @@ function Page() {
   var currentBooking = useRef(null);
 
   useEffect(() => {
+    loadTimeslots()
+  }, []);
+
+  function loadTimeslots() {
     axios.get("https://localhost:7083/api/timeslots/get")
       .then(response => {
         setTimeslots(response.data)
       })
-  }, []);
+  }
 
   function onStartBooking(booking) {
     setConfirmationModal(null);
@@ -29,8 +32,12 @@ function Page() {
 
   function doConfirmBooking(booking) {
 
-    var bookedTimeslots = confirmBooking(getTimeslots.slice(), booking);
-    updateTimeslotsState(bookedTimeslots);
+    var createBookingDto = {
+      Location: 1, TimeslotIds: booking.timeslots.map(x => x.id)
+    };
+    console.log(createBookingDto);
+    axios.post("https://localhost:7083/api/bookings/CreateBooking", createBookingDto)
+      .then(loadTimeslots())
 
     setPageState('timeslots');
 
@@ -66,7 +73,7 @@ function Page() {
     </div>
   }
   else {
-    inputBookingDetails = <InputBookingDetails booking={currentBooking.current} confirmBooking={(booking) => doConfirmBooking(booking)} onCancelBooking={onCancelBooking} />
+    inputBookingDetails = <InputBookingDetails booking={currentBooking.current} confirmBooking={booking => doConfirmBooking(booking)} onCancelBooking={onCancelBooking} />
   }
 
   return (

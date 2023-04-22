@@ -73,20 +73,8 @@ function createDraftBooking(selectedTimeslots) {
   };
 }
 
-function confirmBooking(timeslots, booking) {
-  var bookedTimeslots = timeslots;
-  booking.timeslots.forEach(timeslot => {
-    timeslot.status = 'booked';
-    timeslot.booking = booking;
-    timeslot.hasBooking = true;
-    timeslot.isSelected = false;
-    updateTimeslot(bookedTimeslots, timeslot);
-  });
-  return bookedTimeslots;
-}
-
 function getSelectedTimeslots(timeslots) {
   return timeslots.filter(timeslot => timeslot.isSelected);
 }
 
-export { createDraftBooking, confirmBooking, getSelectedTimeslots, selectTimeslots };
+export { createDraftBooking, getSelectedTimeslots, selectTimeslots };

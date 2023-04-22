@@ -14,8 +14,7 @@
         public IReadOnlyCollection<Timeslot> Get(DateOnly date)
         {
             return _TimeslotRepository
-                .Get()
-                .Where(x => x.Date == date)
+                .GetByDate(date)
                 .OrderBy(x => x.Date)
                 .ThenBy(x => x.StartTime)
                 .ToList()

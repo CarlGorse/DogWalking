@@ -12,9 +12,6 @@ namespace DogWalkingApi.Types
         [JsonProperty("id")]
         public int BookingId { get; set; }
 
-        [JsonProperty("timeslotIds")]
-        public IEnumerable<int> TimeslotIds { get { return Timeslots.Select(x => x.TimeslotId); } }
-
         [NotMapped]
         [JsonIgnore]
         public ICollection<Timeslot> Timeslots { get; set; } = null!;
