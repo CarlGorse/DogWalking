@@ -17,7 +17,6 @@ function Page() {
   useEffect(() => {
     axios.get("https://localhost:7083/api/timeslots/get")
       .then(response => {
-        console.log(response.data);
         setTimeslots(response.data)
       })
   }, []);

@@ -20,10 +20,9 @@ namespace DogWalkingApi.Types
         [JsonProperty("endTime")]
         public TimeOnly EndTime { get; set; }
 
+        [JsonProperty("status")]
         [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public TimeslotStatus Status;
-
-        public int? BookingId { get; set; }
 
         [JsonProperty("booking")]
         public Booking? Booking { get; set; }
@@ -36,5 +35,8 @@ namespace DogWalkingApi.Types
                 return (EndTime - StartTime).Minutes;
             }
         }
+
+        [JsonProperty("hasBooking")]
+        public bool HasBooking { get { return Booking != null; } }
     }
 }

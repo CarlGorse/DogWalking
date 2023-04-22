@@ -49,7 +49,7 @@ function AboutYourDog(props) {
 
     var newId;
     var dogs = getDogs;
-    if (dogs === undefined) {
+    if (dogs === undefined || dogs === null) {
       dogs = [];
     }
     newId = Math.max(...dogs.map(x => x.id)) + 1;

@@ -10,6 +10,8 @@ namespace DogWalkingApi.DbContext
         public DbSet<Timeslot> Timeslots { get; set; }
         public DbSet<UserSettings> UserSettings { get; set; }
 
+        private DateOnly _CurrentDate;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Timeslot>()
@@ -29,57 +31,58 @@ namespace DogWalkingApi.DbContext
                 return;
             }
 
+            _CurrentDate = DateOnly.FromDateTime(DateTime.Now);
+
             PopulateDbSets();
         }
 
         private void PopulateDbSets()
         {
+            Database.EnsureDeleted();
+
             PopulateTimeslots();
             PopulateBookings();
         }
 
         private void PopulateTimeslots()
         {
-
-            var dateTime = DateOnly.FromDateTime(DateTime.Now);
-
             Timeslots.AddRange(new Timeslot[] {
-              new Timeslot { Date= dateTime, StartTime= new TimeOnly(8, 0), EndTime= new TimeOnly(8,15), Status= TimeslotStatus.NotBookable },
-              new Timeslot { Date= dateTime, StartTime= new TimeOnly(8, 15), EndTime= new TimeOnly(8,30), Status= TimeslotStatus.NotBookable },
-              new Timeslot { Date= dateTime, StartTime= new TimeOnly(8,30), EndTime= new TimeOnly(8,45), Status= TimeslotStatus.NotBookable },
-              new Timeslot { Date= dateTime, StartTime= new TimeOnly(8,45), EndTime= new TimeOnly(9,0), Status= TimeslotStatus.NotBookable },
-              new Timeslot { Date= dateTime, StartTime= new TimeOnly(9,0), EndTime= new TimeOnly(9,15), Status= TimeslotStatus.NotBookable },
-              new Timeslot { Date= dateTime, StartTime= new TimeOnly(9,15), EndTime= new TimeOnly(9,30), Status= TimeslotStatus.NotBookable },
-              new Timeslot { Date= dateTime, StartTime= new TimeOnly(9,30), EndTime= new TimeOnly(9,45), Status= TimeslotStatus.Bookable },
-              new Timeslot { Date= dateTime, StartTime= new TimeOnly(9,45), EndTime= new TimeOnly(10,0), Status= TimeslotStatus.Bookable },
-              new Timeslot { Date= dateTime, StartTime= new TimeOnly(10,0), EndTime= new TimeOnly(10,15), Status= TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(10,15), EndTime= new TimeOnly(10,30), Status = TimeslotStatus.NotBookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(10,30), EndTime= new TimeOnly(10,45), Status = TimeslotStatus.NotBookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(10,45), EndTime= new TimeOnly(11,0), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(11,0), EndTime= new TimeOnly(11,15), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(11,15), EndTime= new TimeOnly(11,30), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(11,30), EndTime= new TimeOnly(11,45), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(11,45), EndTime= new TimeOnly(12,0), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(12,0), EndTime= new TimeOnly(12,15), Status = TimeslotStatus.NotBookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(12,15), EndTime= new TimeOnly(12,30), Status = TimeslotStatus.NotBookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(12,30), EndTime= new TimeOnly(12,45), Status = TimeslotStatus.NotBookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(12,45), EndTime= new TimeOnly(13,0), Status = TimeslotStatus.NotBookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(13,0), EndTime= new TimeOnly(13,15), Status = TimeslotStatus.NotBookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(13,15), EndTime= new TimeOnly(13,30), Status = TimeslotStatus.NotBookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(13,30), EndTime= new TimeOnly(13,45), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(13,45), EndTime= new TimeOnly(14,0), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(14,0), EndTime= new TimeOnly(14,15), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(14,15), EndTime= new TimeOnly(14,30), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(14,30), EndTime= new TimeOnly(14,45), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(14,45), EndTime= new TimeOnly(15,0), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(15,0), EndTime= new TimeOnly(15,15), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(15,15), EndTime= new TimeOnly(15,30), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(15,30), EndTime= new TimeOnly(15,45), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(15,45), EndTime= new TimeOnly(16,0), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(16,0), EndTime= new TimeOnly(16,15), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(16,15), EndTime= new TimeOnly(16,30), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(16,30), EndTime= new TimeOnly(16,45), Status = TimeslotStatus.Bookable },
-              new Timeslot { Date = dateTime, StartTime = new TimeOnly(16,45), EndTime= new TimeOnly(17,0), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date= _CurrentDate, StartTime= new TimeOnly(8, 0), EndTime= new TimeOnly(8,15), Status= TimeslotStatus.NotBookable },
+              new Timeslot { Date= _CurrentDate, StartTime= new TimeOnly(8, 15), EndTime= new TimeOnly(8,30), Status= TimeslotStatus.NotBookable },
+              new Timeslot { Date= _CurrentDate, StartTime= new TimeOnly(8,30), EndTime= new TimeOnly(8,45), Status= TimeslotStatus.NotBookable },
+              new Timeslot { Date= _CurrentDate, StartTime= new TimeOnly(8,45), EndTime= new TimeOnly(9,0), Status= TimeslotStatus.NotBookable },
+              new Timeslot { Date= _CurrentDate, StartTime= new TimeOnly(9,0), EndTime= new TimeOnly(9,15), Status= TimeslotStatus.NotBookable },
+              new Timeslot { Date= _CurrentDate, StartTime= new TimeOnly(9,15), EndTime= new TimeOnly(9,30), Status= TimeslotStatus.NotBookable },
+              new Timeslot { Date= _CurrentDate, StartTime= new TimeOnly(9,30), EndTime= new TimeOnly(9,45), Status= TimeslotStatus.Bookable },
+              new Timeslot { Date= _CurrentDate, StartTime= new TimeOnly(9,45), EndTime= new TimeOnly(10,0), Status= TimeslotStatus.Bookable },
+              new Timeslot { Date= _CurrentDate, StartTime= new TimeOnly(10,0), EndTime= new TimeOnly(10,15), Status= TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(10,15), EndTime= new TimeOnly(10,30), Status = TimeslotStatus.NotBookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(10,30), EndTime= new TimeOnly(10,45), Status = TimeslotStatus.NotBookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(10,45), EndTime= new TimeOnly(11,0), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(11,0), EndTime= new TimeOnly(11,15), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(11,15), EndTime= new TimeOnly(11,30), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(11,30), EndTime= new TimeOnly(11,45), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(11,45), EndTime= new TimeOnly(12,0), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(12,0), EndTime= new TimeOnly(12,15), Status = TimeslotStatus.NotBookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(12,15), EndTime= new TimeOnly(12,30), Status = TimeslotStatus.NotBookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(12,30), EndTime= new TimeOnly(12,45), Status = TimeslotStatus.NotBookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(12,45), EndTime= new TimeOnly(13,0), Status = TimeslotStatus.NotBookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(13,0), EndTime= new TimeOnly(13,15), Status = TimeslotStatus.NotBookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(13,15), EndTime= new TimeOnly(13,30), Status = TimeslotStatus.NotBookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(13,30), EndTime= new TimeOnly(13,45), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(13,45), EndTime= new TimeOnly(14,0), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(14,0), EndTime= new TimeOnly(14,15), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(14,15), EndTime= new TimeOnly(14,30), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(14,30), EndTime= new TimeOnly(14,45), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(14,45), EndTime= new TimeOnly(15,0), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(15,0), EndTime= new TimeOnly(15,15), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(15,15), EndTime= new TimeOnly(15,30), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(15,30), EndTime= new TimeOnly(15,45), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(15,45), EndTime= new TimeOnly(16,0), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(16,0), EndTime= new TimeOnly(16,15), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(16,15), EndTime= new TimeOnly(16,30), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(16,30), EndTime= new TimeOnly(16,45), Status = TimeslotStatus.Bookable },
+              new Timeslot { Date = _CurrentDate, StartTime = new TimeOnly(16,45), EndTime= new TimeOnly(17,0), Status = TimeslotStatus.Bookable },
             });
 
             SaveChanges();
@@ -87,13 +90,27 @@ namespace DogWalkingApi.DbContext
 
         private void PopulateBookings()
         {
-            Bookings.AddRange(new Booking[] {
-                new Booking { TimeslotIds = new int[] { 7, 8 }, Location= Locations.Bristol },
-                new Booking { TimeslotIds = new int[] { 9, 10 }, Location= Locations.MidsomerNorton },
-                new Booking { TimeslotIds = new int[] { 26, 27, 28 }, Location= Locations.Paulton }
-            });
+            addBooking(_CurrentDate, new TimeOnly[] { new TimeOnly(8, 0, 0), new TimeOnly(8, 15, 0) }, Locations.Bristol);
+            addBooking(_CurrentDate, new TimeOnly[] { new TimeOnly(10, 0, 0) }, Locations.MidsomerNorton);
 
             SaveChanges();
+
+            void addBooking(DateOnly date, TimeOnly[] startTimes, Locations location)
+            {
+                var booking = new Booking
+                {
+                    Location = location
+                };
+
+                var timeslots = Timeslots.Where(x => x.Date == date && startTimes.Contains(x.StartTime));
+
+                foreach (var timeslot in timeslots)
+                {
+                    timeslot.Booking = booking;
+                }
+
+                Bookings.Add(booking);
+            }
         }
 
         public void PopulakteUserSettings()

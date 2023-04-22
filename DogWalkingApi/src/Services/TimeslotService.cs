@@ -16,6 +16,8 @@
             return _TimeslotRepository
                 .Get()
                 .Where(x => x.Date == date)
+                .OrderBy(x => x.Date)
+                .ThenBy(x => x.StartTime)
                 .ToList()
                 .AsReadOnly();
         }
