@@ -24,19 +24,13 @@ namespace DogWalkingApi.Types
         [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public TimeslotStatus Status;
 
-        [JsonProperty("booking")]
-        public Booking? Booking { get; set; }
+        [JsonProperty("bookingTimeslots")]
+        public ICollection<BookingTimeslot> BookingTimeslots { get; set; } = new List<BookingTimeslot>();
 
         [JsonProperty("duration")]
-        public int DurationMins
-        {
-            get
-            {
-                return (EndTime - StartTime).Minutes;
-            }
-        }
+        public int DurationMins => (EndTime - StartTime).Minutes;
 
-        [JsonProperty("hasBooking")]
-        public bool HasBooking { get { return Booking != null; } }
+        [JsonProperty("hasBookings")]
+        public bool HasBookings => BookingTimeslots.Any();
     }
 }

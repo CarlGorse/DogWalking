@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +8,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+builder.Services.AddScoped<IBookingTimeslotRepository, BookingTimeslotRepository>();
 builder.Services.AddScoped<IBookingService, BookingService>();
-builder.Services.AddScoped<IDogWalkingDbContext, DogWalkingDbContext>();
 builder.Services.AddScoped<IDogWalkingDbContext, DogWalkingDbContext>();
 builder.Services.AddScoped<ITimeslotRepository, TimeslotRepository>();
 builder.Services.AddScoped<ITimeslotService, TimeslotService>();
@@ -41,14 +41,19 @@ var configuration = new ConfigurationBuilder()
     .Build();
 
 builder.Services.AddDbContext<DogWalkingDbContext>(options =>
-    options.UseInMemoryDatabase("DogWalking"));
+    options.UseSqlServer(configuration.GetConnectionString("DogWalking")));
 
 //builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
 
-builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
+builder.Services.Configure<JsonSerializerSettings>(options =>
 {
     //options.SerializerOptions.PropertyNameCaseInsensitive = false;
-    options.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    options.ContractResolver = new DefaultContractResolver
+    {
+        NamingStrategy = new CamelCaseNamingStrategy()
+    };
+    options.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
     //options.SerializerOptions.WriteIndented = true;
 });
 

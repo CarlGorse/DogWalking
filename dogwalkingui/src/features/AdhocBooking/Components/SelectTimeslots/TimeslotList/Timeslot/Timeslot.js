@@ -7,7 +7,7 @@ import Selector from './Selector/Selector';
 function Timeslot(props) {
 
   var bookingDetails;
-  if (props.timeslot.hasBooking && isFirstTimeslotForBooking()) {
+  if (props.timeslot.hasBookings && isFirstTimeslotForBooking()) {
     bookingDetails = <BookingsDetails timeslot={props.timeslot} />
   }
   else {

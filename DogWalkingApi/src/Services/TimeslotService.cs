@@ -1,14 +1,18 @@
-﻿namespace DogWalkingApi.Services
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace DogWalkingApi.Services
 {
 
     public class TimeslotService : ITimeslotService
     {
 
+        private readonly IBookingTimeslotRepository _BookingTimeslotRepository;
         private readonly ITimeslotRepository _TimeslotRepository;
 
-        public TimeslotService(ITimeslotRepository timeslotRepository)
+        public TimeslotService(ITimeslotRepository timeslotRepository, IBookingTimeslotRepository bookingTimeslotRepository)
         {
             _TimeslotRepository = timeslotRepository;
+            _BookingTimeslotRepository = bookingTimeslotRepository;
         }
 
         public IReadOnlyCollection<Timeslot> Get(DateOnly date)
@@ -19,6 +23,22 @@
                 .ThenBy(x => x.StartTime)
                 .ToList()
                 .AsReadOnly();
+        }
+
+        public void BookTimeslots(int bookingId, IReadOnlyCollection<int> timeslotIds)
+        {
+            var timeslots = _TimeslotRepository.Timeslots()
+                .Where(x => timeslotIds.Contains(x.TimeslotId));
+
+            foreach (var timeslot in timeslots)
+            {
+                _BookingTimeslotRepository.Add(bookingId, timeslot.TimeslotId);
+            }
+
+            foreach (var timeslot in timeslots)
+            {
+                timeslot.Status = TimeslotStatus.NotBookable;
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ namespace DogWalkingApi.Controllers
                 return StatusCode(StatusCodes.Status400BadRequest);
             }
 
-            var data = _TimeslotService.Get(DateOnly.FromDateTime(date));
+            var data = _TimeslotService.Get(DateOnly.FromDateTime(date)).ToList();
 
             return Ok(data);
         }

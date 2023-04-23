@@ -14,7 +14,7 @@ namespace DogWalkingApi.Types
 
         [NotMapped]
         [JsonIgnore]
-        public ICollection<Timeslot> Timeslots { get; set; } = null!;
+        public ICollection<BookingTimeslot> BookingTimeslots { get; set; } = null!;
 
         [JsonProperty("location")]
         [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
@@ -38,5 +38,7 @@ namespace DogWalkingApi.Types
         {
             return Timeslots.OrderBy(x => x.Date).ThenBy(x => x.StartTime).LastOrDefault();
         }
+
+        private IEnumerable<Timeslot> Timeslots => BookingTimeslots.Select(x => x.Timeslot);
     }
 }

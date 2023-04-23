@@ -1,4 +1,6 @@
-﻿namespace DogWalkingApi.Repositories
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace DogWalkingApi.Repositories
 {
 
     public class TimeslotRepository : ITimeslotRepository
@@ -11,29 +13,18 @@
             _DbContext = dbContext;
         }
 
+        public IQueryable<Timeslot> Timeslots() => _DbContext.Timeslots.Include(x => x.BookingTimeslots);
+
         public IEnumerable<Timeslot> GetByDate(DateOnly date)
         {
-            return _DbContext.Timeslots
+            return Timeslots()
                 .Where(x => x.Date == date);
         }
 
         public IEnumerable<Timeslot> GetByIds(IReadOnlyCollection<int> timeslotIds)
         {
-            return _DbContext.Timeslots
+            return Timeslots()
                 .Where(x => timeslotIds.Contains(x.TimeslotId));
-        }
-
-        public void BookTimeslots(IReadOnlyCollection<int> timeslotIds, Booking booking)
-        {
-            var timeslots = _DbContext.Timeslots
-                .Where(x => timeslotIds.Contains(x.TimeslotId));
-
-            foreach (var timeslot in timeslots)
-            {
-                timeslot.Status = TimeslotStatus.NotBookable;
-                timeslot.Booking = booking;
-            }
-
         }
     }
 }

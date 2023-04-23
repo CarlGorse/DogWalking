@@ -3,15 +3,14 @@
 namespace UnitTests
 {
 
-    internal class TestResources
+    public class TestResources
     {
-        public static TestDogWalkingDbContext CreateTestDbContext()
+        public static DogWalkingDbContext CreateDbContext()
         {
-
-            var optionsBuilder = new DbContextOptionsBuilder<DogWalkingDbContext>()
-                .UseInMemoryDatabase("DogWalking");
-
-            return new TestDogWalkingDbContext(optionsBuilder.Options);
+            return new DogWalkingDbContext(
+                new DbContextOptionsBuilder<DogWalkingDbContext>()
+                    .UseInMemoryDatabase(databaseName: "DogWalkingDbContext")
+                    .Options);
         }
     }
 }

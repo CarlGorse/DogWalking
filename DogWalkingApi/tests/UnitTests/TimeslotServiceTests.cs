@@ -7,67 +7,67 @@ namespace UnitTests
     internal class TimeslotServiceTests
     {
 
-        private TestDogWalkingDbContext _DbContext = null!;
+        private DogWalkingDbContext _DbContext = null!;
         private ITimeslotService _TimeslotService = null!;
+        private Timeslot _Timeslot = null!;
+        private DateOnly _Date;
 
         [SetUp]
         public void SetUp()
         {
-            _DbContext = TestResources.CreateTestDbContext();
+            _Date = DateOnly.FromDateTime(DateTime.Now);
+
+            _DbContext = TestResources.CreateDbContext();
             _DbContext.Database.EnsureDeleted();
 
-            _TimeslotService = new TimeslotService(new TimeslotRepository(_DbContext));
+            _TimeslotService = new TimeslotService(new TimeslotRepository(_DbContext), new BookingTimeslotRepository(_DbContext));
+
+            _Timeslot = new Timeslot { Date = _Date };
+            _DbContext.Timeslots.Add(_Timeslot);
+
+            _DbContext.SaveChanges();
         }
 
         [Test]
-        public void TimeslotHasNoBookingId_ReturnsNoBooking()
+        public void NoTimeslotBookingsExist_ReturnsNoBookings()
         {
 
             var booking = new Booking();
             _DbContext.Bookings.Add(booking);
 
-            var date = DateOnly.FromDateTime(DateTime.Now);
-            _DbContext.Timeslots.Add(new Timeslot { Date = date, BookingId = null });
-
             _DbContext.SaveChanges();
 
-            var timeslot = _TimeslotService.Get(date).Single();
+            var timeslot = _TimeslotService.Get(_Date).Single();
 
-            Assert.IsNull(timeslot.Booking);
+            Assert.IsEmpty(_Timeslot.BookingTimeslots);
         }
 
         [Test]
-        public void TimeslotHasUnmatchedBookingId_ReturnsNoBooking()
+        public void TimeslotBookingsExistForOtherTimeslots_ReturnsNoBookings()
         {
-
             var booking = new Booking();
             _DbContext.Bookings.Add(booking);
 
-            var date = DateOnly.FromDateTime(DateTime.Now);
-            _DbContext.Timeslots.Add(new Timeslot { Date = date, BookingId = booking.BookingId + 1 });
+            var bookingTimeslot = new BookingTimeslot { BookingId = booking.BookingId, TimeslotId = _Timeslot.TimeslotId + 1 };
+            _DbContext.BookingTimeslots.Add(bookingTimeslot);
 
             _DbContext.SaveChanges();
 
-            var timeslot = _TimeslotService.Get(date).Single();
-
-            Assert.IsNull(timeslot.Booking);
+            Assert.IsEmpty(_Timeslot.BookingTimeslots);
         }
 
         [Test]
         public void TimeslotHasMatchedBookingId_ReturnsBooking()
         {
-
             var booking = new Booking();
             _DbContext.Bookings.Add(booking);
 
-            var date = DateOnly.FromDateTime(DateTime.Now);
-            _DbContext.Timeslots.Add(new Timeslot { Date = date, BookingId = booking.BookingId });
+            var bookingTimeslot = new BookingTimeslot { BookingId = booking.BookingId, TimeslotId = _Timeslot.TimeslotId };
+            _DbContext.BookingTimeslots.Add(bookingTimeslot);
 
             _DbContext.SaveChanges();
 
-            var timeslot = _TimeslotService.Get(date).Single();
-
-            Assert.AreEqual(timeslot.Booking, booking);
+            Assert.IsNotEmpty(_Timeslot.BookingTimeslots);
         }
     }
 }
