@@ -43,8 +43,6 @@ var configuration = new ConfigurationBuilder()
 builder.Services.AddDbContext<DogWalkingDbContext>(options =>
     options.UseSqlServer(configuration.GetConnectionString("DogWalking")));
 
-//builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
-
 builder.Services.Configure<JsonSerializerSettings>(options =>
 {
     //options.SerializerOptions.PropertyNameCaseInsensitive = false;
@@ -52,9 +50,7 @@ builder.Services.Configure<JsonSerializerSettings>(options =>
     {
         NamingStrategy = new CamelCaseNamingStrategy()
     };
-    options.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-
-    //options.SerializerOptions.WriteIndented = true;
+    //options.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 });
 
 var app = builder.Build();

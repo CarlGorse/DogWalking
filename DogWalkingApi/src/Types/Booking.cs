@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DogWalkingApi.Types
 {
@@ -12,9 +11,8 @@ namespace DogWalkingApi.Types
         [JsonProperty("id")]
         public int BookingId { get; set; }
 
-        [NotMapped]
         [JsonIgnore]
-        public ICollection<BookingTimeslot> BookingTimeslots { get; set; } = null!;
+        public IEnumerable<BookingTimeslot> BookingTimeslots { get; set; } = null!;
 
         [JsonProperty("location")]
         [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]

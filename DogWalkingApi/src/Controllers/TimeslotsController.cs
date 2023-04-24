@@ -13,17 +13,10 @@ namespace DogWalkingApi.Controllers
             _TimeslotService = timeslotService;
         }
 
-        public IActionResult Get()
+        [HttpGet]
+        public IActionResult Get([FromQuery] DateTime date)
         {
-            var date = DateTime.Now;
-
-            if (date == DateTime.MinValue)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest);
-            }
-
             var data = _TimeslotService.Get(DateOnly.FromDateTime(date)).ToList();
-
             return Ok(data);
         }
     }

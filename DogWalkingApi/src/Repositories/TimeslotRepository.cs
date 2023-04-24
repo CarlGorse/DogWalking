@@ -13,7 +13,10 @@ namespace DogWalkingApi.Repositories
             _DbContext = dbContext;
         }
 
-        public IQueryable<Timeslot> Timeslots() => _DbContext.Timeslots.Include(x => x.BookingTimeslots);
+        public IQueryable<Timeslot> Timeslots() => _DbContext.Timeslots
+            .Include(x => x.BookingTimeslot)
+            .ThenInclude(x => x.Booking)
+            .ThenInclude(x => x.BookingTimeslots);
 
         public IEnumerable<Timeslot> GetByDate(DateOnly date)
         {

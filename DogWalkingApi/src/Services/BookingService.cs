@@ -21,7 +21,7 @@
 
             _UnitOfWork.BookingRepository.Add(booking);
 
-            _TimeslotService.BookTimeslots(booking.BookingId, createBookingDto.TimeslotIds);
+            _TimeslotService.BookTimeslots(booking, createBookingDto.TimeslotIds);
 
             _UnitOfWork.SaveChanges();
         }

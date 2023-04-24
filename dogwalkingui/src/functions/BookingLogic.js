@@ -18,14 +18,14 @@ const selectTimeslots = (timeslots, actionedTimeslotid, isSelect) => {
       (timeslot.id === actionedTimeslot.id && isSelect)
       || (
         isSelect
-        && actionedTimeslot.hasBookings
-        && timeslot.hasBookings
+        && actionedTimeslot.hasBooking
+        && timeslot.hasBooking
         && timeslot.booking.id === actionedTimeslot.booking.id
       )
       || (
         timeslot.isSelected
-        && !actionedTimeslot.hasBookings
-        && !timeslot.hasBookings
+        && !actionedTimeslot.hasBooking
+        && !timeslot.hasBooking
         && !(
           timeslots.some(blankTimeslot => !blankTimeslot.isSelected
             && timeslots.some(selectedTimeslot => selectedTimeslot.isSelected && selectedTimeslot.id < blankTimeslot.id)

@@ -15,9 +15,9 @@
             _DogWalkingDbContext.BookingTimeslots.Add(bookingTimeslot);
         }
 
-        public void Add(int bookingId, int timeslotId)
+        public void Add(Booking booking, int timeslotId)
         {
-            Add(new BookingTimeslot { BookingId = bookingId, TimeslotId = timeslotId });
+            Add(new BookingTimeslot { Booking = booking, TimeslotId = timeslotId });
         }
     }
 }

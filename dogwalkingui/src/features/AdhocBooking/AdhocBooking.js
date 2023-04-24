@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 
 function Page() {
 
+  const [getDate, setDate] = useState(new Date());
   const [getPageState, setPageState] = useState('timeslots');
   const [getConfirmationModal, setConfirmationModal] = useState(null);
   const [getTimeslots, setTimeslots] = useState([]);
@@ -15,10 +16,10 @@ function Page() {
 
   useEffect(() => {
     loadTimeslots()
-  }, []);
+  }, [getDate]);
 
   function loadTimeslots() {
-    axios.get("https://localhost:7083/api/timeslots/get")
+    axios.get("https://localhost:7083/api/timeslots/get?date=" + getDate.toISOString().split('T')[0])
       .then(response => {
         setTimeslots(response.data)
       })
@@ -35,9 +36,9 @@ function Page() {
     var createBookingDto = {
       Location: 1, TimeslotIds: booking.timeslots.map(x => x.id)
     };
-    console.log(createBookingDto);
+
     axios.post("https://localhost:7083/api/bookings/CreateBooking", createBookingDto)
-      .then(loadTimeslots())
+      .then(response => loadTimeslots())
 
     setPageState('timeslots');
 
@@ -69,7 +70,9 @@ function Page() {
     selectTimeslots = <div className="pt-3"><SelectTimeslots
       timeslots={getTimeslots}
       onBook={(booking) => onStartBooking(booking)}
-      onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)} />
+      onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)}
+      date={getDate}
+      onSetFilterDate={date => setDate(date)} />
     </div>
   }
   else {

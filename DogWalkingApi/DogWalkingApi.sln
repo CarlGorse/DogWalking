@@ -17,13 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{1C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{AB8DA058-AD2B-4450-B331-77ADCF981D45}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tables", "tables", "{1DA94490-70C7-44AA-8B80-3745449ECAEC}"
-	ProjectSection(SolutionItems) = preProject
-		bookings.sql = bookings.sql
-		bookingTimeslots.sql = bookingTimeslots.sql
-		timeslots.sql = timeslots.sql
-	EndProjectSection
-EndProject
+
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{3210C3A3-AEDE-45B3-A309-0DA9368D6745}"
 	ProjectSection(SolutionItems) = preProject
 		database\scripts\data\bookingsData.sql = database\scripts\data\bookingsData.sql

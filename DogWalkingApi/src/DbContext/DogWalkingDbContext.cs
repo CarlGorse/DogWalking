@@ -17,7 +17,6 @@ namespace DogWalkingApi.DbContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             modelBuilder.Entity<Timeslot>(builder =>
             {
                 builder.Property(x => x.Date)
@@ -30,6 +29,7 @@ namespace DogWalkingApi.DbContext
                     .HasConversion<TimeOnlyConverter, TimeOnlyComparer>();
             });
 
+            /*
             modelBuilder.Entity<Timeslot>()
                 .HasMany(x => x.BookingTimeslots)
                 .WithOne(x => x.Timeslot);
@@ -37,14 +37,7 @@ namespace DogWalkingApi.DbContext
             modelBuilder.Entity<Booking>()
                 .HasMany(x => x.BookingTimeslots)
                 .WithOne(x => x.Booking);
-
-            modelBuilder.Entity<BookingTimeslot>()
-                .HasOne(x => x.Timeslot)
-                .WithMany(x => x.BookingTimeslots);
-
-            modelBuilder.Entity<BookingTimeslot>()
-                .HasOne(x => x.Booking)
-                .WithMany(x => x.BookingTimeslots);
+            */
         }
     }
 }

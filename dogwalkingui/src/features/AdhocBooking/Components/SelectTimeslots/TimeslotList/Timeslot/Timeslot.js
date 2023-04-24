@@ -5,9 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Selector from './Selector/Selector';
 
 function Timeslot(props) {
-
   var bookingDetails;
-  if (props.timeslot.hasBookings && isFirstTimeslotForBooking()) {
+  if (props.timeslot.hasBooking && isFirstTimeslotForBooking()) {
     bookingDetails = <BookingsDetails timeslot={props.timeslot} />
   }
   else {

@@ -25,19 +25,14 @@ namespace DogWalkingApi.Services
                 .AsReadOnly();
         }
 
-        public void BookTimeslots(int bookingId, IReadOnlyCollection<int> timeslotIds)
+        public void BookTimeslots(Booking booking, IReadOnlyCollection<int> timeslotIds)
         {
             var timeslots = _TimeslotRepository.Timeslots()
                 .Where(x => timeslotIds.Contains(x.TimeslotId));
 
             foreach (var timeslot in timeslots)
             {
-                _BookingTimeslotRepository.Add(bookingId, timeslot.TimeslotId);
-            }
-
-            foreach (var timeslot in timeslots)
-            {
-                timeslot.Status = TimeslotStatus.NotBookable;
+                _BookingTimeslotRepository.Add(booking, timeslot.TimeslotId);
             }
         }
     }

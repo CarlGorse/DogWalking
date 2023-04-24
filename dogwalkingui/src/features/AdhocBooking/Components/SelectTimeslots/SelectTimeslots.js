@@ -28,13 +28,7 @@ function SelectTimeslots(props) {
   }
 
   function onSetFilterDate(date) {
-    setTimeslotFilter(date);
-  }
-
-  // Doesn't work as filter removes timeslots from parent state! probably need to "reload" timeslots data
-  function setTimeslotFilter(thisFilterDate) {
-    var filteredTimeslots = getTimeslots.filter(timeslot => timeslot.date === thisFilterDate.toLocaleDateString("en-GB"));
-    updateTimeslotsState(filteredTimeslots);
+    props.onSetFilterDate(date);
   }
 
   function canBook() {
@@ -47,7 +41,7 @@ function SelectTimeslots(props) {
 
       <Row>
         <Col>
-          <DatePicker date={new Date()} onSetDate={onSetFilterDate} />
+          <DatePicker date={props.date} onSetDate={onSetFilterDate} />
         </Col>
       </Row>
 
