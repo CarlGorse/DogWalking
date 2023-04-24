@@ -31,12 +31,12 @@ namespace DogWalkingApi.Types
 
         private Timeslot GetEarliestTimeslot()
         {
-            return Timeslots.OrderBy(x => x.Date).ThenBy(x => x.StartTime).FirstOrDefault();
+            return Timeslots.OrderBy(x => x.Date).ThenBy(x => x.StartTime).First();
         }
 
         private Timeslot GetLatestTimeslot()
         {
-            return Timeslots.OrderBy(x => x.Date).ThenBy(x => x.StartTime).LastOrDefault();
+            return Timeslots.OrderBy(x => x.Date).ThenBy(x => x.StartTime).Last();
         }
 
         private IEnumerable<Timeslot> Timeslots => BookingTimeslots.Select(x => x.Timeslot);
