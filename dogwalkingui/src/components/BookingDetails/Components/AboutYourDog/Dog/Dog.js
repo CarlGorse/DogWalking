@@ -6,7 +6,6 @@ import Comments from './Components/Comments'
 import Name from './Components/Name'
 import Row from 'react-bootstrap/Row';
 import Size from './Components/Size';
-import { useState } from 'react';
 
 function Dog(props) {
 

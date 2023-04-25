@@ -23,20 +23,20 @@ function BookingsDetails({ timeslot }) {
       <Collapse in={open} style={{ backgroundColor: '#d0f5fb' }}>
         <Container>
           <Row>
-            <Col xs={3}>Location:</Col>
-            <Col xs={4}>{timeslot.booking.location}</Col>
+            <Col col-auto>Location:</Col>
+            <Col col-auto>{timeslot.booking.location}</Col>
           </Row>
           <Row>
-            <Col xs={3}>Start time:</Col>
-            <Col xs={4}>{timeslot.booking.startTime}</Col>
+            <Col col-auto>Start time:</Col>
+            <Col col-auto>{timeslot.booking.startTime}</Col>
           </Row>
           <Row>
-            <Col xs={3}>End time:</Col>
-            <Col xs={4}>{timeslot.booking.endTime}</Col>
+            <Col col-auto>End time:</Col>
+            <Col col-auto>{timeslot.booking.endTime}</Col>
           </Row>
           <Row>
-            <Col xs={3}>Duration:</Col>
-            <Col xs={4}>{timeslot.booking.duration}</Col>
+            <Col col-auto>Duration:</Col>
+            <Col col-auto>{timeslot.booking.duration}</Col>
           </Row>
         </Container>
       </Collapse>

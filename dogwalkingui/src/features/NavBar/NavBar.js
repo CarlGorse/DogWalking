@@ -14,7 +14,10 @@ function NavBar() {
               <NavDropdown.Item href="./adhocBookingPage">New adhoc booking</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="./userSettings">Settings</Nav.Link>
-            <Nav.Link href="./adminGeneralSettings">Admin settings</Nav.Link>
+            <NavDropdown title="Admin">
+              <NavDropdown.Item href="./editBookingsPage">Edit bookings</NavDropdown.Item>
+              <NavDropdown.Item href="./adminGeneralSettings">Settings</NavDropdown.Item>
+            </NavDropdown>
             <Nav.Link href="./contact">Contact</Nav.Link>
             <Nav.Link href="./about">About</Nav.Link>
           </Nav>

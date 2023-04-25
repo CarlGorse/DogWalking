@@ -2,7 +2,7 @@ import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Confirmation from './Components/Confirmation';
 import InputBookingDetails from "./Components/InputBookingDetails/InputBookingDetails";
-import SelectTimeslots from "./Components/SelectTimeslots/SelectTimeslots";
+import SelectTimeslots from "../../components/SelectTimeslots/SelectTimeslots";
 import { useEffect, useRef, useState } from 'react';
 
 function Page() {
@@ -67,24 +67,36 @@ function Page() {
   var inputBookingDetails;
 
   if (getPageState === 'timeslots') {
-    selectTimeslots = <div className="pt-3"><SelectTimeslots
-      timeslots={getTimeslots}
-      onBook={(booking) => onStartBooking(booking)}
-      onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)}
-      date={getDate}
-      onSetFilterDate={date => setDate(date)} />
-    </div>
+    selectTimeslots =
+      <div className="pt-3">
+        <SelectTimeslots
+          timeslots={getTimeslots}
+          onBook={(booking) => onStartBooking(booking)}
+          onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)}
+          date={getDate}
+          onSetFilterDate={date => setDate(date)}
+        />
+      </div>
   }
   else {
-    inputBookingDetails = <InputBookingDetails booking={currentBooking.current} confirmBooking={booking => doConfirmBooking(booking)} onCancelBooking={onCancelBooking} />
+    inputBookingDetails =
+      <InputBookingDetails
+        booking={currentBooking.current}
+        confirmBooking={booking => doConfirmBooking(booking)}
+        onCancelBooking={onCancelBooking}
+      />
   }
 
   return (
-    <Container className='mt-5'>
-      {getConfirmationModal}
-      {selectTimeslots}
-      {inputBookingDetails}
-    </Container>
+    <>
+      <h3>New adhoc booking</h3>
+
+      <Container className='mt-5'>
+        {getConfirmationModal}
+        {selectTimeslots}
+        {inputBookingDetails}
+      </Container>
+    </>
   )
 }
 

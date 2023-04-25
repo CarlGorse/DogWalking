@@ -38,7 +38,6 @@ function SelectTimeslots(props) {
 
   return (
     <Container>
-
       <Row>
         <Col>
           <DatePicker date={props.date} onSetDate={onSetFilterDate} />

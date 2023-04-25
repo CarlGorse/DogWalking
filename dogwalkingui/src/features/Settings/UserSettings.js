@@ -9,7 +9,7 @@ function UserSettings() {
   return (
     <>
 
-      <p>You can change your own settings here.</p>
+      <h3>Settings</h3>
 
       <Row className='mt-5 justify-content-center'>
         <Col xs={6}>
