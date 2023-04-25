@@ -4,33 +4,33 @@ import Select from 'components/Forms/Select';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
-function SelectRow(props) {
+function SelectRow({ baseProps, propertyName, inputHint, label, options }) {
 
   const [getValue, setValue] = useState('');
 
   useEffect(() => {
-    setValue(props.baseProps.dog[props.propertyName] ?? '');
-  }, [props.baseProps.dog, props.propertyName])
+    setValue(baseProps.dog[propertyName] ?? '');
+  }, [baseProps.dog, propertyName])
 
   function changeValue(value) {
     setValue(value);
-    props.baseProps.dog[props.propertyName] = value;
-    props.baseProps.updateDog(props.baseProps.dog);
+    baseProps.dog[propertyName] = value;
+    baseProps.updateDog(baseProps.dog);
   }
 
-  var inputHint;
-  if (props.inputHint?.length > 0) {
-    inputHint = <InputHint hint={props.inputHint} />;
+  var inputHintComponent;
+  if (inputHint?.length > 0) {
+    inputHintComponent = <InputHint hint={inputHint} />;
   }
 
   return (
     <Row className="mt-1">
-      <Col xs={3}>{props.label + ':'}{inputHint}</Col>
+      <Col xs={3}>{label + ':'}{inputHintComponent}</Col>
       <Col xs={3}>
         <Select
           defaultValue={getValue}
           onChange={e => changeValue(e.target.value)}
-          options={props.options}
+          options={options}
         />
       </Col>
       <Col></Col>

@@ -6,7 +6,7 @@ import PageHeader from './Components/PageHeader';
 import SelectService from './Components/SelectService';
 import { useState } from 'react';
 
-function BookingDetails(props) {
+function BookingDetails({ data, onSetInputs }) {
 
   const [getSelectServiceIsComplete, setSelectServiceIsComplete] = useState(false);
   const [getAboutYouIsComplete, setAboutYouIsComplete] = useState(false);
@@ -20,7 +20,7 @@ function BookingDetails(props) {
     && getOptionsIsComplete) {
     isComplete = true;
   }
-  props.onSetInputs?.(isComplete);
+  onSetInputs?.(isComplete);
 
   return (
     <Accordion flush alwaysOpen>
@@ -28,7 +28,7 @@ function BookingDetails(props) {
         <PageHeader title="Select service" isComplete={getSelectServiceIsComplete} />
         <Accordion.Body>
           <SelectService
-            data={props.data?.selectService}
+            data={data?.selectService}
             onSetInputs={(isComplete) => setSelectServiceIsComplete(isComplete)}
           />
         </Accordion.Body>
@@ -37,7 +37,7 @@ function BookingDetails(props) {
         <PageHeader title="About you" isComplete={getAboutYouIsComplete} />
         <Accordion.Body>
           <AboutYou
-            data={props.data?.aboutYou}
+            data={data?.aboutYou}
             onSetInputs={(isComplete) => setAboutYouIsComplete(isComplete)}
           />
         </Accordion.Body>
@@ -46,7 +46,7 @@ function BookingDetails(props) {
         <PageHeader title="About your dog(s)" isComplete={getAboutYourDogIsComplete} />
         <Accordion.Body>
           <AboutYourDog
-            data={props.data?.aboutYourDogs}
+            data={data?.aboutYourDogs}
             onSetInputs={(isComplete) => setAboutYourDogIsComplete(isComplete)}
           />
         </Accordion.Body>
@@ -55,7 +55,7 @@ function BookingDetails(props) {
         <PageHeader title="Options" isComplete={getOptionsIsComplete} />
         <Accordion.Body>
           <Options
-            data={props.data?.options}
+            data={data?.options}
             onSetInputs={(isComplete) => setOptionsIsComplete(isComplete)}
           />
         </Accordion.Body>

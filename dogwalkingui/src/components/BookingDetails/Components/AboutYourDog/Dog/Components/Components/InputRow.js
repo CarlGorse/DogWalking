@@ -3,27 +3,27 @@ import Input from 'components/Forms/Input';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
-function InputRow(props) {
+function InputRow({ baseProps, propertyName, label, placeholder }) {
 
   const [getValue, setValue] = useState('');
 
   useEffect(() => {
-    setValue(props.baseProps.dog[props.propertyName] ?? '');
-  }, [props.baseProps.dog, props.propertyName])
+    setValue(baseProps.dog[propertyName] ?? '');
+  }, [baseProps.dog, propertyName])
 
   function changeValue(value) {
     setValue(value);
-    props.baseProps.dog[props.propertyName] = value;
-    props.baseProps.updateDog(props.baseProps.dog);
+    baseProps.dog[propertyName] = value;
+    baseProps.updateDog(baseProps.dog);
   }
 
   return (
     <Row className="mt-1">
-      <Col xs={3}>{props.label + ':'}</Col>
+      <Col xs={3}>{label + ':'}</Col>
       <Col xs={9}>
         <Input
           value={getValue}
-          placeholder={props.placeholder}
+          placeholder={placeholder}
           onChange={e => changeValue(e.target.value)}
         />
       </Col>

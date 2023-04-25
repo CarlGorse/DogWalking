@@ -3,7 +3,7 @@ import Input from 'components/Forms/Input';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
-function AboutYou(props) {
+function AboutYou({ data, onSetInputs }) {
 
   const [getName, setName] = useState('');
   const [getPostCode, setPostCode] = useState('');
@@ -11,10 +11,10 @@ function AboutYou(props) {
   const [getLocationDetails, setLocationDetails] = useState('');
 
   useEffect(() => {
-    setName(props.data?.name ?? '');
-    setPostCode(props.data?.postCode ?? '');
-    setPropertyNumberName(props.data?.propertyNumberName ?? '');
-    setLocationDetails(props.data?.locationDetails ?? '');
+    setName(data?.name ?? '');
+    setPostCode(data?.postCode ?? '');
+    setPropertyNumberName(data?.propertyNumberName ?? '');
+    setLocationDetails(data?.locationDetails ?? '');
   }, [])
 
   var isComplete = false;
@@ -25,7 +25,7 @@ function AboutYou(props) {
   ) {
     isComplete = true;
   }
-  props.onSetInputs(isComplete);
+  onSetInputs(isComplete);
 
   function onSetName(value) {
     setName(value);

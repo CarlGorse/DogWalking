@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 
-function BookingsDetails(props) {
+function BookingsDetails({ timeslot }) {
 
   const [open, setOpen] = useState(false);
 
@@ -24,19 +24,19 @@ function BookingsDetails(props) {
         <Container>
           <Row>
             <Col xs={3}>Location:</Col>
-            <Col xs={4}>{props.timeslot.booking.location}</Col>
+            <Col xs={4}>{timeslot.booking.location}</Col>
           </Row>
           <Row>
             <Col xs={3}>Start time:</Col>
-            <Col xs={4}>{props.timeslot.booking.startTime}</Col>
+            <Col xs={4}>{timeslot.booking.startTime}</Col>
           </Row>
           <Row>
             <Col xs={3}>End time:</Col>
-            <Col xs={4}>{props.timeslot.booking.endTime}</Col>
+            <Col xs={4}>{timeslot.booking.endTime}</Col>
           </Row>
           <Row>
             <Col xs={3}>Duration:</Col>
-            <Col xs={4}>{props.timeslot.booking.duration}</Col>
+            <Col xs={4}>{timeslot.booking.duration}</Col>
           </Row>
         </Container>
       </Collapse>

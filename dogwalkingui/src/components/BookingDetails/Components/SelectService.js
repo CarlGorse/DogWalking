@@ -3,22 +3,22 @@ import Row from 'react-bootstrap/Row';
 import Select from 'components/Forms/Select';
 import { useEffect, useState } from 'react';
 
-function SelectService(props) {
+function SelectService({ data, onSetInputs }) {
 
   const [getService, setService] = useState('Please select');
   const [getTypeOfWalk, setTypeOfWalk] = useState('Please select');
 
   useEffect(() => {
-    setService(props.data?.service ?? '');
-    setTypeOfWalk(props.data?.typeOfWalk ?? '');
-  }, [props.data?.service, props.data?.typeOfWalk])
+    setService(data?.service ?? '');
+    setTypeOfWalk(data?.typeOfWalk ?? '');
+  }, [data?.service, data?.typeOfWalk])
 
   var isComplete = false;
   if ((getService.length > 0 && getService !== 'Please select')
     && (getTypeOfWalk.length > 0 && getTypeOfWalk !== 'Please select')) {
     isComplete = true;
   }
-  props.onSetInputs(isComplete);
+  onSetInputs(isComplete);
 
   function onSetService(value) {
     setService(value);

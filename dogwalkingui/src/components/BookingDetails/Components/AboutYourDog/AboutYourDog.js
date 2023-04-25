@@ -4,14 +4,14 @@ import Dog from './Dog/Dog';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
-function AboutYourDog(props) {
+function AboutYourDog({ data, onSetInputs }) {
 
   const [getDogs, setDogs] = useState([]);
 
   useEffect(() => {
-    setDogs(props.data);
+    setDogs(data);
     //addDog();
-  }, [props.data]);
+  }, [data]);
 
   useEffect(() => {
     if (getDogs?.length === 0) {
@@ -31,7 +31,7 @@ function AboutYourDog(props) {
       isComplete = true;
     }
   }
-  props.onSetInputs(isComplete);
+  onSetInputs(isComplete);
 
   function updateDog(dog) {
     var dogs = Array.from(getDogs);
