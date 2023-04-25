@@ -3,11 +3,9 @@ using Newtonsoft.Json;
 
 namespace DogWalkingApi.Types
 {
-    [PrimaryKey(nameof(BookingTimeslotId))]
+    [PrimaryKey(nameof(BookingId), nameof(TimeslotId))]
     public class BookingTimeslot
     {
-        public int BookingTimeslotId { get; set; }
-
         public int BookingId { get; set; }
         public int TimeslotId { get; set; }
 

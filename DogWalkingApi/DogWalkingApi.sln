@@ -17,12 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{1C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{AB8DA058-AD2B-4450-B331-77ADCF981D45}"
 EndProject
-
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{3210C3A3-AEDE-45B3-A309-0DA9368D6745}"
 	ProjectSection(SolutionItems) = preProject
-		database\scripts\data\bookingsData.sql = database\scripts\data\bookingsData.sql
-		database\scripts\data\bookingTimeslotsData.sql = database\scripts\data\bookingTimeslotsData.sql
-		database\scripts\data\timeslotsData.sql = database\scripts\data\timeslotsData.sql
+		database\scripts\data\recreateData.sql = database\scripts\data\recreateData.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tables", "tables", "{847A9ED2-6166-458F-9B3F-79CEBC399744}"
@@ -59,7 +56,6 @@ Global
 		{2D60F9CD-876F-489A-9C52-078A8F392821} = {49BE596B-1574-43A5-AFE6-2B2E2416CC06}
 		{95EB7422-F554-478C-B55D-8371D345D0A4} = {49BE596B-1574-43A5-AFE6-2B2E2416CC06}
 		{AB8DA058-AD2B-4450-B331-77ADCF981D45} = {1C4A0A0E-8370-4BFE-922B-6D4C2B2E4593}
-		{1DA94490-70C7-44AA-8B80-3745449ECAEC} = {1C4A0A0E-8370-4BFE-922B-6D4C2B2E4593}
 		{3210C3A3-AEDE-45B3-A309-0DA9368D6745} = {AB8DA058-AD2B-4450-B331-77ADCF981D45}
 		{847A9ED2-6166-458F-9B3F-79CEBC399744} = {AB8DA058-AD2B-4450-B331-77ADCF981D45}
 	EndGlobalSection
