@@ -15,7 +15,7 @@ function NavBar() {
             </NavDropdown>
             <Nav.Link href="./userSettings">Settings</Nav.Link>
             <NavDropdown title="Admin">
-              <NavDropdown.Item href="./editBookingsPage">Edit bookings</NavDropdown.Item>
+
               <NavDropdown.Item href="./adminGeneralSettings">Settings</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="./contact">Contact</Nav.Link>

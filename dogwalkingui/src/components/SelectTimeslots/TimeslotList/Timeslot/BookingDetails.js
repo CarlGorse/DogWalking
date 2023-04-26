@@ -5,21 +5,28 @@ import Container from 'react-bootstrap/Container';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 
-function BookingsDetails({ timeslot }) {
+function BookingsDetails({ timeslot, isFirstTimeslotForBooking }) {
 
   const [open, setOpen] = useState(false);
+
+  let variant = isFirstTimeslotForBooking ? 'info' : 'outline-info';
+  let borderRadius = isFirstTimeslotForBooking ? '0px 0px 0px 0px' : '0px';
 
   return (
     <>
       <Button
-        onClick={() => setOpen(!open)}
-        variant='info'
+        style={{
+          borderRadius: borderRadius,
+          color: 'white'
+        }}
+        onClick={isFirstTimeslotForBooking ? () => setOpen(!open) : () => { }}
+        variant={variant}
         aria-controls="example-collapse-text"
         aria-expanded={open}
-        size='sm'
+      //size='sm'
       >
         booking
-      </Button>
+      </Button >
       <Collapse in={open} style={{ backgroundColor: '#d0f5fb' }}>
         <Container>
           <Row>

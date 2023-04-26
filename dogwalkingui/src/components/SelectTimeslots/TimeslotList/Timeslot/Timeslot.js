@@ -5,12 +5,14 @@ import Row from 'react-bootstrap/Row';
 import Selector from './Selector/Selector';
 
 function Timeslot({ timeslot, handleOnSelectTimeslot }) {
+
   var bookingDetails;
-  if (timeslot.hasBooking && isFirstTimeslotForBooking()) {
-    bookingDetails = <BookingsDetails timeslot={timeslot} />
-  }
-  else {
-    bookingDetails = <NoBookingsDetails />
+
+  if (timeslot.hasBooking) {
+    bookingDetails = <BookingsDetails
+      timeslot={timeslot}
+      isFirstTimeslotForBooking={isFirstTimeslotForBooking()}
+    />
   }
 
   function isFirstTimeslotForBooking() {

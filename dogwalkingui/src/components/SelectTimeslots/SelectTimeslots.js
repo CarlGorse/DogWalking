@@ -20,6 +20,7 @@ function SelectTimeslots(props) {
   }
 
   function book() {
+    console.log(props);
     props.onBook(createDraftBooking(getSelectedTimeslots(getTimeslots)));
   }
 
