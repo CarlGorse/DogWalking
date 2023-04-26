@@ -1,7 +1,10 @@
-﻿namespace DogWalkingApi.Enums {
+﻿namespace DogWalkingApi.Enums
+{
 
-    public enum TimeslotStatus {
-        Bookable,
-        NotBookable
+    public enum TimeslotStatus
+    {
+        NotSet = 0,
+        NotBookable = 1,
+        Bookable = 2
     }
 }
