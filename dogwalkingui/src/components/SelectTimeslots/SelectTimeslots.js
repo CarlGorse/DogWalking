@@ -1,7 +1,6 @@
-import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import { createDraftBooking, getSelectedTimeslots, selectTimeslots } from "functions/BookingLogic";
+import { selectTimeslots } from "functions/BookingLogic";
 import DatePicker from "components/DateTimePickers/DatePicker";
 import Row from 'react-bootstrap/Row';
 import TimeslotList from './TimeslotList/TimeslotList';
@@ -17,11 +16,7 @@ function SelectTimeslots(props) {
 
   function updateTimeslotsState(timeslots) {
     setTimeslots(timeslots.slice()); // copy array for state to recognise any changes
-  }
-
-  function book() {
-    console.log(props);
-    props.onBook(createDraftBooking(getSelectedTimeslots(getTimeslots)));
+    props.updateTimeslotsState(getTimeslots);
   }
 
   function handleOnSelectTimeslot(actionedTimeslotid, isSelect) {
@@ -32,22 +27,12 @@ function SelectTimeslots(props) {
     props.onSetFilterDate(date);
   }
 
-  function canBook() {
-    var selectedTimeslots = getSelectedTimeslots(getTimeslots);
-    return selectedTimeslots.length > 0
-  }
-
   return (
     <Container>
+
       <Row>
         <Col>
           <DatePicker date={props.date} onSetDate={onSetFilterDate} />
-        </Col>
-      </Row>
-
-      <Row className="mt-3">
-        <Col>
-          <Button className="mt-2" variant='primary' onClick={book} disabled={!canBook()}>Book</Button>
         </Col>
       </Row>
 

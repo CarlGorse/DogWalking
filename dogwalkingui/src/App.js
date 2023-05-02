@@ -2,6 +2,7 @@ import About from 'features/Menu/About';
 import AdhocBookingPage from 'features/AdhocBooking/AdhocBooking';
 import AdminGeneralSettings from 'features/Settings/AdminGeneralSettings/AdminGeneralSettings';
 import AdminPlannedLocations from 'features/Settings/AdminPlannedLocations/AdminPlannedLocations';
+import AvailableBookingsPage from 'features/AvailableBookingsPage/AvailableBookingsPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contact from 'features/Menu/Contact';
 import EditBookingsPage from 'features/Settings/EditBookings';
@@ -18,7 +19,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route exact path='/about' element={<About />} />
-        <Route exact path='/adhocBookingPage' element={<AdhocBookingPage />} />
+        <Route exact path='/viewAvailabilityOrBook' element={<AdhocBookingPage />} />
         <Route exact path='/contact' element={<Contact />} />
         <Route exact path='/home' element={<Home />} />
         <Route exact path='/userSettings' element={<UserSettings />} />

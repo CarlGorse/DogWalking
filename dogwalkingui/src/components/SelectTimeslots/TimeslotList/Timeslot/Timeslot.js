@@ -1,6 +1,5 @@
 import BookingsDetails from './BookingDetails';
 import Col from 'react-bootstrap/Col';
-import NoBookingsDetails from './NoBookingDetails';
 import Row from 'react-bootstrap/Row';
 import Selector from './Selector/Selector';
 

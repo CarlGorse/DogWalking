@@ -1,9 +1,15 @@
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Confirmation from './Components/Confirmation';
 import InputBookingDetails from "./Components/InputBookingDetails/InputBookingDetails";
+import Row from 'react-bootstrap/Row';
 import SelectTimeslots from "../../components/SelectTimeslots/SelectTimeslots";
 import { useEffect, useRef, useState } from 'react';
+import { createDraftBooking, getSelectedTimeslots } from "functions/BookingLogic";
+import Overlay from 'react-bootstrap/Overlay';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 function Page() {
 
@@ -25,7 +31,8 @@ function Page() {
       })
   }
 
-  function onStartBooking(booking) {
+  function onStartBooking() {
+    let booking = createDraftBooking(getSelectedTimeslots(getTimeslots));
     setConfirmationModal(null);
     currentBooking.current = booking;
     setPageState('book');
@@ -63,20 +70,56 @@ function Page() {
     setConfirmationModal(null);
   }
 
+  function canBook() {
+    var selectedTimeslots = getSelectedTimeslots(getTimeslots);
+    return selectedTimeslots.length > 0
+  }
+
   var selectTimeslots;
   var inputBookingDetails;
 
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
+
+  var bookComponents;
+  if (canBook()) {
+    bookComponents = <Button className="mt-2" variant='primary' onClick={onStartBooking}>Book</Button>;
+  }
+  else {
+
+    bookComponents = <>
+      <Button className="mt-2" variant='primary' ref={target} onClick={() => setShow(!show)}>
+        Book
+      </Button>
+      <Overlay target={target.current} show={show} placement="right">
+        {(props) => (
+          <Tooltip id="overlay-example" {...props}>
+            You'll need to select at least one timeslot first.
+          </Tooltip>
+        )}
+      </Overlay></>
+  }
+
   if (getPageState === 'timeslots') {
     selectTimeslots =
-      <div className="pt-3">
-        <SelectTimeslots
-          timeslots={getTimeslots}
-          onBook={(booking) => onStartBooking(booking)}
-          onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)}
-          date={getDate}
-          onSetFilterDate={date => setDate(date)}
-        />
-      </div>
+      <>
+        <div>
+          <Row className="mt-3">
+            <Col>
+              {bookComponents}
+            </Col>
+          </Row>
+        </div>
+        <div className="pt-3">
+          <SelectTimeslots
+            timeslots={getTimeslots}
+            onUpdateTimeslots={timeslots => updateTimeslotsState(timeslots)}
+            date={getDate}
+            onSetFilterDate={date => setDate(date)}
+            updateTimeslotsState={updateTimeslotsState}
+          />
+        </div>
+      </>
   }
   else {
     inputBookingDetails =

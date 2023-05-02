@@ -11,7 +11,7 @@ function NavBar() {
         <Navbar.Collapse>
           <Nav className="me-auto">
             <NavDropdown title="Bookings">
-              <NavDropdown.Item href="./adhocBookingPage">New adhoc booking</NavDropdown.Item>
+              <NavDropdown.Item href="./viewAvailabilityOrBook">Availability / book</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="./userSettings">Settings</Nav.Link>
             <NavDropdown title="Admin">
