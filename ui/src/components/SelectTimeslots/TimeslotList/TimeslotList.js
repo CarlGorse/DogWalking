@@ -9,7 +9,8 @@ function TimeslotList(props) {
           key={timeslot.id}
           id={timeslot.id}
           timeslot={timeslot}
-          handleOnSelectTimeslot={(id, isSelected) => props.handleOnSelectTimeslot(id, isSelected)}
+          handleOnChangeSelect={(id, isSelected) => props.handleOnChangeSelect(id, isSelected)}
+          handleOnSelectBookedTimeslot={() => props.handleOnSelectBookedTimeslot(timeslot)}
         />
       ))}
     </>

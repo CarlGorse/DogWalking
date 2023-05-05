@@ -8,7 +8,6 @@ namespace DogWalkingApi.Types
     [PrimaryKey(nameof(TimeslotId))]
     public class Timeslot
     {
-        private readonly TimeslotStatus? _timeslotStatus;
 
         [JsonProperty("id")]
         public int TimeslotId { get; }
@@ -26,19 +25,24 @@ namespace DogWalkingApi.Types
         public TimeslotStatus? OverrideStatus { get; set; }
 
         [JsonProperty("status")]
+        public TimeslotStatus Status => OverrideStatus != null ? (TimeslotStatus)OverrideStatus : (Booking != null ? TimeslotStatus.Booked : TimeslotStatus.Bookable);
+
+        [JsonProperty("statusDescription")]
         [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
-        public TimeslotStatus Status => OverrideStatus != null ? (TimeslotStatus)OverrideStatus : (HasBooking ? TimeslotStatus.NotBookable : TimeslotStatus.Bookable);
+        public TimeslotStatus StatusDescription => Status;
 
         [JsonProperty("bookingTimeslot")]
-        public BookingTimeslot BookingTimeslot { get; set; }
+        public BookingTimeslot BookingTimeslot { get; set; } = null!;
 
         [JsonProperty("booking")]
-        public Booking Booking => BookingTimeslot?.Booking;
+        public Booking? Booking => BookingTimeslot?.Booking;
 
         [JsonProperty("duration")]
         public int DurationMins => (EndTime - StartTime).Minutes;
 
-        [JsonProperty("hasBooking")]
-        public bool HasBooking => BookingTimeslot != null;
+        [JsonProperty("isBooked")]
+        public bool IsBooked => Status == TimeslotStatus.Booked;
+        [JsonProperty("isBookable")]
+        public bool IsBookable => Status == TimeslotStatus.Bookable;
     }
 }

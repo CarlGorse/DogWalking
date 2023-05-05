@@ -1,8 +1,14 @@
-﻿namespace DogWalkingApi.Enums {
+﻿using System.Runtime.Serialization;
 
-    public enum Locations {
+namespace DogWalkingApi.Enums
+{
+    public enum Locations
+    {
+        [EnumMember(Value = "Bristol")]
         Bristol,
+        [EnumMember(Value = "Midsomer Norton")]
         MidsomerNorton,
+        [EnumMember(Value = "Paulton")]
         Paulton
     }
 }

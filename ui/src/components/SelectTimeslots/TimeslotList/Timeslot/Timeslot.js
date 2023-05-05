@@ -1,38 +1,21 @@
-import BookingsDetails from './BookingDetails';
 import Col from 'react-bootstrap/Col';
+import { getTimeStringHoursAndMinutes } from 'functions/DateTimeFunctions';
 import Row from 'react-bootstrap/Row';
 import Selector from './Selector/Selector';
 
-function Timeslot({ timeslot, handleOnSelectTimeslot }) {
-
-  var bookingDetails;
-
-  if (timeslot.hasBooking) {
-    bookingDetails = <BookingsDetails
-      timeslot={timeslot}
-      isFirstTimeslotForBooking={isFirstTimeslotForBooking()}
-    />
-  }
-
-  function isFirstTimeslotForBooking() {
-    return timeslot.booking.startTime === timeslot.startTime;
-  }
+function Timeslot({ timeslot, handleOnChangeSelect, handleOnSelectBookedTimeslot }) {
 
   return (
-
     <Row key={timeslot.id}>
       <Col className="col-auto pe-0">
         <Selector
-          handleOnClick={(isSelected) => handleOnSelectTimeslot(timeslot.id, isSelected)}
+          handleOnChangeSelect={isSelected => handleOnChangeSelect(timeslot.id, isSelected)}
+          handleOnSelectBookedTimeslot={handleOnSelectBookedTimeslot}
           timeslot={timeslot}
-          text={timeslot.startTime + ' - ' + timeslot.endTime}>
+          text={getTimeStringHoursAndMinutes(timeslot.startTime) + ' - ' + getTimeStringHoursAndMinutes(timeslot.endTime)}>
         </Selector>
       </Col>
-      <Col className="col-auto ps-1">
-        {bookingDetails}
-      </Col>
     </Row >
-
   );
 }
 

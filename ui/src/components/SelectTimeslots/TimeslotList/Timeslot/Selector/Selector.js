@@ -1,24 +1,31 @@
 import Button from 'react-bootstrap/Button';
 
-function TimeslotSelector({ timeslot, text, handleOnClick }) {
+function TimeslotSelector({ timeslot, text, handleOnChangeSelect, handleOnSelectBookedTimeslot }) {
 
   function handleClick() {
     if (timeslot.status === 'notBookable') {
       return;
     }
-    handleOnClick(!timeslot.isSelected);
+
+    if (timeslot.isBooked) {
+      handleOnChangeSelect(false);
+      handleOnSelectBookedTimeslot();
+      return;
+    }
+
+    handleOnChangeSelect(!timeslot.isSelected);
   };
 
   const notBookableVariant = 'secondary';
-  const isSelecetdvariant = 'primary';
-  const hasBookingvariant = 'outline-secondary';
+  const isSelectedvariant = 'primary';
+  const isBookedvariant = 'info';
   const isBookableVariant = 'light';
 
   let variant =
-    timeslot.status === 'notBookable' ? notBookableVariant :
-      timeslot.isSelected ? isSelecetdvariant :
-        timeslot.hasBooking ? hasBookingvariant :
-          isBookableVariant;
+    timeslot.isBooked ? isBookedvariant :
+      timeslot.isSelected ? isSelectedvariant :
+        timeslot.isBookable ? isBookableVariant :
+          notBookableVariant;
 
   return (
     <Button

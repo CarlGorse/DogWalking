@@ -1,10 +1,16 @@
-﻿namespace DogWalkingApi.Enums
+﻿using System.Runtime.Serialization;
+
+namespace DogWalkingApi.Enums
 {
     public enum Size
     {
-        Tpy,
+        [EnumMember(Value = "Toy")]
+        Toy,
+        [EnumMember(Value = "Small")]
         Small,
+        [EnumMember(Value = "Medium")]
         Medium,
-        Lare
+        [EnumMember(Value = "Large")]
+        Large
     }
 }

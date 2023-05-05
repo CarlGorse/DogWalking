@@ -27,6 +27,9 @@ namespace DogWalkingApi.Types
         [JsonProperty("endTime")]
         public TimeOnly EndTime { get { return GetLatestTimeslot().EndTime; } }
 
+        [JsonProperty("duration")]
+        public int DurationMins => (EndTime - StartTime).Minutes;
+
         private Timeslot GetEarliestTimeslot()
         {
             return Timeslots.OrderBy(x => x.Date).ThenBy(x => x.StartTime).First();
