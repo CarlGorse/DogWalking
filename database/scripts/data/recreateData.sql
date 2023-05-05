@@ -1,8 +1,8 @@
 declare @date datetime = '2023-04-23'
 
+delete from BookingTimeslots
 delete from Bookings
 delete Timeslots
-delete from BookingTimeslots
 
 insert Bookings ([Location])
 select 1

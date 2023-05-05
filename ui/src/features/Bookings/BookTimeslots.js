@@ -3,12 +3,12 @@ import Container from 'react-bootstrap/Container';
 import InputBookingDetails from "./Components/InputBookingDetails/InputBookingDetails";
 import { useNavigate } from "react-router-dom";
 
-function Page() {
+function Book() {
 
   let navigate = useNavigate();
 
-  const routeChange = () => {
-    let path = `../viewAvailabilityOrBook`;
+  const navigateToBook = () => {
+    let path = `../book`;
     navigate(path);
   }
 
@@ -19,7 +19,7 @@ function Page() {
     };
 
     axios.post("https://localhost:7083/api/bookings/CreateBooking", createBookingDto)
-      .then(response => routeChange())
+      .then(response => navigateToBook())
   }
 
   return (
@@ -30,11 +30,11 @@ function Page() {
         <InputBookingDetails
           booking={JSON.parse(window.localStorage.getItem("booking"))}
           confirmBooking={booking => doConfirmBooking(booking)}
-          onCancelBooking={routeChange}
+          onCancelBooking={navigateToBook}
         />
       </Container>
     </>
   )
 }
 
-export default Page;
+export default Book;

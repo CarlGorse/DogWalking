@@ -5,13 +5,10 @@ import { selectTimeslots } from "functions/BookingLogic";
 import Row from 'react-bootstrap/Row';
 import TimeslotList from './List';
 import { useEffect, useState } from 'react';
-import BookingModal from '../Bookings/BookingModal';
 
 function SelectTimeslots(props) {
 
   const [getTimeslots, setTimeslots] = useState([]);
-  const [getShowBookingModal, setShowBookingModal] = useState(false);
-  const [getBooking, setBooking] = useState(null);
 
   useEffect(() => {
     axios.get("https://localhost:7083/api/timeslots/get?date=" + new Date(props.date).toISOString().split('T')[0])
@@ -25,34 +22,20 @@ function SelectTimeslots(props) {
     setTimeslots(timeslots.slice()); // copy array for state to recognise any changes
     props.onUpdateTimeslotsState(getTimeslots);
   }
-
-  let bookingModal;
-
-  function handleOnSelectBookedTimeslot(timeslot) {
-    setShowBookingModal(true);
-    setBooking(timeslot.booking);
-  }
-
-  if (getShowBookingModal) {
-    bookingModal = <BookingModal booking={getBooking} show={getShowBookingModal} handleClose={() => setShowBookingModal(false)} />;
-  }
-
+  console.log(props)
   return (
-    <>
-      {bookingModal}
-      < Container >
-        <Row className='mt-3'>
-          <Col>
-            <TimeslotList
-              timeslots={getTimeslots}
-              handleOnChangeSelect={handleOnChangeSelectTimeslot}
-              handleOnSelectBookedTimeslot={handleOnSelectBookedTimeslot}
-              onBook={props.onBook}
-            />
-          </Col>
-        </Row>
-      </Container >
-    </>
+    <Container>
+      <Row className='mt-3'>
+        <Col>
+          <TimeslotList
+            timeslots={getTimeslots}
+            handleOnChangeSelect={handleOnChangeSelectTimeslot}
+            handleOnSelectBookedTimeslot={timeslot => props.handleOnSelectBookedTimeslot(timeslot)}
+            onBook={props.onBook}
+          />
+        </Col>
+      </Row>
+    </Container >
   );
 }
 

@@ -8,7 +8,7 @@ import EditBookingsPage from 'features/Settings/EditBookings';
 import Home from 'features/Home';
 import NavBar from 'features/NavBar/NavBar';
 import UserSettings from 'features/Settings/UserSettings';
-import ViewTimeslots from 'features/Bookings/ViewTimeslots';
+import Book from 'features/Bookings/Book';
 
 function App() {
   return (
@@ -19,13 +19,12 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route exact path='/about' element={<About />} />
-        <Route exact path='/viewAvailabilityOrBook' element={<ViewTimeslots />} />
+        <Route exact path='/book' element={<Book />} />
         <Route exact path='/contact' element={<Contact />} />
         <Route exact path='/home' element={<Home />} />
         <Route exact path='/userSettings' element={<UserSettings />} />
         <Route exact path='/adminGeneralSettings' element={<AdminGeneralSettings />} />
         <Route exact path='/adminPlannedLocations' element={<AdminPlannedLocations />} />
-        <Route exact path='/editBookingsPage' element={<EditBookingsPage />} />
         <Route exact path='/bookTimeslots' element={<BookTimeslots />} />
       </Routes>
 

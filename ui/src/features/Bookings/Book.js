@@ -1,3 +1,4 @@
+import BookingModal from 'components/Bookings/BookingModal';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -14,6 +15,8 @@ function Page() {
 
   const [getDate, setDate] = useState(window.localStorage.getItem("selectedDate") ?? new Date());
   const [getTimeslots, setTimeslots] = useState([]);
+  const [getShowBookingModal, setShowBookingModal] = useState(false);
+  const [getBooking, setBooking] = useState(null);
 
   let navigate = useNavigate();
 
@@ -33,11 +36,24 @@ function Page() {
     setDate(date);
   }
 
+  function handleOnSelectBookedTimeslot(timeslot) {
+    setShowBookingModal(true);
+    setBooking(timeslot.booking);
+  }
+
+  let bookingModal;
+
+  if (getShowBookingModal) {
+    bookingModal = <BookingModal booking={getBooking} show={getShowBookingModal} handleClose={() => setShowBookingModal(false)} />;
+  }
+
   return (
     <>
       <h3>Available timeslots</h3>
 
       <Container>
+
+        {bookingModal}
 
         <Row className="pt-3" >
           <Col>
@@ -50,6 +66,7 @@ function Page() {
             date={getDate}
             onUpdateTimeslotsState={updateTimeslotsState}
             onBook={onBook}
+            handleOnSelectBookedTimeslot={timeslot => handleOnSelectBookedTimeslot(timeslot)}
           />
         </div>
 

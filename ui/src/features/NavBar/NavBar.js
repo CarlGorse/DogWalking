@@ -6,7 +6,7 @@ function NavBar() {
 
   let navigate = useNavigate();
   const routeChange = () => {
-    let path = `viewAvailabilityOrBook`;
+    let path = `book`;
     navigate(path);
   }
 
@@ -18,9 +18,10 @@ function NavBar() {
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="me-auto">
-            <NavDropdown title="Bookings">
-              <NavDropdown.Item href="./viewAvailabilityOrBook">Availability / book</NavDropdown.Item>
+            {/*<NavDropdown title="Bookings">
+              <NavDropdown.Item href="./book">Book</NavDropdown.Item>
             </NavDropdown>
+  */}
             <Nav.Link href="./userSettings">Settings</Nav.Link>
             <NavDropdown title="Admin">
 
