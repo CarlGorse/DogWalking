@@ -1,12 +1,20 @@
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
+
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = `viewAvailabilityOrBook`;
+    navigate(path);
+  }
 
   return (
     <Navbar collapseOnSelect expand='sm' bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="./home">Dog walking</Navbar.Brand>
+        <Button variant="primary" onClick={routeChange}>Book</Button>
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="me-auto">

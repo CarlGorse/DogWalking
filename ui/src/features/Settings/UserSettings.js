@@ -1,4 +1,4 @@
-import BookingDetails from 'components/BookingDetails/BookingDetails';
+import BookingDetails from 'components/Bookings/BookingDetails/BookingDetails';
 import Col from 'react-bootstrap/Col';
 import React from 'react';
 import Row from 'react-bootstrap/Row';

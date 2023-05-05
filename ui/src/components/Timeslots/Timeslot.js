@@ -1,7 +1,7 @@
 import Col from 'react-bootstrap/Col';
 import { getTimeStringHoursAndMinutes } from 'functions/DateTimeFunctions';
 import Row from 'react-bootstrap/Row';
-import Selector from './Selector/Selector';
+import Selector from 'components/Timeslots/Selector';
 
 function Timeslot({ timeslot, handleOnChangeSelect, handleOnSelectBookedTimeslot }) {
 

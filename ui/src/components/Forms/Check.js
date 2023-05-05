@@ -1,4 +1,4 @@
-import Input from 'components/Forms/Input';
+import Form from 'react-bootstrap/Form';
 
 function Select(props) {
 

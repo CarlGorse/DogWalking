@@ -5,7 +5,7 @@ import { createDraftBooking, getSelectedTimeslots } from "functions/BookingLogic
 import DatePicker from "components/DateTimePickers/DatePicker";
 import Overlay from 'react-bootstrap/Overlay';
 import Row from 'react-bootstrap/Row';
-import SelectTimeslots from "../../components/SelectTimeslots/SelectTimeslots";
+import SelectTimeslots from "components/Timeslots/SelectTimeslots";
 import Tooltip from 'react-bootstrap/Tooltip';
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from 'react';

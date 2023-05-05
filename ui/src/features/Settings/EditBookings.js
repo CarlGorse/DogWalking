@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
-import SelectTimeslots from "components/SelectTimeslots/SelectTimeslots";
+import SelectTimeslots from "components/Timeslots/SelectTimeslots";
 import { useEffect, useState } from 'react';
 
 function Page() {

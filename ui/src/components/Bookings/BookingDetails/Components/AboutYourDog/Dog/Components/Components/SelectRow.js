@@ -1,5 +1,5 @@
 import Col from 'react-bootstrap/Col';
-import InputHint from 'components/BookingDetails/Components/InputHint';
+import InputHint from 'components/Bookings/BookingDetails/Components/InputHint';
 import Select from 'components/Forms/Select';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';

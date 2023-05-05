@@ -1,4 +1,4 @@
-import Timeslot from './Timeslot/Timeslot';
+import Timeslot from './Timeslot';
 
 function TimeslotList(props) {
 

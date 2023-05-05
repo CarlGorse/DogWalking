@@ -3,9 +3,9 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import { selectTimeslots } from "functions/BookingLogic";
 import Row from 'react-bootstrap/Row';
-import TimeslotList from './TimeslotList/TimeslotList';
+import TimeslotList from './List';
 import { useEffect, useState } from 'react';
-import BookingModal from './BookingModal';
+import BookingModal from '../Bookings/BookingModal';
 
 function SelectTimeslots(props) {
 

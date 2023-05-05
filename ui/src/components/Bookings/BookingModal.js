@@ -1,9 +1,5 @@
-import BookingSummary from 'components/BookingSummary/BookingSummary';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import { getTimeStringHoursAndMinutes } from 'functions/DateTimeFunctions';
+import BookingSummary from 'components/Bookings/BookingSummary';
 import Modal from 'react-bootstrap/Modal';
-import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
 function BookingModal(props) {
