@@ -74,7 +74,7 @@ function createDraftBooking(selectedTimeslots) {
 }
 
 function getSelectedTimeslots(timeslots) {
-  return timeslots.filter(timeslot => timeslot.isSelected);
+  return timeslots?.filter(timeslot => timeslot.isSelected);
 }
 
 export { createDraftBooking, getSelectedTimeslots, selectTimeslots };

@@ -47,6 +47,7 @@ function SelectTimeslots(props) {
               timeslots={getTimeslots}
               handleOnChangeSelect={handleOnChangeSelectTimeslot}
               handleOnSelectBookedTimeslot={handleOnSelectBookedTimeslot}
+              onBook={props.onBook}
             />
           </Col>
         </Row>

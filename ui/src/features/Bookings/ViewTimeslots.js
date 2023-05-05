@@ -17,7 +17,7 @@ function Page() {
 
   let navigate = useNavigate();
 
-  const routeChange = () => {
+  const onBook = () => {
     let path = `../bookTimeslots`;
     let booking = createDraftBooking(getSelectedTimeslots(getTimeslots));
     window.localStorage.setItem("booking", JSON.stringify(booking));
@@ -26,35 +26,6 @@ function Page() {
 
   function updateTimeslotsState(timeslots) {
     setTimeslots(timeslots.slice()); // copy array for state to recognise any changes
-  }
-
-  function canBook() {
-    var selectedTimeslots = getSelectedTimeslots(getTimeslots);
-    return selectedTimeslots.length > 0
-  }
-
-  const [show, setShow] = useState(false);
-  const target = useRef(null);
-
-  var bookComponents;
-  if (canBook()) {
-    bookComponents = <Button variant='primary' onClick={routeChange}>Book</Button >;
-  }
-  else {
-
-    bookComponents = <>
-
-      <Button variant='primary' ref={target} onClick={() => setShow(!show)}>
-        Book
-      </Button>
-
-      <Overlay target={target.current} show={show} placement="right">
-        {(props) => (
-          <Tooltip id="overlay-example" {...props}>
-            You'll first need to select at least one timeslot.
-          </Tooltip>
-        )}
-      </Overlay></>
   }
 
   function setNewDate(date) {
@@ -66,13 +37,7 @@ function Page() {
     <>
       <h3>Available timeslots</h3>
 
-      <Container className='mt-5'>
-
-        <Row className="mt-3">
-          <Col>
-            {bookComponents}
-          </Col>
-        </Row>
+      <Container>
 
         <Row className="pt-3" >
           <Col>
@@ -84,6 +49,7 @@ function Page() {
           <SelectTimeslots
             date={getDate}
             onUpdateTimeslotsState={updateTimeslotsState}
+            onBook={onBook}
           />
         </div>
 

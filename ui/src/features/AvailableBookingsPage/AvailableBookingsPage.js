@@ -1,6 +1,6 @@
 import axios from 'axios';
 import SelectTimeslots from "../../components/SelectTimeslots/SelectTimeslots";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Page() {
 

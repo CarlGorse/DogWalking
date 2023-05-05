@@ -11,6 +11,8 @@ function TimeslotList(props) {
           timeslot={timeslot}
           handleOnChangeSelect={(id, isSelected) => props.handleOnChangeSelect(id, isSelected)}
           handleOnSelectBookedTimeslot={() => props.handleOnSelectBookedTimeslot(timeslot)}
+          onBook={props.onBook}
+          timeslots={props.timeslots}
         />
       ))}
     </>
