@@ -1,11 +1,12 @@
 import BookingDetails from 'components/BookingDetails/BookingDetails';
+import BookingSummary from 'components/BookingSummary/BookingSummary';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import Cost from '../Summary/Cost';
 import LogIn from './Components/LogIn';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
-import Summary from '../Summary/Summary';
 
 function InputBookingDetails(props) {
 
@@ -21,7 +22,7 @@ function InputBookingDetails(props) {
 
       <div className="mt-5">
         <b>Booking</b>
-        <Summary booking={props.booking} />
+        <BookingSummary booking={props.booking} />
       </div >
 
       <Cost cost={props.booking.cost} />

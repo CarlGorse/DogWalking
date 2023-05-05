@@ -1,3 +1,4 @@
+import BookingSummary from 'components/BookingSummary/BookingSummary';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import { getTimeStringHoursAndMinutes } from 'functions/DateTimeFunctions';
@@ -20,24 +21,7 @@ function BookingModal(props) {
         <Modal.Title>Booking details</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Container>
-          <Row>
-            <Col col-auto>Location:</Col>
-            <Col col-auto>{props.booking.location}</Col>
-          </Row>
-          <Row>
-            <Col col-auto>Start time:</Col>
-            <Col col-auto>{getTimeStringHoursAndMinutes(props.booking.startTime)}</Col>
-          </Row>
-          <Row>
-            <Col col-auto>End time:</Col>
-            <Col col-auto>{getTimeStringHoursAndMinutes(props.booking.endTime)}</Col>
-          </Row>
-          <Row>
-            <Col col-auto>Duration:</Col>
-            <Col col-auto>{props.booking.duration} mins</Col>
-          </Row>
-        </Container>
+        <BookingSummary booking={props.booking} />
       </Modal.Body>
     </Modal>
   );

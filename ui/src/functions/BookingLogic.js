@@ -67,7 +67,7 @@ function createDraftBooking(selectedTimeslots) {
     date: selectedTimeslots[0].date,
     startTime: selectedTimeslots[0].startTime,
     endTime: selectedTimeslots[selectedTimeslots.length - 1].endTime,
-    duration: (selectedTimeslots.length * 15) + ' mins',
+    duration: selectedTimeslots.length * 15,
     cost: '£16',
     timeslots: selectedTimeslots
   };
