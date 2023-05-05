@@ -1,4 +1,6 @@
-﻿namespace UnitTests.TimeslotServiceTests
+﻿using NUnit.Framework;
+
+namespace UnitTests.TimeslotServiceTests
 {
 
     [TestFixture]
