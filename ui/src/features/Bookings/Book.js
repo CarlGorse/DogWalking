@@ -5,13 +5,16 @@ import Container from 'react-bootstrap/Container';
 import { createDraftBooking, getSelectedTimeslots } from "functions/BookingLogic";
 import DatePicker from "components/DateTimePickers/DatePicker";
 import Overlay from 'react-bootstrap/Overlay';
+import React from 'react';
 import Row from 'react-bootstrap/Row';
 import SelectTimeslots from "components/Timeslots/SelectTimeslots";
 import Tooltip from 'react-bootstrap/Tooltip';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useRef, useState } from 'react';
 
-function Page() {
+function Book({ route, navigation }) {
+
+  console.log(route?.params)
 
   const [getDate, setDate] = useState(window.localStorage.getItem("selectedDate") ?? new Date());
   const [getTimeslots, setTimeslots] = useState([]);
@@ -21,7 +24,7 @@ function Page() {
   let navigate = useNavigate();
 
   const onBook = () => {
-    let path = `../bookTimeslots`;
+    let path = `../inputBookingDetails`;
     let booking = createDraftBooking(getSelectedTimeslots(getTimeslots));
     window.localStorage.setItem("booking", JSON.stringify(booking));
     navigate(path);
@@ -75,4 +78,4 @@ function Page() {
   )
 }
 
-export default Page;
+export default Book;

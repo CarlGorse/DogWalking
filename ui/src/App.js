@@ -1,10 +1,9 @@
 import About from 'features/Menu/About';
-import BookTimeslots from 'features/Bookings/BookTimeslots';
+import InputBookingDetails from 'features/Bookings/InputBookingDetails';
 import AdminGeneralSettings from 'features/Settings/AdminGeneralSettings/AdminGeneralSettings';
 import AdminPlannedLocations from 'features/Settings/AdminPlannedLocations/AdminPlannedLocations';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contact from 'features/Menu/Contact';
-import EditBookingsPage from 'features/Settings/EditBookings';
 import Home from 'features/Home';
 import NavBar from 'features/NavBar/NavBar';
 import UserSettings from 'features/Settings/UserSettings';
@@ -25,7 +24,7 @@ function App() {
         <Route exact path='/userSettings' element={<UserSettings />} />
         <Route exact path='/adminGeneralSettings' element={<AdminGeneralSettings />} />
         <Route exact path='/adminPlannedLocations' element={<AdminPlannedLocations />} />
-        <Route exact path='/bookTimeslots' element={<BookTimeslots />} />
+        <Route exact path='/inputBookingDetails' element={<InputBookingDetails />} />
       </Routes>
 
     </BrowserRouter>

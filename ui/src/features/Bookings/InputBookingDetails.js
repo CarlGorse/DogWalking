@@ -1,18 +1,38 @@
+import axios from 'axios';
 import BookingDetails from 'components/Bookings/BookingDetails/BookingDetails';
 import BookingSummary from 'components/Bookings/BookingSummary';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Cost from '../Summary/Cost';
+import { Button, Col, Container } from 'react-bootstrap';
 import LogIn from './Components/LogIn';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
+import SummaryCost from './Components/SummaryCost';
+import { useNavigate } from "react-router-dom";
 
 function InputBookingDetails(props) {
 
   const setConfirmBookingEnabled = useState(false)[1];
 
+  let navigate = useNavigate();
+
+  let booking = JSON.parse(window.localStorage.getItem("booking"));
+
+  const navigateToBook = (showBooking) => {
+    navigate('../book', { showBooking: true });
+  }
+
+  function doConfirmBooking() {
+
+    var createBookingDto = {
+      Location: 1, TimeslotIds: booking.timeslots.map(x => x.id)
+    };
+
+    axios.post("https://localhost:7083/api/bookings/CreateBooking", createBookingDto)
+      .then(response => navigateToBook({ showBooking: true }))
+  }
+
   return (
-    <>
+    <Container className='mt-5'>
+      <h3>Book</h3>
 
       <LogIn
         title="Auto-populate"
@@ -21,16 +41,16 @@ function InputBookingDetails(props) {
 
       <div className="mt-5">
         <b>Booking</b>
-        <BookingSummary booking={props.booking} />
+        <BookingSummary booking={booking} />
       </div >
 
-      <Cost cost={props.booking.cost} />
+      <SummaryCost cost={booking.cost} />
 
       <div className="pt-5">
         <Button
           variant='primary'
           size='sm'
-          onClick={() => props.confirmBooking(props.booking)}
+          onClick={() => doConfirmBooking()}
           //disabled={!getConfirmBookingEnabled}>
           disabled={false}>
           Confirm booking
@@ -40,7 +60,7 @@ function InputBookingDetails(props) {
           variant='light'
           className="ms-2"
           size='sm'
-          onClick={() => props.onCancelBooking()}>
+          onClick={() => navigateToBook({ showBooking: false })}>
           Cancel
         </Button>
       </div>
@@ -51,7 +71,7 @@ function InputBookingDetails(props) {
         </Col>
       </Row>
 
-    </>
+    </Container>
   );
 }
 

@@ -10,7 +10,7 @@ function BookingModal(props) {
     () => setShow(props.show ?? true),
     [props.show]
   );
-  console.log(props)
+
   return (
     <Modal show={getShow} onHide={props.handleClose}>
       <Modal.Header closeButton>

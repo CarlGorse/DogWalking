@@ -22,7 +22,7 @@ function SelectTimeslots(props) {
     setTimeslots(timeslots.slice()); // copy array for state to recognise any changes
     props.onUpdateTimeslotsState(getTimeslots);
   }
-  console.log(props)
+
   return (
     <Container>
       <Row className='mt-3'>
