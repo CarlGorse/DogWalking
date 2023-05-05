@@ -1,7 +1,7 @@
 USE [DogWalking]
 GO
 
-/****** Object:  Table [dbo].[Timeslots]    Script Date: 24/04/2023 23:41:09 ******/
+/****** Object:  Table [dbo].[Timeslots]    Script Date: 05/05/2023 08:57:45 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -13,6 +13,7 @@ CREATE TABLE [dbo].[Timeslots](
 	[Date] [date] NULL,
 	[StartTime] [time](7) NULL,
 	[EndTime] [time](7) NULL,
+	[OverrideStatus] [int] NULL,
  CONSTRAINT [PK_Timeslots] UNIQUE NONCLUSTERED 
 (
 	[TimeslotId] ASC
