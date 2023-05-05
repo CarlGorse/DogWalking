@@ -39,7 +39,7 @@ namespace UnitTests
 
             var timeslot = _TimeslotService.Get(_Date).Single();
 
-            Assert.IsEmpty(_Timeslot.BookingTimeslots);
+            Assert.IsNull(_Timeslot.BookingTimeslot);
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace UnitTests
 
             _DbContext.SaveChanges();
 
-            Assert.IsEmpty(_Timeslot.BookingTimeslots);
+            Assert.IsNull(_Timeslot.BookingTimeslot);
         }
 
         [Test]
@@ -67,7 +67,7 @@ namespace UnitTests
 
             _DbContext.SaveChanges();
 
-            Assert.IsNotEmpty(_Timeslot.BookingTimeslots);
+            Assert.IsNotNull(_Timeslot.BookingTimeslot);
         }
     }
 }
