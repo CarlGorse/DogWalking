@@ -16,10 +16,6 @@ function InputBookingDetails(props) {
 
   let booking = JSON.parse(window.localStorage.getItem("booking"));
 
-  const navigateToBook = (showBooking) => {
-    navigate('../book', { showBooking: true });
-  }
-
   function doConfirmBooking() {
 
     var createBookingDto = {
@@ -27,7 +23,10 @@ function InputBookingDetails(props) {
     };
 
     axios.post("https://localhost:7083/api/bookings/CreateBooking", createBookingDto)
-      .then(response => navigateToBook({ showBooking: true }))
+      .then(response => {
+        window.sessionStorage.setItem("bookingToShow", JSON.stringify(booking));
+        navigate('../book');
+      })
   }
 
   return (
@@ -60,7 +59,10 @@ function InputBookingDetails(props) {
           variant='light'
           className="ms-2"
           size='sm'
-          onClick={() => navigateToBook({ showBooking: false })}>
+          onClick={() => {
+            window.sessionStorage.removeItem("bookingToShow");
+            navigate('../book');
+          }}>
           Cancel
         </Button>
       </div>
@@ -71,7 +73,7 @@ function InputBookingDetails(props) {
         </Col>
       </Row>
 
-    </Container>
+    </Container >
   );
 }
 

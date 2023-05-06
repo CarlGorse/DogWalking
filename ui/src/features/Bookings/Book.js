@@ -1,25 +1,19 @@
 import BookingModal from 'components/Bookings/BookingModal';
-import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import { createDraftBooking, getSelectedTimeslots } from "functions/BookingLogic";
 import DatePicker from "components/DateTimePickers/DatePicker";
-import Overlay from 'react-bootstrap/Overlay';
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import SelectTimeslots from "components/Timeslots/SelectTimeslots";
-import Tooltip from 'react-bootstrap/Tooltip';
-import { useNavigate, useLocation } from "react-router-dom";
-import { useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
 
-function Book({ route, navigation }) {
+function Book() {
 
-  console.log(route?.params)
-
-  const [getDate, setDate] = useState(window.localStorage.getItem("selectedDate") ?? new Date());
+  const [getDate, setDate] = useState(window.sessionStorage.getItem("selectedDate") ?? new Date());
+  const [getBookingToShow, setBookingToShow] = useState(JSON.parse(window.sessionStorage.getItem("bookingToShow")));
   const [getTimeslots, setTimeslots] = useState([]);
-  const [getShowBookingModal, setShowBookingModal] = useState(false);
-  const [getBooking, setBooking] = useState(null);
 
   let navigate = useNavigate();
 
@@ -40,14 +34,16 @@ function Book({ route, navigation }) {
   }
 
   function handleOnSelectBookedTimeslot(timeslot) {
-    setShowBookingModal(true);
-    setBooking(timeslot.booking);
+    setBookingToShow(timeslot.booking);
   }
 
   let bookingModal;
 
-  if (getShowBookingModal) {
-    bookingModal = <BookingModal booking={getBooking} show={getShowBookingModal} handleClose={() => setShowBookingModal(false)} />;
+  if (getBookingToShow !== null) {
+    bookingModal = <BookingModal
+      booking={getBookingToShow}
+      show={window.sessionStorage.getItem("bookingToShow")}
+      handleClose={() => { window.sessionStorage.removeItem("bookingToShow"); setBookingToShow(null) }} />;
   }
 
   return (
