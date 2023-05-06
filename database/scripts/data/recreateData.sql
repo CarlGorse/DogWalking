@@ -1,3 +1,5 @@
+use DogWalking
+
 declare @date datetime = '2023-04-23'
 
 delete from BookingTimeslots
