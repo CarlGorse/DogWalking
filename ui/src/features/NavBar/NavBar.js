@@ -1,8 +1,12 @@
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useNavigate } from "react-router-dom";
+import SystemSettingsContext from "contexts/systemSettingsContext";
+import { useContext } from 'react';
 
 function NavBar() {
+
+  const { getSystemSettings } = useContext(SystemSettingsContext);
 
   let navigate = useNavigate();
   const routeChange = () => {
@@ -14,7 +18,7 @@ function NavBar() {
     <Navbar collapseOnSelect expand='sm' bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="./home">Dog walking</Navbar.Brand>
-        <Button variant="primary" onClick={routeChange}>Book</Button>
+        <Button variant="primary" onClick={routeChange} disabled={getSystemSettings?.status !== 1}>Book</Button>
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="me-auto">

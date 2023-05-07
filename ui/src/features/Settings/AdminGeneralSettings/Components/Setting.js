@@ -3,15 +3,17 @@ import Row from 'react-bootstrap/Row';
 import ToggleButton from './Setting/ToggleButton';
 
 function Setting(props) {
+
   return (
     <Row>
       <Col>{props.name}</Col>
       <Col>
         <ToggleButton
-          isOn={props.isOn === 'true'}
-          isOff={props.isOn !== 'true'}
+          isOn={props.isOn}
+          isOff={!props.isOn}
           onText='On'
           offText='Off'
+          onChange={isOn => props.onChange(isOn)}
         />
       </Col>
     </Row>

@@ -4,11 +4,21 @@ import { getTimeStringHoursAndMinutes } from 'functions/DateTimeFunctions';
 import { isLastTimeslotInSelection } from "functions/BookingLogic";
 import Row from 'react-bootstrap/Row';
 import Selector from 'components/Timeslots/Selector';
+import SystemSettingsContext from "contexts/systemSettingsContext";
+import { useContext } from 'react';
 
-function Timeslot({ timeslot, handleOnChangeSelect, handleOnSelectBookedTimeslot, onBook, timeslots }) {
+function Timeslot({
+  timeslot,
+  handleOnChangeSelect,
+  handleOnSelectBookedTimeslot,
+  onBook,
+  timeslots }
+) {
+
+  const { getSystemSettings } = useContext(SystemSettingsContext);
 
   let bookButton;
-  if (timeslot.isSelected && isLastTimeslotInSelection(timeslot, timeslots)) {
+  if (getSystemSettings.status === 1 && timeslot.isSelected && isLastTimeslotInSelection(timeslot, timeslots)) {
     bookButton = <Button style={{ backgroundColor: "royalBlue" }} onClick={onBook}>book</Button>;
   }
 
@@ -20,7 +30,8 @@ function Timeslot({ timeslot, handleOnChangeSelect, handleOnSelectBookedTimeslot
           handleOnSelectBookedTimeslot={handleOnSelectBookedTimeslot}
           timeslot={timeslot}
           timeslots={timeslots}
-          text={getTimeStringHoursAndMinutes(timeslot.startTime)}>
+          text={getTimeStringHoursAndMinutes(timeslot.startTime)}
+        >
         </Selector>
         {bookButton}
       </Col>

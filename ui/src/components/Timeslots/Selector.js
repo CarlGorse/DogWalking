@@ -1,9 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import { isFirstTimeslotInBooking, isFirstTimeslotInSelection } from "functions/BookingLogic";
+import SystemSettingsContext from "contexts/systemSettingsContext";
+import { useContext } from 'react';
 
 function TimeslotSelector({ timeslot, text, handleOnChangeSelect, handleOnSelectBookedTimeslot, timeslots }) {
 
+  const { getSystemSettings } = useContext(SystemSettingsContext);
+
   function handleClick() {
+
     if (timeslot.status === 'notBookable') {
       return;
     }
@@ -14,7 +19,9 @@ function TimeslotSelector({ timeslot, text, handleOnChangeSelect, handleOnSelect
       return;
     }
 
-    handleOnChangeSelect(!timeslot.isSelected);
+    if (getSystemSettings.status === 1) {
+      handleOnChangeSelect(!timeslot.isSelected);
+    }
   };
 
   let variant =
