@@ -1,4 +1,4 @@
-delete from Bookings
+delete Bookings
 
 insert Bookings ([Location])
 select 1
