@@ -8,6 +8,7 @@ namespace DogWalkingApi.DbContext
     {
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<BookingTimeslot> BookingTimeslots { get; set; }
+        public DbSet<SystemSettings> SystemSettings { get; set; }
         public DbSet<Timeslot> Timeslots { get; set; }
         public DbSet<UserSettings> UserSettings { get; set; }
 

@@ -5,6 +5,7 @@ declare @date datetime = '2023-04-23'
 delete from BookingTimeslots
 delete from Bookings
 delete Timeslots
+delete SystemSettings
 
 insert Bookings ([Location])
 select 1
@@ -61,3 +62,6 @@ insert BookingTImeslots (BookingId, TimeslotId)
 select BookingId, TimeslotId
 from Timeslots, (select top 1 BookingId from (select top 2 BookingId from Bookings Bookings order by BookingId desc) BookingIds) BookingIds
 where StartTime = '08:15:00'
+
+insert SystemSettings (SystemSettingsId, Value)
+values (1, 1)
