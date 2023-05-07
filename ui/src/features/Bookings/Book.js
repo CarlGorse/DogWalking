@@ -20,7 +20,7 @@ function Book() {
   const onBook = () => {
     let path = `../inputBookingDetails`;
     let booking = createDraftBooking(getSelectedTimeslots(getTimeslots));
-    window.localStorage.setItem("booking", JSON.stringify(booking));
+    window.sessionStorage.setItem("booking", JSON.stringify(booking));
     navigate(path);
   }
 
@@ -29,7 +29,7 @@ function Book() {
   }
 
   function setNewDate(date) {
-    window.localStorage.setItem("selectedDate", date);
+    window.sessionStorage.setItem("selectedDate", date);
     setDate(date);
   }
 

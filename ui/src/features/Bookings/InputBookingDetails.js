@@ -14,7 +14,7 @@ function InputBookingDetails(props) {
 
   let navigate = useNavigate();
 
-  let booking = JSON.parse(window.localStorage.getItem("booking"));
+  let booking = JSON.parse(window.sessionStorage.getItem("booking"));
 
   function doConfirmBooking() {
 
