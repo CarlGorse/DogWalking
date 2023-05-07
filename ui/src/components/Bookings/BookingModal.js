@@ -14,7 +14,7 @@ function BookingModal(props) {
   return (
     <Modal show={getShow} onHide={props.handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Booking details</Modal.Title>
+        <Modal.Title>Booking summary</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <BookingSummary booking={props.booking} />
