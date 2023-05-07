@@ -77,4 +77,30 @@ function getSelectedTimeslots(timeslots) {
   return timeslots?.filter(timeslot => timeslot.isSelected);
 }
 
-export { createDraftBooking, getSelectedTimeslots, selectTimeslots };
+function isFirstTimeslotInSelection(timeslot, timeslots) {
+  if (getSelectedTimeslots(timeslots)[0].startTime !== timeslot.startTime) {
+    return false;
+  }
+  return true;
+}
+
+function isLastTimeslotInSelection(timeslot, timeslots) {
+  let selectedTimeslots = getSelectedTimeslots(timeslots)
+  if (selectedTimeslots[selectedTimeslots.length - 1].startTime !== timeslot.startTime) {
+    return false;
+  }
+  return true;
+}
+
+function isFirstTimeslotInBooking(timeslot, booking) {
+  return timeslot.startTime === booking.startTime;
+}
+
+export {
+  createDraftBooking,
+  getSelectedTimeslots,
+  isFirstTimeslotInSelection,
+  isFirstTimeslotInBooking,
+  isLastTimeslotInSelection,
+  selectTimeslots
+};

@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
+import { isFirstTimeslotInBooking, isFirstTimeslotInSelection, isLastTimeslotInSelection } from "functions/BookingLogic";
 
-function TimeslotSelector({ timeslot, text, handleOnChangeSelect, handleOnSelectBookedTimeslot }) {
+function TimeslotSelector({ timeslot, text, handleOnChangeSelect, handleOnSelectBookedTimeslot, timeslots }) {
 
   function handleClick() {
     if (timeslot.status === 'notBookable') {
@@ -16,22 +17,28 @@ function TimeslotSelector({ timeslot, text, handleOnChangeSelect, handleOnSelect
     handleOnChangeSelect(!timeslot.isSelected);
   };
 
-  const notBookableVariant = 'secondary';
-  const isSelectedvariant = 'primary';
-  const isBookedvariant = 'info';
-  const isBookableVariant = 'light';
+  let isFirstOrLastTimeslotInSelection = timeslot.isSelected &&
+    (isFirstTimeslotInSelection(timeslot, timeslots)
+      || isLastTimeslotInSelection(timeslot, timeslots))
 
   let variant =
-    timeslot.isBooked ? isBookedvariant :
-      timeslot.isSelected ? isSelectedvariant :
-        timeslot.isBookable ? isBookableVariant :
-          notBookableVariant;
+    timeslot.isBooked && isFirstTimeslotInBooking(timeslot, timeslot.booking) ? "lightCoral" :
+      timeslot.isBooked && !isFirstTimeslotInBooking(timeslot, timeslot.booking) ? "lightPink" :
+        timeslot.isSelected && isFirstOrLastTimeslotInSelection ? "royalBlue" :
+          timeslot.isSelected && !isFirstOrLastTimeslotInSelection ? "skyBlue" :
+            timeslot.isBookable ? "white" :
+              "grey";
 
   return (
     <Button
-      style={{ width: '14rem', color: (timeslot.status === 'notBookable' ? 'white' : 'black') }}
+      style={{
+        width: '14rem',
+        color: (timeslot.status === 'notBookable' ? 'white' : 'black'),
+        backgroundColor: variant,
+        borderColor: variant
+      }}
       onClick={handleClick}
-      variant={variant}>
+    >
       {text}
     </Button>
   );
