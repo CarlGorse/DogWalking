@@ -1,5 +1,5 @@
 import Button from 'react-bootstrap/Button';
-import { isFirstTimeslotInBooking, isFirstTimeslotInSelection, isLastTimeslotInSelection } from "functions/BookingLogic";
+import { isFirstTimeslotInBooking, isFirstTimeslotInSelection } from "functions/BookingLogic";
 
 function TimeslotSelector({ timeslot, text, handleOnChangeSelect, handleOnSelectBookedTimeslot, timeslots }) {
 
@@ -17,15 +17,11 @@ function TimeslotSelector({ timeslot, text, handleOnChangeSelect, handleOnSelect
     handleOnChangeSelect(!timeslot.isSelected);
   };
 
-  let isFirstOrLastTimeslotInSelection = timeslot.isSelected &&
-    (isFirstTimeslotInSelection(timeslot, timeslots)
-      || isLastTimeslotInSelection(timeslot, timeslots))
-
   let variant =
     timeslot.isBooked && isFirstTimeslotInBooking(timeslot, timeslot.booking) ? "lightCoral" :
       timeslot.isBooked && !isFirstTimeslotInBooking(timeslot, timeslot.booking) ? "lightPink" :
-        timeslot.isSelected && isFirstOrLastTimeslotInSelection ? "royalBlue" :
-          timeslot.isSelected && !isFirstOrLastTimeslotInSelection ? "skyBlue" :
+        timeslot.isSelected && isFirstTimeslotInSelection(timeslot, timeslots) ? "royalBlue" :
+          timeslot.isSelected && !isFirstTimeslotInSelection(timeslot, timeslots) ? "skyBlue" :
             timeslot.isBookable ? "white" :
               "grey";
 
