@@ -5,7 +5,7 @@ using DogWalkingApi.Types;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
-namespace IntegrationTests
+namespace IntegrationTests.TimeslotServiceTests
 {
     [TestFixture]
     public class BookTimeslotsTests
@@ -19,7 +19,7 @@ namespace IntegrationTests
             var dbContext = new DogWalkingDbContext(options);
             var timeslot = new Timeslot();
             dbContext.Timeslots.Add(timeslot);
-            
+
             dbContext.SaveChanges();
 
             Assert.IsNull(dbContext.Timeslots.Single().Booking);
@@ -29,7 +29,7 @@ namespace IntegrationTests
                 new BookingTimeslotRepository(dbContext));
 
             var booking = new Booking();
-            
+
             timeslotService.BookTimeslots(booking, timeslotIds: new int[] { timeslot.TimeslotId });
 
             Assert.AreEqual(booking, dbContext.Timeslots.Single().Booking);
