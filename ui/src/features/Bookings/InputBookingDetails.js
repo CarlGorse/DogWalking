@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { baseUrl as apiBaseUrl, post as apiPost } from 'features/Api/api.js';
 import BookingDetails from 'components/Bookings/BookingDetails/BookingDetails';
 import BookingSummary from 'components/Bookings/BookingSummary';
 import { Button, Col, Container } from 'react-bootstrap';
@@ -22,11 +22,16 @@ function InputBookingDetails(props) {
       Location: 1, TimeslotIds: booking.timeslots.map(x => x.id)
     };
 
-    axios.post("https://localhost:7083/api/bookings/CreateBooking", createBookingDto)
-      .then(response => {
-        window.sessionStorage.setItem("bookingToShow", JSON.stringify(booking));
-        navigate('../book');
-      })
+    apiPost(
+      {
+        url: apiBaseUrl + "/bookings/CreateBooking",
+        payload: createBookingDto,
+        callback: (response => {
+          window.sessionStorage.setItem("bookingToShow", JSON.stringify(booking));
+          navigate('../book');
+        })
+      }
+    )
   }
 
   return (

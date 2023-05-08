@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { baseUrl as apiBaseUrl, get as apiGet, post as apiPost } from 'features/Api/api.js';
 import About from 'features/Menu/About';
 import AdminGeneralSettings from 'features/Settings/AdminGeneralSettings/AdminGeneralSettings';
 import AdminPlannedLocations from 'features/Settings/AdminPlannedLocations/AdminPlannedLocations';
@@ -9,32 +9,37 @@ import Home from 'features/Home';
 import InputBookingDetails from 'features/Bookings/InputBookingDetails';
 import NavBar from 'features/NavBar/NavBar';
 import SystemSettingsContext from "contexts/systemSettingsContext";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import UserSettings from 'features/Settings/UserSettings';
 
 function App() {
 
-  const [getSystemSettings, setSystemSettings] = useState(null);
-  const hasDoneInitialLoad = useRef(false);
+  const [getSystemSettings, setSystemSettings2] = useState(null);
 
   useEffect(() => {
-    axios.get("https://localhost:7083/api/systemSettings/get")
-      .then(response => {
-        setSystemSettings(response.data);
-      })
-      .then(response => {
-        hasDoneInitialLoad.current = true;
-      })
+    apiGet(
+      {
+        url: apiBaseUrl + "/systemSettings/get",
+        callback: (response) => {
+          setSystemSettings2(response.data);
+        }
+      }
+    )
   }, []
   );
 
-  useEffect(() => {
-    if (hasDoneInitialLoad.current === true) {
-      axios.post("https://localhost:7083/api/systemSettings/update",
-        { status: getSystemSettings?.status });
-    }
-  }, [getSystemSettings]
-  );
+  function setSystemSettings(status) {
+    console.log(status);
+    apiPost(
+      {
+        url: apiBaseUrl + "/systemSettings/update",
+        payload: status,
+        callback: (response) => {
+          setSystemSettings2(status);
+        }
+      }
+    )
+  }
 
   return (
     <SystemSettingsContext.Provider value={{ getSystemSettings, setSystemSettings }}>

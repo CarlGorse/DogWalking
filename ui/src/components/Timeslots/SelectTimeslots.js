@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { baseUrl as apiBaseUrl, get as apiGet } from 'features/Api/api.js';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import { selectTimeslots } from "functions/BookingLogic";
@@ -11,10 +11,14 @@ function SelectTimeslots(props) {
   const [getTimeslots, setTimeslots] = useState([]);
 
   useEffect(() => {
-    axios.get("https://localhost:7083/api/timeslots/get?date=" + new Date(props.date).toISOString().split('T')[0])
-      .then(response => {
-        setTimeslots(response.data)
-      })
+    apiGet(
+      {
+        url: apiBaseUrl + "/timeslots/get?date=" + new Date(props.date).toISOString().split('T')[0],
+        callback: (response => {
+          setTimeslots(response.data);
+        })
+      }
+    )
   }, [props.date]);
 
   function handleOnChangeSelectTimeslot(actionedTimeslotid, isSelect) {

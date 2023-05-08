@@ -1,4 +1,3 @@
-import axios from 'axios';
 import BookingModal from 'components/Bookings/BookingModal';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -14,16 +13,7 @@ function Book() {
 
   const [getDate, setDate] = useState(window.sessionStorage.getItem("selectedDate") ?? new Date());
   const [getBookingToShow, setBookingToShow] = useState(JSON.parse(window.sessionStorage.getItem("bookingToShow")));
-  const [getSystemStatus, setSystemStatus] = useState(null);
   const [getTimeslots, setTimeslots] = useState([]);
-
-  useEffect(() => {
-    axios.get("https://localhost:7083/api/systemSettings/get")
-      .then(response => {
-        setSystemStatus(response.data.status);
-      })
-  }, []
-  );
 
   let navigate = useNavigate();
 
@@ -76,7 +66,6 @@ function Book() {
             onUpdateTimeslotsState={updateTimeslotsState}
             onBook={onBook}
             handleOnSelectBookedTimeslot={timeslot => handleOnSelectBookedTimeslot(timeslot)}
-            systemStatus={getSystemStatus}
           />
         </div>
 

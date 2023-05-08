@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { baseUrl as apiBaseUrl, get as apiGet } from 'features/Api/api.js';
 import Container from 'react-bootstrap/Container';
 import SelectTimeslots from "components/Timeslots/SelectTimeslots";
 import { useEffect, useState } from 'react';
@@ -13,10 +13,14 @@ function Page() {
   }, [getDate]);
 
   function loadTimeslots() {
-    axios.get("https://localhost:7083/api/timeslots/get?date=" + getDate.toISOString().split('T')[0])
-      .then(response => {
-        setTimeslots(response.data)
-      })
+    apiGet(
+      {
+        url: apiBaseUrl + "/timeslots/get?date=" + new Date(props.date).toISOString().split('T')[0],
+        callback: (response => {
+          setTimeslots(response.data);
+        })
+      }
+    )
   }
 
   function updateTimeslotsState(timeslots) {
