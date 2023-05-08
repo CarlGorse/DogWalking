@@ -21,8 +21,8 @@ function SelectTimeslots(props) {
     )
   }, [props.date]);
 
-  function handleOnChangeSelectTimeslot(actionedTimeslotid, isSelect) {
-    var timeslots = selectTimeslots(getTimeslots, actionedTimeslotid, isSelect);
+  function handleOnChangeSelectTimeslot(actionedTimeslotStartTime, isSelect) {
+    var timeslots = selectTimeslots(getTimeslots, actionedTimeslotStartTime, isSelect);
     setTimeslots(timeslots.slice()); // copy array for state to recognise any changes
     props.onUpdateTimeslotsState(getTimeslots);
   }
@@ -33,10 +33,10 @@ function SelectTimeslots(props) {
         <Col>
           {getTimeslots?.map((timeslot) => (
             <Timeslot
-              key={timeslot.id}
-              id={timeslot.id}
+              key={timeslot.startTime}
+              id={timeslot.startTime}
               timeslot={timeslot}
-              handleOnChangeSelect={(id, isSelected) => handleOnChangeSelectTimeslot(id, isSelected)}
+              handleOnChangeSelect={(startTime, isSelected) => handleOnChangeSelectTimeslot(startTime, isSelected)}
               handleOnSelectBookedTimeslot={() => props.handleOnSelectBookedTimeslot(timeslot)}
               onBook={props.onBook}
               timeslots={getTimeslots}

@@ -1,8 +1,9 @@
 import BookingModal from 'components/Bookings/BookingModal';
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
+import { Button, Container } from 'react-bootstrap';
 import { createDraftBooking, getSelectedTimeslots } from "functions/BookingLogic";
 import DatePicker from "components/DateTimePickers/DatePicker";
+import OffCanvasExample from "./OffCanvasExample";
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import TimeslotList from "components/Timeslots/TimeslotList";
@@ -57,6 +58,12 @@ function Book() {
 
   return (
     <>
+      {/*
+      <div id="message" style={{ backgroundColor: "white", color: "white", position: "fixed", width: "100%" }}>
+        <Button variant="primary">Book</Button>
+      </div>
+  */}
+
       <h3>Available timeslots</h3>
 
       <Container>

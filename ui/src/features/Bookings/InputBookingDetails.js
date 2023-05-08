@@ -19,7 +19,9 @@ function InputBookingDetails(props) {
   function doConfirmBooking() {
 
     var createBookingDto = {
-      Location: 1, TimeslotIds: booking.timeslots.map(x => x.id)
+      Location: 1,
+      Date: booking.date,
+      TimeslotTimes: booking.timeslots.map(x => ({ startTime: x.startTime, endTime: x.endTime }))
     };
 
     apiPost(

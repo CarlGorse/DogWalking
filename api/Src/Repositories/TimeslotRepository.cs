@@ -29,5 +29,12 @@ namespace DogWalkingApi.Repositories
             return Timeslots()
                 .Where(x => timeslotIds.Contains(x.TimeslotId));
         }
+
+        public int SaveChanges() => _DbContext.SaveChanges();
+
+        public void Create(Timeslot timeslot)
+        {
+            _DbContext.Timeslots.Add(timeslot);
+        }
     }
 }

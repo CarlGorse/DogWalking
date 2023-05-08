@@ -29,7 +29,6 @@ function App() {
   );
 
   function setSystemSettings(status) {
-    console.log(status);
     apiPost(
       {
         url: apiBaseUrl + "/systemSettings/update",

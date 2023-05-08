@@ -14,7 +14,7 @@ function Timeslot({
   onBook,
   timeslots }
 ) {
-  console.log(1);
+
   const { getSystemSettings } = useContext(SystemSettingsContext);
 
   let bookButton;
@@ -26,7 +26,7 @@ function Timeslot({
     <Row key={timeslot.id}>
       <Col className="col-auto pe-0">
         <Selector
-          handleOnChangeSelect={isSelected => handleOnChangeSelect(timeslot.id, isSelected)}
+          handleOnChangeSelect={isSelected => handleOnChangeSelect(timeslot.startTime, isSelected)}
           handleOnSelectBookedTimeslot={handleOnSelectBookedTimeslot}
           timeslot={timeslot}
           timeslots={timeslots}

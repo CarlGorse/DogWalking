@@ -4,7 +4,8 @@
     {
         public Locations Location { get; set; }
 
-        public int[] TimeslotIds { get; set; } = null!;
+        public DateOnly Date { get; set; }
+        public TimeslotTimes[] TimeslotTimes { get; set; } = null!;
     }
 }
 

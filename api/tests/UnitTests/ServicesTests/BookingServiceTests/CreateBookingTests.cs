@@ -3,7 +3,7 @@ using DogWalkingApi.Enums;
 using Moq;
 using NUnit.Framework;
 
-namespace UnitTests.BookingServiceTests
+namespace UnitTests.ServicesTests.BookingServiceTests
 {
     internal class CreateBookingTests
     {
@@ -20,7 +20,7 @@ namespace UnitTests.BookingServiceTests
             _mockUnitOfWork.Setup(x => x.BookingRepository).Returns(_mockBookingRepository.Object);
 
             var mockTimeslotService = Mock.Of<ITimeslotService>();
-            
+
             _bookingService = new BookingService(_mockUnitOfWork.Object, mockTimeslotService);
         }
 

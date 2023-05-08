@@ -1,7 +1,7 @@
 
-const selectTimeslots = (timeslots, actionedTimeslotid, isSelect) => {
+const selectTimeslots = (timeslots, actionedTimeslotStartTime, isSelect) => {
 
-  var actionedTimeslot = timeslots.filter((timeslot) => timeslot.id === actionedTimeslotid)[0];
+  var actionedTimeslot = timeslots.filter((timeslot) => timeslot.startTime === actionedTimeslotStartTime)[0];
 
   selectOrDeselectActionedTimeslot(isSelect, actionedTimeslot);
   selectRequiredTimeslots();
@@ -15,12 +15,12 @@ const selectTimeslots = (timeslots, actionedTimeslotid, isSelect) => {
 
   function calculateTimeslotsToSelect() {
     return timeslots.filter(timeslot =>
-      (timeslot.id === actionedTimeslot.id && isSelect)
+      (timeslot.startTime === actionedTimeslot.startTime && isSelect)
       || (
         isSelect
         && actionedTimeslot.isBooked
         && timeslot.isBooked
-        && timeslot.booking.id === actionedTimeslot.booking.id
+        && timeslot.booking.startTime === actionedTimeslot.booking.startTime
       )
       || (
         timeslot.isSelected
@@ -28,8 +28,8 @@ const selectTimeslots = (timeslots, actionedTimeslotid, isSelect) => {
         && !timeslot.isBooked
         && !(
           timeslots.some(blankTimeslot => !blankTimeslot.isSelected
-            && timeslots.some(selectedTimeslot => selectedTimeslot.isSelected && selectedTimeslot.id < blankTimeslot.id)
-            && timeslots.some(selectedTimeslot => selectedTimeslot.isSelected && selectedTimeslot.id > blankTimeslot.id)
+            && timeslots.some(selectedTimeslot => selectedTimeslot.isSelected && selectedTimeslot.startTime < blankTimeslot.startTime)
+            && timeslots.some(selectedTimeslot => selectedTimeslot.isSelected && selectedTimeslot.startTime > blankTimeslot.startTime)
           )
         )
       )
@@ -59,7 +59,7 @@ const selectTimeslots = (timeslots, actionedTimeslotid, isSelect) => {
 }
 
 function updateTimeslot(timeslots, timeslot) {
-  timeslots.filter(x => x.id === timeslot.id)[0] = timeslot;
+  timeslots.filter(x => x.startTime === timeslot.startTime)[0] = timeslot;
 }
 
 function createDraftBooking(selectedTimeslots) {

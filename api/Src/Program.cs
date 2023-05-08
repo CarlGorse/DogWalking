@@ -18,6 +18,9 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IUserSettingsRepository, UserSettingsRepository>();
 builder.Services.AddScoped<IUserSettingsService, UserSettingsService>();
 
+builder.Services.Configure<TimeslotOptions>
+        (builder.Configuration.GetSection("TimeslotOptions"));
+
 builder.Services.AddCors(options =>
 {
     var policyName = "MyAllowedOrigins";
