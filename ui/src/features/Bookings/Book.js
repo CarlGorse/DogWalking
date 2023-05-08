@@ -6,10 +6,14 @@ import DatePicker from "components/DateTimePickers/DatePicker";
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import SelectTimeslots from "components/Timeslots/SelectTimeslots";
+import SystemSettingsContext from "contexts/systemSettingsContext";
+import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function Book() {
+
+  const { getSystemSettings } = useContext(SystemSettingsContext);
 
   const [getDate, setDate] = useState(window.sessionStorage.getItem("selectedDate") ?? new Date());
   const [getBookingToShow, setBookingToShow] = useState(JSON.parse(window.sessionStorage.getItem("bookingToShow")));
@@ -46,6 +50,11 @@ function Book() {
       handleClose={() => { window.sessionStorage.removeItem("bookingToShow"); setBookingToShow(null) }} />;
   }
 
+  var systemOfflineWarning;
+  if (getSystemSettings?.status !== 1) {
+    systemOfflineWarning = <p style={{ color: "red", fontWeight: "bold" }}>The system administrator has taken bookings offline - no new bookings can be made until further notice.</p>
+  }
+
   return (
     <>
       <h3>Available timeslots</h3>
@@ -53,6 +62,8 @@ function Book() {
       <Container>
 
         {bookingModal}
+
+        {systemOfflineWarning}
 
         <Row className="pt-3" >
           <Col>

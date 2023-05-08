@@ -20,8 +20,7 @@ function ToggleButton(props) {
     <Form>
       <Form.Check onClick={handleClick}
         type="switch"
-        onText={props.onText}
-        offText={props.offText}
+        label={getIsOn ? props.onText : props.offText}
         checked={getIsOn}
       />
     </Form>

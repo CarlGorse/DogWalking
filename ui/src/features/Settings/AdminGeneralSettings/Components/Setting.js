@@ -6,13 +6,13 @@ function Setting(props) {
 
   return (
     <Row>
-      <Col>{props.name}</Col>
+      <Col>{props.name}:</Col>
       <Col>
         <ToggleButton
           isOn={props.isOn}
           isOff={!props.isOn}
-          onText='On'
-          offText='Off'
+          onText={props.onText}
+          offText={props.offText}
           onChange={isOn => props.onChange(isOn)}
         />
       </Col>

@@ -2,7 +2,7 @@
 {
     public enum SystemStatus
     {
-        Off = 0,
-        On = 1
+        Offline = 0,
+        Online = 1
     }
 }

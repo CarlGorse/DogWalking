@@ -19,7 +19,10 @@ function AdminGeneralSettings() {
         <Setting
           name='System status'
           isOn={getSystemSettings?.status === 1 ? true : false}
-          onChange={isOn => updateSystemSettings(isOn)} />
+          onChange={isOn => updateSystemSettings(isOn)}
+          onText='online'
+          offText='offline'
+        />
       </Container>
     </>
   );
