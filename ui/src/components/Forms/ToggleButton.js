@@ -11,15 +11,9 @@ function ToggleButton(props) {
     [props.isOn]
   );
 
-  useEffect(
-    () => {
-      props.onChange(getIsOn)
-    },
-    [getIsOn]
-  );
-
   function handleClick() {
     setIsOn(!getIsOn);
+    props.onChange(!getIsOn);
   };
 
   return (
@@ -28,7 +22,7 @@ function ToggleButton(props) {
         type="switch"
         onText={props.onText}
         offText={props.offText}
-        defaultChecked={getIsOn}
+        checked={getIsOn}
       />
     </Form>
   );
