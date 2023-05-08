@@ -1,6 +1,6 @@
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import ToggleButton from 'components/Forms/ToggleButton';
+import ToggleButton from 'components/Controls/ToggleButton';
 
 function Setting(props) {
 

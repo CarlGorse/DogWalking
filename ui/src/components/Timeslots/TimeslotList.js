@@ -1,9 +1,9 @@
-import { baseUrl as apiBaseUrl, get as apiGet } from 'features/Api/api.js';
+import { baseUrl as apiBaseUrl, get as apiGet } from 'functions/api.js';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import { selectTimeslots } from "functions/BookingLogic";
 import Row from 'react-bootstrap/Row';
-import TimeslotList from './List';
+import Timeslot from './Timeslot';
 import { useEffect, useState } from 'react';
 
 function SelectTimeslots(props) {
@@ -31,12 +31,17 @@ function SelectTimeslots(props) {
     <Container>
       <Row className='mt-3'>
         <Col>
-          <TimeslotList
-            timeslots={getTimeslots}
-            handleOnChangeSelect={handleOnChangeSelectTimeslot}
-            handleOnSelectBookedTimeslot={timeslot => props.handleOnSelectBookedTimeslot(timeslot)}
-            onBook={props.onBook}
-          />
+          {getTimeslots?.map((timeslot) => (
+            <Timeslot
+              key={timeslot.id}
+              id={timeslot.id}
+              timeslot={timeslot}
+              handleOnChangeSelect={(id, isSelected) => handleOnChangeSelectTimeslot(id, isSelected)}
+              handleOnSelectBookedTimeslot={() => props.handleOnSelectBookedTimeslot(timeslot)}
+              onBook={props.onBook}
+              timeslots={getTimeslots}
+            />
+          ))}
         </Col>
       </Row>
     </Container >

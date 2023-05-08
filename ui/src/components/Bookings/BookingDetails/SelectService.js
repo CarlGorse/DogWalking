@@ -1,6 +1,6 @@
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Select from 'components/Forms/Select';
+import Select from 'components/Controls/Select';
 import { useEffect, useState } from 'react';
 
 function SelectService({ data, onSetInputs }) {

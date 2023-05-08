@@ -1,6 +1,6 @@
 import Col from 'react-bootstrap/Col';
-import Select from 'components/Forms/Select';
-import InputHint from './InputHint';
+import Select from 'components/Controls/Select';
+import InputHint from 'components/Controls/InputHint';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 

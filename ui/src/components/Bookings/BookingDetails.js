@@ -1,9 +1,9 @@
 import Accordion from 'react-bootstrap/Accordion';
-import AboutYou from './Components/AboutYou';
-import AboutYourDog from './Components/AboutYourDog/AboutYourDog';
-import Options from './Components/Options';
-import PageHeader from './Components/PageHeader';
-import SelectService from './Components/SelectService';
+import AboutYou from './BookingDetails/AboutYou';
+import AboutYourDog from './BookingDetails/AboutYourDog';
+import Options from './BookingDetails/Options';
+import PageHeader from './BookingDetails/PageHeader';
+import SelectService from './BookingDetails/SelectService';
 import { useState } from 'react';
 
 function BookingDetails({ data, onSetInputs }) {

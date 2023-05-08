@@ -1,11 +1,11 @@
-import { baseUrl as apiBaseUrl, post as apiPost } from 'features/Api/api.js';
-import BookingDetails from 'components/Bookings/BookingDetails/BookingDetails';
+import { baseUrl as apiBaseUrl, post as apiPost } from 'functions/api.js';
+import BookingDetails from 'components/Bookings/BookingDetails';
 import BookingSummary from 'components/Bookings/BookingSummary';
 import { Button, Col, Container } from 'react-bootstrap';
-import LogIn from './Components/LogIn';
+import LogIn from './InputBookingDetails/LogIn';
 import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
-import SummaryCost from './Components/SummaryCost';
+import SummaryCost from './InputBookingDetails/SummaryCost';
 import { useNavigate } from "react-router-dom";
 
 function InputBookingDetails(props) {

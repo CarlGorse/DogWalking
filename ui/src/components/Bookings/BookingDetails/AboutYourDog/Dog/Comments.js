@@ -1,4 +1,4 @@
-import InputRow from './Components/InputRow';
+import InputRow from 'components/Controls/InputRow';
 
 function Comments(props) {
 

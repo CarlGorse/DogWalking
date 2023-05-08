@@ -1,5 +1,5 @@
 import Col from 'react-bootstrap/Col';
-import Input from 'components/Forms/Input';
+import Input from 'components/Controls/Input';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 

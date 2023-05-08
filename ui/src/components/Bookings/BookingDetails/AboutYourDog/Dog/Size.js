@@ -1,4 +1,4 @@
-import SelectRow from './Components/SelectRow';
+import SelectRow from 'components/Controls/SelectRow';
 
 function Size(props) {
 

@@ -14,7 +14,7 @@ function Timeslot({
   onBook,
   timeslots }
 ) {
-
+  console.log(1);
   const { getSystemSettings } = useContext(SystemSettingsContext);
 
   let bookButton;

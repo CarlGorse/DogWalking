@@ -5,7 +5,7 @@ import { createDraftBooking, getSelectedTimeslots } from "functions/BookingLogic
 import DatePicker from "components/DateTimePickers/DatePicker";
 import React from 'react';
 import Row from 'react-bootstrap/Row';
-import SelectTimeslots from "components/Timeslots/SelectTimeslots";
+import TimeslotList from "components/Timeslots/TimeslotList";
 import SystemSettingsContext from "contexts/systemSettingsContext";
 import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
@@ -72,7 +72,7 @@ function Book() {
         </Row>
 
         <div className="pt-3">
-          <SelectTimeslots
+          <TimeslotList
             date={getDate}
             onUpdateTimeslotsState={updateTimeslotsState}
             onBook={onBook}

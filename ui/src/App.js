@@ -1,13 +1,13 @@
-import { baseUrl as apiBaseUrl, get as apiGet, post as apiPost } from 'features/Api/api.js';
+import { baseUrl as apiBaseUrl, get as apiGet, post as apiPost } from 'functions/api.js';
 import About from 'features/Menu/About';
-import AdminGeneralSettings from 'features/Settings/AdminGeneralSettings/AdminGeneralSettings';
-import AdminPlannedLocations from 'features/Settings/AdminPlannedLocations/AdminPlannedLocations';
+import AdminGeneralSettings from 'features/Settings/AdminGeneralSettings';
+import AdminPlannedLocations from 'features/Settings/AdminPlannedLocations';
 import Book from 'features/Bookings/Book';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contact from 'features/Menu/Contact';
 import Home from 'features/Home';
 import InputBookingDetails from 'features/Bookings/InputBookingDetails';
-import NavBar from 'features/NavBar/NavBar';
+import NavBar from 'features/NavBar';
 import SystemSettingsContext from "contexts/systemSettingsContext";
 import { useEffect, useState } from 'react';
 import UserSettings from 'features/Settings/UserSettings';

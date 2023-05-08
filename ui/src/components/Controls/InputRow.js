@@ -1,10 +1,9 @@
 import Col from 'react-bootstrap/Col';
-import InputHint from 'components/Bookings/BookingDetails/Components/InputHint';
-import Select from 'components/Forms/Select';
+import Input from 'components/Controls/Input';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
-function SelectRow({ baseProps, propertyName, inputHint, label, options }) {
+function InputRow({ baseProps, propertyName, label, placeholder }) {
 
   const [getValue, setValue] = useState('');
 
@@ -18,19 +17,14 @@ function SelectRow({ baseProps, propertyName, inputHint, label, options }) {
     baseProps.updateDog(baseProps.dog);
   }
 
-  var inputHintComponent;
-  if (inputHint?.length > 0) {
-    inputHintComponent = <InputHint hint={inputHint} />;
-  }
-
   return (
     <Row className="mt-1">
-      <Col xs={3}>{label + ':'}{inputHintComponent}</Col>
-      <Col xs={3}>
-        <Select
-          defaultValue={getValue}
+      <Col xs={3}>{label + ':'}</Col>
+      <Col xs={9}>
+        <Input
+          value={getValue}
+          placeholder={placeholder}
           onChange={e => changeValue(e.target.value)}
-          options={options}
         />
       </Col>
       <Col></Col>
@@ -38,4 +32,4 @@ function SelectRow({ baseProps, propertyName, inputHint, label, options }) {
   )
 }
 
-export default SelectRow;
+export default InputRow;

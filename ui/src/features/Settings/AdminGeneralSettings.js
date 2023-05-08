@@ -1,6 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import React from 'react';
-import Setting from './Components/Setting';
+import Setting from './AdminGeneralSettings/Setting';
 import SystemSettingsContext from "contexts/systemSettingsContext";
 import { useContext } from 'react';
 

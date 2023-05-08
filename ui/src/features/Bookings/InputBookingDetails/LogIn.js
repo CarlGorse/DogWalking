@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import Input from 'components/Forms/Input';
+import Input from 'components/Controls/Input';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 import styles from './style.module.css';

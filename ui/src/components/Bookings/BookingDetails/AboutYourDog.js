@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import Dog from './Dog/Dog';
+import Dog from './AboutYourDog/Dog';
 import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 

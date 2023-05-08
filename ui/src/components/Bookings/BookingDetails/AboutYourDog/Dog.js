@@ -1,11 +1,11 @@
-import Breed from './Components/Breed'
+import Breed from './Dog/Breed'
 import Button from 'react-bootstrap/Button';
-import CanBeOffLead from './Components/CanBeOffLead'
+import CanBeOffLead from './Dog/CanBeOffLead'
 import Col from 'react-bootstrap/Col';
-import Comments from './Components/Comments'
-import Name from './Components/Name'
+import Comments from './Dog/Comments'
+import Name from './Dog/Name'
 import Row from 'react-bootstrap/Row';
-import Size from './Components/Size';
+import Size from './Dog/Size';
 
 function Dog(props) {
 
