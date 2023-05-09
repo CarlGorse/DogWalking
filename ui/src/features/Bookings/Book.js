@@ -65,7 +65,7 @@ function Book() {
   */}
 
       <Container className="fixed-top" style={{ top: "56px", backgroundColor: "white", height: "100px" }}>
-        <h3 className="pt-3">Available timeslots</h3>
+        <h3 className="pt-3">Book</h3>
         <Row className="pt-3">
           <Col>
             <DatePicker date={new Date(getDate)} onSetDate={setNewDate} />
