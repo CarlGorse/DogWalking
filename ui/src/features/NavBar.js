@@ -18,10 +18,10 @@ function NavBar() {
   let isOnline = getSystemSettings?.status === 1;
 
   return (
-    <Navbar collapseOnSelect expand='sm' bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand='sm' bg="dark" variant="dark" fixed="top">
       <Container>
         <Navbar.Brand href="./home">Dog walking</Navbar.Brand>
-        <Button variant="primary" onClick={routeChange}>Book</Button>
+        <Button variant="outline-primary" onClick={routeChange}>Book</Button>
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="me-auto">

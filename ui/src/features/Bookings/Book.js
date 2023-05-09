@@ -64,30 +64,25 @@ function Book() {
       </div>
   */}
 
-      <h3>Available timeslots</h3>
-
-      <Container>
-
-        {bookingModal}
-
-        {systemOfflineWarning}
-
-        <Row className="pt-3" >
+      <Container className="fixed-top" style={{ top: "56px", backgroundColor: "white", height: "100px" }}>
+        <h3 className="pt-3">Available timeslots</h3>
+        <Row className="pt-3">
           <Col>
             <DatePicker date={new Date(getDate)} onSetDate={setNewDate} />
           </Col>
         </Row>
-
-        <div className="pt-3">
-          <TimeslotList
-            date={getDate}
-            onUpdateTimeslotsState={updateTimeslotsState}
-            onBook={onBook}
-            handleOnSelectBookedTimeslot={timeslot => handleOnSelectBookedTimeslot(timeslot)}
-          />
-        </div>
-
       </Container>
+
+      <div style={{ paddingTop: "80px" }}>
+        <TimeslotList
+          date={getDate}
+          onUpdateTimeslotsState={updateTimeslotsState}
+          onBook={onBook}
+          handleOnSelectBookedTimeslot={timeslot => handleOnSelectBookedTimeslot(timeslot)}
+        />
+        {bookingModal}
+      </div>
+
     </>
   )
 }
