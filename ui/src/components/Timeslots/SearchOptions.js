@@ -1,8 +1,7 @@
-import Col from 'react-bootstrap/Col';
+import { Col, Row } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import DatePicker from "./DatePicker";
 import React from 'react';
-import Row from 'react-bootstrap/Row';
 import Select from 'components/Forms/Select';
 
 function SearchOptions() {

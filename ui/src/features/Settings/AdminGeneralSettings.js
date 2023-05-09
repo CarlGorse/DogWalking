@@ -14,7 +14,6 @@ function AdminGeneralSettings() {
 
   return (
     <>
-      <p>You can change system settings here.</p>
       <Container>
         <Setting
           name='System status'

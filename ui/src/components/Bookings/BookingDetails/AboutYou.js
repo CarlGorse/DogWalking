@@ -1,6 +1,5 @@
-import Col from 'react-bootstrap/Col';
+import { Col, Row } from 'react-bootstrap';
 import Input from 'components/Controls/Input';
-import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
 function AboutYou({ data, onSetInputs }) {

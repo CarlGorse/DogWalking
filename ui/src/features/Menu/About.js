@@ -1,7 +1,10 @@
+import { Container } from 'react-bootstrap';
 
 function AboutUs() {
   return (
-    <p>About</p>
+    <Container>
+      <p>About</p>
+    </Container>
   );
 }
 

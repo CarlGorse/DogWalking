@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import { Button, Offcanvas } from 'react-bootstrap';
 
 function OffCanvasExample({ name, ...props }) {
   const [show, setShow] = useState(false);

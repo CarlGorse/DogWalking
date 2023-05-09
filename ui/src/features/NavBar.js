@@ -1,6 +1,4 @@
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Button, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import SystemSettingsContext from "contexts/systemSettingsContext";
 import { useContext } from 'react';

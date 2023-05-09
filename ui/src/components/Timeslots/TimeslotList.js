@@ -1,8 +1,6 @@
 import { baseUrl as apiBaseUrl, get as apiGet } from 'functions/api.js';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
+import { Col, Container, Row } from 'react-bootstrap';
 import { selectTimeslots } from "functions/BookingLogic";
-import Row from 'react-bootstrap/Row';
 import Timeslot from './Timeslot';
 import { useEffect, useState } from 'react';
 

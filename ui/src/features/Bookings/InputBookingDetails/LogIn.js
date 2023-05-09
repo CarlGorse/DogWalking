@@ -1,10 +1,5 @@
-import Alert from 'react-bootstrap/Alert';
-import Accordion from 'react-bootstrap/Accordion';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
+import { Alert, Accordion, Button, Col, Container, Row } from 'react-bootstrap';
 import Input from 'components/Controls/Input';
-import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 import styles from './style.module.css';
 

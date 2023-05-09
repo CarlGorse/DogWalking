@@ -1,9 +1,5 @@
-import Badge from 'react-bootstrap/Badge';
-import Overlay from 'react-bootstrap/Overlay';
+import { Badge, OverlayTrigger, Popover } from 'react-bootstrap';
 import React, { useState, useRef } from 'react';
-import Button from 'react-bootstrap/Button';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Popover from 'react-bootstrap/Popover';
 
 function InputHint(props) {
 

@@ -1,11 +1,8 @@
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import { Col, Container, Row } from 'react-bootstrap';
 
 function Contact() {
   return (
     <>
-      <p>Please feel free to contact me via any of the following:</p>
       <Container>
         <Row className="justify-content-md-center">
           <Col xs={6}>mobile / text:</Col>

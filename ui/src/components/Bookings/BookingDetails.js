@@ -1,4 +1,4 @@
-import Accordion from 'react-bootstrap/Accordion';
+import { Accordion } from 'react-bootstrap';
 import AboutYou from './BookingDetails/AboutYou';
 import AboutYourDog from './BookingDetails/AboutYourDog';
 import Options from './BookingDetails/Options';

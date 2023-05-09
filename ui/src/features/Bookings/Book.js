@@ -1,11 +1,8 @@
 import BookingModal from 'components/Bookings/BookingModal';
-import Col from 'react-bootstrap/Col';
-import { Button, Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { createDraftBooking, getSelectedTimeslots } from "functions/BookingLogic";
 import DatePicker from "components/DateTimePickers/DatePicker";
-import OffCanvasExample from "./OffCanvasExample";
 import React from 'react';
-import Row from 'react-bootstrap/Row';
 import TimeslotList from "components/Timeslots/TimeslotList";
 import SystemSettingsContext from "contexts/systemSettingsContext";
 import { useContext } from 'react';

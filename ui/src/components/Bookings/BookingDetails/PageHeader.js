@@ -1,7 +1,4 @@
-import Accordion from 'react-bootstrap/Accordion';
-import Badge from 'react-bootstrap/Badge';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { Accordion, Badge, Col, Row } from 'react-bootstrap';
 
 function SubPages(props) {
 
