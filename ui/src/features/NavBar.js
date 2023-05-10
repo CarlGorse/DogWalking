@@ -27,13 +27,13 @@ function NavBar() {
               <NavDropdown.Item href="./book">Book</NavDropdown.Item>
             </NavDropdown>
   */}
-            <Nav.Link href="./userSettings">Settings</Nav.Link>
+            <Nav.Link href="./yourSettings">Your settings</Nav.Link>
             <NavDropdown title="Admin">
 
               <NavDropdown.Item href="./adminGeneralSettings">Settings</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="./contact">Contact</Nav.Link>
-            <Nav.Link href="./about">About</Nav.Link>
+            <Nav.Link href="./contactUs">Contact us</Nav.Link>
+            <Nav.Link href="./aboutUs">About us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Form.Label style={{ fontWeight: "bold", color: isOnline ? "green" : "red" }}>{isOnline ? "TAKING NEW BOOKINGS" : "NO NEW BOOKINGS"}</Form.Label>

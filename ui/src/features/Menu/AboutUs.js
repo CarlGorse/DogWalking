@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 function AboutUs() {
   return (
     <Container>
-      <p>About</p>
+      <p>About us</p>
     </Container>
   );
 }

@@ -1,5 +1,4 @@
-import { Col, Row } from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
+import { Col, Container, Row } from 'react-bootstrap';
 import DatePicker from "./DatePicker";
 import React from 'react';
 import Select from 'components/Forms/Select';

@@ -1,10 +1,10 @@
-import { Accordion } from 'react-bootstrap';
 import AboutYou from './BookingDetails/AboutYou';
-import AboutYourDog from './BookingDetails/AboutYourDog';
+import { Accordion } from 'react-bootstrap';
 import Options from './BookingDetails/Options';
 import PageHeader from './BookingDetails/PageHeader';
 import SelectService from './BookingDetails/SelectService';
 import { useState } from 'react';
+import YourDogs from 'components/Bookings/BookingDetails/YourDogs';
 
 function BookingDetails({ data, onSetInputs }) {
 
@@ -43,9 +43,9 @@ function BookingDetails({ data, onSetInputs }) {
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="2">
-        <PageHeader title="About your dog(s)" isComplete={getAboutYourDogIsComplete} />
+        <PageHeader title="Your dog(s)" isComplete={getAboutYourDogIsComplete} />
         <Accordion.Body>
-          <AboutYourDog
+          <YourDogs
             data={data?.aboutYourDogs}
             onSetInputs={(isComplete) => setAboutYourDogIsComplete(isComplete)}
           />

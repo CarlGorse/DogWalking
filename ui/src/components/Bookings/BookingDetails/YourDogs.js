@@ -1,5 +1,5 @@
 import { Button, Col, Row } from 'react-bootstrap';
-import Dog from './AboutYourDog/Dog';
+import Dog from '../../YourDogs/Dog';
 import { useEffect, useState } from 'react';
 
 function AboutYourDog({ data, onSetInputs }) {

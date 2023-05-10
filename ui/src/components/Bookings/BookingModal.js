@@ -1,5 +1,5 @@
 import BookingSummary from 'components/Bookings/BookingSummary';
-import Modal from 'react-bootstrap/Modal';
+import { Modal } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 
 function BookingModal(props) {

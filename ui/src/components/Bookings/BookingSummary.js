@@ -1,6 +1,5 @@
-import Col from 'react-bootstrap/Col';
+import { Col, Row } from 'react-bootstrap';
 import { getTimeStringHoursAndMinutes } from 'functions/DateTimeFunctions';
-import Row from 'react-bootstrap/Row';
 
 function BookingSummary({ booking }) {
 

@@ -1,7 +1,6 @@
-import Col from 'react-bootstrap/Col';
+import { Col, Row } from 'react-bootstrap';
 import Select from 'components/Controls/Select';
 import InputHint from 'components/Controls/InputHint';
-import Row from 'react-bootstrap/Row';
 import { useEffect, useState } from 'react';
 
 function Options(props) {

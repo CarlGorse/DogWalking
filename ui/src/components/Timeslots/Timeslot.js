@@ -1,9 +1,7 @@
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
+import { Button, Col, Row } from 'react-bootstrap';
 import { getTimeStringHoursAndMinutes } from 'functions/DateTimeFunctions';
 import { isFirstTimeslotInBooking, isFirstTimeslotInSelection } from "functions/BookingLogic";
 import { isLastTimeslotInSelection } from "functions/BookingLogic";
-import Row from 'react-bootstrap/Row';
 import SystemSettingsContext from "contexts/systemSettingsContext";
 import { useContext } from 'react';
 

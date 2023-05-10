@@ -4,7 +4,7 @@ import BookingSummary from 'components/Bookings/BookingSummary';
 import { Button, Col, Container } from 'react-bootstrap';
 import LogIn from './InputBookingDetails/LogIn';
 import React, { useState } from 'react';
-import Row from 'react-bootstrap/Row';
+import { Row } from 'react-bootstrap';
 import SummaryCost from './InputBookingDetails/SummaryCost';
 import { useNavigate } from "react-router-dom";
 

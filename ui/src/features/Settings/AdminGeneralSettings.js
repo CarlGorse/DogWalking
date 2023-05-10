@@ -1,4 +1,4 @@
-import Container from 'react-bootstrap/Container';
+import { Container } from 'react-bootstrap';
 import React from 'react';
 import Setting from './AdminGeneralSettings/Setting';
 import SystemSettingsContext from "contexts/systemSettingsContext";

@@ -1,4 +1,4 @@
-const userSettings =
+const userPreferences =
 {
   selectService: { typeOfWalk: 'Any' },
   aboutYou: { name: 'Carl', postCode: 'BA1 1AA', locationDetails: 'I live on a hill.' },
@@ -11,4 +11,4 @@ const userSettings =
   }
 };
 
-export { userSettings };
+export { userPreferences };
