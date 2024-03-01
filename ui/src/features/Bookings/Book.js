@@ -4,8 +4,6 @@ import { createDraftBooking, getSelectedTimeslots } from "functions/BookingLogic
 import DatePicker from "components/DateTimePickers/DatePicker";
 import React from 'react';
 import TimeslotList from "components/Timeslots/TimeslotList";
-import SystemSettingsContext from "contexts/systemSettingsContext";
-import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 

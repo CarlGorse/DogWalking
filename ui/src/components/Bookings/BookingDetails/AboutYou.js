@@ -14,7 +14,7 @@ function AboutYou({ data, onSetInputs }) {
     setPostCode(data?.postCode ?? '');
     setPropertyNumberName(data?.propertyNumberName ?? '');
     setLocationDetails(data?.locationDetails ?? '');
-  })
+  }, [data.name, data.postCode, data.propertyNumberName, data.locationDetails])
 
   var isComplete = false;
   if (
