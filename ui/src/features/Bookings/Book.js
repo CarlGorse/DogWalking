@@ -11,8 +11,6 @@ import { useState } from 'react';
 
 function Book() {
 
-  const { getSystemSettings } = useContext(SystemSettingsContext);
-
   const [getDate, setDate] = useState(window.sessionStorage.getItem("selectedDate") ?? new Date());
   const [getBookingToShow, setBookingToShow] = useState(JSON.parse(window.sessionStorage.getItem("bookingToShow")));
   const [getTimeslots, setTimeslots] = useState([]);
