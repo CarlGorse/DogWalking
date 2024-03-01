@@ -6,6 +6,8 @@ delete from BookingTimeslots
 delete from Bookings
 delete Timeslots
 delete SystemSettings
+delete Breeds
+delete Dogs
 
 insert Bookings ([Location])
 select 1
@@ -28,3 +30,13 @@ where StartTime = '08:15:00'
 
 insert SystemSettings (SystemSettingsId, Value)
 values (1, 1)
+
+insert Breeds([Name])
+select 'Cockapoo'
+union select 'King Charles'
+union select 'Labrador'
+union select 'Spaniel'
+
+insert Dogs([Name], BreedId, [Size], OffLeadLevel)
+select 'Alfie', (select BreedId from Breeds where [Name] = 'Cockapoo'), 3, 3
+union select 'River', (select BreedId from Breeds where [Name] = 'King Charles'), 2, 1

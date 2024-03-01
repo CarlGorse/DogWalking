@@ -1,0 +1,32 @@
+USE [DogWalking]
+GO
+
+/****** Object:  Table [dbo].[Dogs]    Script Date: 10/05/2023 23:06:32 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Dogs](
+	[DogId] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nchar](10) NOT NULL,
+	[BreedId] [int] NOT NULL,
+	[Size] [int] NOT NULL,
+	[OffLeadLevel] [int] NOT NULL,
+	[Comments] [varchar](max) NULL,
+ CONSTRAINT [PK_Dogs] PRIMARY KEY CLUSTERED 
+(
+	[DogId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Dogs]  WITH CHECK ADD  CONSTRAINT [FK_Dogs_Breeds] FOREIGN KEY([BreedId])
+REFERENCES [dbo].[Breeds] ([BreedId])
+GO
+
+ALTER TABLE [dbo].[Dogs] CHECK CONSTRAINT [FK_Dogs_Breeds]
+GO
+
+
