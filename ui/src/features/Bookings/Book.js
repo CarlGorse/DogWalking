@@ -48,11 +48,6 @@ function Book() {
       handleClose={() => { window.sessionStorage.removeItem("bookingToShow"); setBookingToShow(null) }} />;
   }
 
-  var systemOfflineWarning;
-  if (getSystemSettings?.status !== 1) {
-    systemOfflineWarning = <p style={{ color: "red", fontWeight: "bold" }}>The system administrator has taken bookings offline - no new bookings can be made until further notice.</p>
-  }
-
   return (
     <>
       {/*
